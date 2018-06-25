@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="@dimen/rcv_item_padding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <android.support.v7.widget.CardView xmlns:cardview="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cvVideo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    cardview:cardBackgroundColor="@color/colorBackgroundToolbarGray"
+                    cardview:cardCornerRadius="@dimen/cardview_corner_radius">
+
+                    <VideoView
+                        android:id="@+id/videoView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+
+                        />
+                </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/rcv_item_padding"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/tvTitleVideo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đồng đội cũ dự đoán Messi sắp chia tay tuyển Argentina"
+                android:textAppearance="@style/TextTitleNews" />
+
+            <TextView
+                android:id="@+id/tvTimeVideo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1h trước"
+                android:textAppearance="@style/TextTimeNews" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
