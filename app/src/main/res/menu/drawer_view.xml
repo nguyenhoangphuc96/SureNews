@@ -17,5 +17,9 @@
             android:id="@+id/nav_readed_news"
             android:icon="@drawable/ic_readed_news"
             android:title="Tin đã đọc" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Đăng xuất" />
     </group>
 </menu>

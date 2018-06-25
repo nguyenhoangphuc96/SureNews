@@ -109,7 +109,8 @@
                 android:layout_gravity="start"
                 android:fitsSystemWindows="true"
                 app:menu="@menu/drawer_view"
-                app:headerLayout="@layout/header_navigation">
+                app:headerLayout="@layout/header_navigation"
+                app:itemIconTint="@color/colorBackgroundToolbarBlue">
 
 
             </android.support.design.widget.NavigationView>
