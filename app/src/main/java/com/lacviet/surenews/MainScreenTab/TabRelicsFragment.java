@@ -53,77 +53,12 @@ public class TabRelicsFragment extends Fragment {
     private void loadData() {
         listHomeNews = new ArrayList<>();
         //
+        Toast.makeText(getActivity(), "bbbbbbbbbbbbb", Toast.LENGTH_SHORT).show();
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String tittle = "";
-                String time = "";
-                String avatar = "";
-                String subTittle = "";
-                String link = "";
-                ArrayList<String> arrTitle = new ArrayList<>();
-                ArrayList<String> arrTime = new ArrayList<>();
-                ArrayList<String> arrAvatar = new ArrayList<>();
-                ArrayList<String> arrSubtitle = new ArrayList<>();
-                ArrayList<String> arrLink = new ArrayList<>();
-                Document document = Jsoup.parse(response);
-                if (document != null) {
-
-                    Elements elementsTittle = document.select("td[class=TitleFront]");
-                    for (Element element : elementsTittle) {
-                        Element elementTittle = element.getElementsByTag("a").first();
-                        Element elementTime = element.getElementsByTag("span").first();
-                        Element elementLink =element.getElementsByTag("a").first();
-                        if(elementTittle!=null){
-                            tittle = elementTittle.text();
-                        }
-                        if(elementTime!=null){
-                            time = elementTime.text();
-                        }
-                        if(elementLink!=null){
-                            link=elementLink.attr("href");
-                        }
-
-                        arrTitle.add(tittle);
-                        arrTime.add(time);
-                        arrLink.add(link);
-                    }
-                    Elements elementsAvatar = document.select("td[class=tinHT]");
-                    for(Element element : elementsAvatar) {
-                        Element elementAvatar = element.getElementsByTag("img").first();
-                        if (elementAvatar != null) {
-                            avatar = elementAvatar.attr("src");
-                        }
-                        if (!avatar.startsWith("http://"))
-                        {
-                            avatar = baseSrcUrl+avatar;
-                        }
-                        arrAvatar.add(avatar);
-                    }
-                    Elements elementsContent = document.select("div.ContentText");
-                    for(Element element :elementsContent)
-                    {
-                        Element elementContent = element.getElementsByTag("div").first();
-                        if(elementContent !=null){
-                            subTittle=elementContent.text();
-                        }
-                        arrSubtitle.add(subTittle);
-                    }
-                    for (int i=0;i<arrTitle.size()/2;i++)
-                    {
-                        tittle=arrTitle.get(i);
-                        time = arrTime.get(i);
-                        avatar = arrAvatar.get(i);
-                        subTittle = arrSubtitle.get(i);
-                        link = arrLink.get(i);
-                        listHomeNews.add(new HomeNewsModel(1,tittle,subTittle,avatar,time,link));
-                    }
-
-                    mAdapter.updateAnswers(listHomeNews);
-                    pbTabhome.setVisibility(View.GONE);
-
-                }
+                Toast.makeText(getActivity(), "on show", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener()
 

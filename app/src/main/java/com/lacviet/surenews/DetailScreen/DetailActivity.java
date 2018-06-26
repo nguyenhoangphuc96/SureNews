@@ -4,12 +4,41 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.lacviet.surenews.Model.DetailModel;
+import com.lacviet.surenews.Model.HomeNewsModel;
 import com.lacviet.surenews.R;
+import com.squareup.picasso.Picasso;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.util.ArrayList;
 
 public class DetailActivity extends AppCompatActivity {
-    private Toolbar toolbar;
+    Toolbar toolbar;
+    ProgressBar pbDetail;
+    LinearLayout loBody;
+    TextView tvTitle, tvTime, tvSubTitle;
+    ArrayList<DetailModel> listDetail;
+    //
+    String url = "http://baclieu.gov.vn/tintuc/lists/posts/post.aspx?Source=%2ftintuc&Category=Tin+t%E1%BB%A9c+%E2%80%93+S%E1%BB%B1+ki%E1%BB%87n&ItemID=8861&Mode=1";
+    String baseSrcUrl = "http://baclieu.gov.vn";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -17,12 +46,95 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         addControl();
         actionBar();
+        loadData();
 
+
+    }
+
+    private void loadData() {
+        //
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                String tittle = "";
+                String time = "";
+                String image = "";
+                String text = "";
+                listDetail = new ArrayList<>();
+                Document document = Jsoup.parse(response);
+                if (document != null) {
+
+                    Elements elementsTittle = document.select("p[class=Title]");
+                    tittle = elementsTittle.get(0).text();
+                    tvTitle.setText(tittle);
+
+                    Elements elementsBody = document.select("p[class=MsoNormal]");
+                    for (int i = 0; i < elementsBody.size(); i++) {
+                        Element spanTag = elementsBody.get(i).getElementsByTag("span").first();
+                        Element imgTag = spanTag.getElementsByTag("img").first();
+                        if (imgTag != null) {
+                            image = imgTag.attr("src");
+                            if (!image.startsWith("http://"))
+                            {
+                                image = baseSrcUrl+image;
+                            }
+                            Element spanTextTag = elementsBody.get(i + 1).getElementsByTag("span").first();
+                            text = spanTextTag.text();
+                            listDetail.add(new DetailModel(text, image));
+                            i++;
+                        } else {
+                            Element spanTextTag = spanTag.getElementsByTag("span").first();
+                            text = spanTextTag.text();
+                            listDetail.add(new DetailModel(text, null));
+                        }
+                    }
+                    for (DetailModel mo : listDetail) {
+                      if(mo.getPhoto()!=null)
+                      {
+                          View layout2 = LayoutInflater.from(DetailActivity.this).inflate(R.layout.item_image, loBody, false);
+
+                          TextView textView = (TextView) layout2.findViewById(R.id.tvImageText);
+                          ImageView imgView = (ImageView) layout2.findViewById(R.id.imvImage);
+
+                          textView.setText(mo.getText());
+                          Picasso.with(DetailActivity.this).load(mo.getPhoto()).into(imgView);
+
+                          loBody.addView(layout2);
+                      }
+                      else {
+                          LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(
+                                  LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                          TextView tv=new TextView(DetailActivity.this);
+                          tv.setLayoutParams(lparams);
+                          tv.setText(mo.getText());
+                          loBody.addView(tv);
+                      }
+                    }
+
+                    pbDetail.setVisibility(View.GONE);
+
+                }
+            }
+        }, new Response.ErrorListener()
+
+        {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+        requestQueue.add(stringRequest);
     }
 
     private void addControl() {
-        toolbar.findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
+        pbDetail = findViewById(R.id.pbDetail);
+        loBody = findViewById(R.id.loBody);
+        tvTitle = findViewById(R.id.tvTitle);
+        tvTime = findViewById(R.id.tvTime);
+        tvSubTitle = findViewById(R.id.tvSubtitle);
     }
+
     private void actionBar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -35,7 +147,6 @@ public class DetailActivity extends AppCompatActivity {
                 finish();
             }
         });
-
 
 
     }
