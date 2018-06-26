@@ -1,5 +1,6 @@
 package com.lacviet.surenews.MainScreenTab;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.lacviet.surenews.Adapter.HomeTabRCVAdapter;
+import com.lacviet.surenews.DetailScreen.DetailActivity;
 import com.lacviet.surenews.Model.HomeNewsModel;
 import com.lacviet.surenews.R;
 
@@ -151,6 +153,7 @@ public class TabHomeFragment extends Fragment {
 
             @Override
             public void onPostClick(long id) {
+                startDetailActivity();
 
             }
         });
@@ -179,5 +182,12 @@ public class TabHomeFragment extends Fragment {
             }
         };
         recyclerView.addOnScrollListener(scrollListener);*/
+    }
+
+    private void startDetailActivity() {
+        Intent intent = new Intent(getContext(), DetailActivity.class);
+        /*KeyString key = new KeyString();
+        intent.putExtra(key.ITEM_KEY, id);*/
+        startActivity(intent);
     }
 }
