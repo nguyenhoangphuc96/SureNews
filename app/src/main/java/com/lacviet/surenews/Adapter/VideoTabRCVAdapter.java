@@ -56,7 +56,6 @@ public class VideoTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             ((VHItem) holder).videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
-                    ((VHItem) holder).videoView.setZOrderOnTop(true);
                     mp.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
                         @Override
                         public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {

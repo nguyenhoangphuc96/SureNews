@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lacviet.surenews.Model.HomeNewsModel;
@@ -61,6 +63,7 @@ public class HomeTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 showImage(item.getNewsImage(), (VHItem) holder);
             } else {
                 ((VHItem) holder).imvAvatar.setImageDrawable(null);
+
             }
         } else if (holder instanceof VHHeader) {
             HomeNewsModel item = HomeNewsList.get(position);
@@ -135,6 +138,7 @@ public class HomeTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     class VHItem extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tvTittle, tvTime;
         public ImageView imvAvatar;
+        public RelativeLayout loImage;
         PostItemListener mItemListener;
 
         public VHItem(View itemView, PostItemListener mItemListener) {
@@ -142,6 +146,7 @@ public class HomeTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             tvTittle = itemView.findViewById(R.id.tvTitleNews);
             tvTime = itemView.findViewById(R.id.tvTime);
             imvAvatar = itemView.findViewById(R.id.imgNews);
+            loImage = itemView.findViewById(R.id.rlImage);
             this.mItemListener = mItemListener;
             itemView.setOnClickListener(this);
         }

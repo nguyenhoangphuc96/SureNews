@@ -28,23 +28,23 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class TabHomeFragment extends Fragment {
+public class TabCountrysideFragment extends Fragment {
     private RecyclerView recyclerView;
     private HomeTabRCVAdapter mAdapter;
     private ArrayList<HomeNewsModel> listHomeNews;
     ProgressBar pbTabhome;
+
     //
-    String url = "http://baclieu.gov.vn/tintuc/lists/posts/post.aspx?Source=%2ftintuc&Category=Tin+t%E1%BB%A9c+%E2%80%93+S%E1%BB%B1+ki%E1%BB%87n&Mode=2";
-    String baseSrcUrl = "http://baclieu.gov.vn";
-    public TabHomeFragment() {
+    String url = "http://baclieu.gov.vn/tintuc/lists/posts/post.aspx?Source=%2ftintuc&Category=X%C3%A2y+d%E1%BB%B1ng+n%C3%B4ng+th%C3%B4n+m%E1%BB%9Bi&Mode=2";
+    String baseSrcUrl = "http://baclieu.gov.vn/";
+    public TabCountrysideFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tab_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_tab_countryside, container, false);
         addControl(view);
         showDataToRecyclerView();
         loadData();
@@ -84,10 +84,6 @@ public class TabHomeFragment extends Fragment {
                         }
                         if(elementLink!=null){
                             link=elementLink.attr("href");
-                        }
-                        if (!link.startsWith("http://"))
-                        {
-                            link = baseSrcUrl+link;
                         }
 
                         arrTitle.add(tittle);
@@ -142,8 +138,8 @@ public class TabHomeFragment extends Fragment {
 
 
     private void addControl(View view) {
-        recyclerView = view.findViewById(R.id.rcvTabHome);
-        pbTabhome =view.findViewById(R.id.pbTabHome);
+        recyclerView = view.findViewById(R.id.rcvTabCountryside);
+        pbTabhome =view.findViewById(R.id.pbTabCountryside);
     }
 
     private void showDataToRecyclerView() {

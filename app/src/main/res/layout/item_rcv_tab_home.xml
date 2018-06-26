@@ -12,15 +12,13 @@
         android:orientation="horizontal"
         android:weightSum="100">
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/rlImage"
             android:layout_weight="70"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingEnd="@dimen/rcv_item_padding">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <android.support.v7.widget.CardView xmlns:cardview="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/cvNews"
@@ -55,10 +53,9 @@
                     android:indeterminateTintMode="src_in"
                     />-->
 
-            </RelativeLayout>
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
         <LinearLayout

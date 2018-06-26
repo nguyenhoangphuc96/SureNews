@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     TextView tvTitleToolbar;
     ViewPager pager;
     TabLayout tabLayout;
-    ImageView imvLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +67,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void addControl() {
         toolbar = findViewById(R.id.toolbarMainscreen);
+        tvTitleToolbar = findViewById(R.id.tvTitleToolbar);
         navigationView = findViewById(R.id.ngvMainscreen);
         drawerLayout = findViewById(R.id.drawerLayout);
         pager = findViewById(R.id.container);
         tabLayout = findViewById(R.id.tabLayoutMain);
-        imvLogo = findViewById(R.id.imvLogo);
     }
 
     private void actionBar() {
         setSupportActionBar(toolbar);
+        tvTitleToolbar.setText(toolbar.getTitle());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.setNavigationIcon(R.drawable.ic_menu);
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
+    /*@Override
     public void onWindowFocusChanged(boolean hasFocus){
 
         // set toolbar logo to center programmatically
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         // set
         imvLogo.setX(offset);
 
-    }
+    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);

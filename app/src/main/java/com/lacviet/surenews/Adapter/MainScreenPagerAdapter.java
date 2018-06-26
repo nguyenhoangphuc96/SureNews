@@ -5,8 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.lacviet.surenews.MainScreenTab.TabCountrysideFragment;
 import com.lacviet.surenews.MainScreenTab.TabHomeFragment;
-import com.lacviet.surenews.MainScreenTab.TabNewsFragment;
+import com.lacviet.surenews.MainScreenTab.TabRelicsFragment;
 import com.lacviet.surenews.MainScreenTab.TabVideoFragment;
 
 public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
@@ -27,15 +28,12 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
                 frag = new TabVideoFragment();
                 break;
             case 2:
-                frag = new TabNewsFragment();
+                frag = new TabRelicsFragment();
                 break;
             case 3:
-                frag = new TabHomeFragment();
+                frag = new TabCountrysideFragment();
                 break;
             case 4:
-                frag = new TabHomeFragment();
-                break;
-            case 5:
                 frag = new TabHomeFragment();
                 break;
         }
@@ -44,7 +42,7 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 6;
+        return 5;
     }
     @Override
     public CharSequence getPageTitle(int position) {
@@ -57,16 +55,13 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
                 title = "Video";
                 break;
             case 2:
-                title = "Thời sự";
+                title = "Di tích lịch sử";
                 break;
             case 3:
-                title = "Thể thao";
+                title = "Xây dựng nông thôn mới";
                 break;
             case 4:
-                title = "Giải trí";
-                break;
-            case 5:
-                title = "Thời trang";
+                title = "Tin tức - sự kiện";
                 break;
         }
         return title;

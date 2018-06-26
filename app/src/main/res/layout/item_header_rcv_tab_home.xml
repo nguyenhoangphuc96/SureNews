@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextSubTitleNews"
                 android:ellipsize="end"
-                android:maxLines="2"
+                android:maxLines="3"
                 android:text="Lão tướng của tuyển Argentina cho biết, toàn đội vẫn là một khối thống nhất và quyết tâm hạ Nigeria ở trận cuối cùng."
                 />
             <TextView

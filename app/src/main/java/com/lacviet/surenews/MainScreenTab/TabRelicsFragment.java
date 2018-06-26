@@ -28,23 +28,22 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class TabHomeFragment extends Fragment {
+public class TabRelicsFragment extends Fragment {
     private RecyclerView recyclerView;
     private HomeTabRCVAdapter mAdapter;
     private ArrayList<HomeNewsModel> listHomeNews;
     ProgressBar pbTabhome;
     //
-    String url = "http://baclieu.gov.vn/tintuc/lists/posts/post.aspx?Source=%2ftintuc&Category=Tin+t%E1%BB%A9c+%E2%80%93+S%E1%BB%B1+ki%E1%BB%87n&Mode=2";
-    String baseSrcUrl = "http://baclieu.gov.vn";
-    public TabHomeFragment() {
+    String url = "http://baclieu.gov.vn/gioithieu/lists/posts/post.aspx?Source=%2fgioithieu&Category=Di+t%C3%ADch+l%E1%BB%8Bch+s%E1%BB%AD+v%C3%A0+ki%E1%BA%BFn+tr%C3%BAc&Mode=2";
+    String baseSrcUrl = "http://baclieu.gov.vn/";
+    public TabRelicsFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tab_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_tab_relics, container, false);
         addControl(view);
         showDataToRecyclerView();
         loadData();
@@ -84,10 +83,6 @@ public class TabHomeFragment extends Fragment {
                         }
                         if(elementLink!=null){
                             link=elementLink.attr("href");
-                        }
-                        if (!link.startsWith("http://"))
-                        {
-                            link = baseSrcUrl+link;
                         }
 
                         arrTitle.add(tittle);
@@ -142,8 +137,8 @@ public class TabHomeFragment extends Fragment {
 
 
     private void addControl(View view) {
-        recyclerView = view.findViewById(R.id.rcvTabHome);
-        pbTabhome =view.findViewById(R.id.pbTabHome);
+        recyclerView = view.findViewById(R.id.rcvTabRelics);
+        pbTabhome =view.findViewById(R.id.pbTabRelics);
     }
 
     private void showDataToRecyclerView() {
@@ -154,10 +149,6 @@ public class TabHomeFragment extends Fragment {
 
             }
         });
-        /*RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);*/
-        //GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
-        //recyclerView.setLayoutManager(layoutManager);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mAdapter);
@@ -166,18 +157,5 @@ public class TabHomeFragment extends Fragment {
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        /*EndlessRecyclerViewScrollListener scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
-
-            @Override
-            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                if (isFilter) {
-                    showMoreResultByStuffId(page, size, stuffId);
-                } else {
-                    loadMoreAnswers(page, size);
-
-                }
-            }
-        };
-        recyclerView.addOnScrollListener(scrollListener);*/
     }
 }

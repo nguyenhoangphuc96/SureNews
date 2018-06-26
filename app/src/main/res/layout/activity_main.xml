@@ -26,13 +26,14 @@
                     android:background="@color/colorBackgroundToolbarBlue"
                     app:contentInsetStartWithNavigation="0dp"
                     android:layout_gravity="center_horizontal"
+                    app:title="Cổng thông tin điện tử"
                     >
-                        <ImageView
-                            android:id="@+id/imvLogo"
-                            android:padding="7dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/img_logo"/>
+                    <TextView
+                        android:id="@+id/tvTitleToolbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAppearance="@style/TextTitleGlobalWhite" />
 
                 </android.support.v7.widget.Toolbar>
 

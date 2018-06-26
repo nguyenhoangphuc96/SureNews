@@ -6,13 +6,15 @@ public class HomeNewsModel {
     private String newsSubTittle;
     private String newsImage;
     private String newsTime;
+    private String newslink;
 
-    public HomeNewsModel(Integer newsId, String newsTittle, String newsSubTittle, String newsImage, String newsTime) {
+    public HomeNewsModel(Integer newsId, String newsTittle, String newsSubTittle, String newsImage, String newsTime, String newslink) {
         this.newsId = newsId;
         this.newsTittle = newsTittle;
         this.newsSubTittle = newsSubTittle;
         this.newsImage = newsImage;
         this.newsTime = newsTime;
+        this.newslink = newslink;
     }
 
     public Integer getNewsId() {
@@ -53,5 +55,13 @@ public class HomeNewsModel {
 
     public void setNewsTime(String newsTime) {
         this.newsTime = newsTime;
+    }
+
+    public String getNewslink() {
+        return newslink;
+    }
+
+    public void setNewslink(String newslink) {
+        this.newslink = newslink;
     }
 }
