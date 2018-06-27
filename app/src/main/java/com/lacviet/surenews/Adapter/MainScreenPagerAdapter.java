@@ -25,7 +25,7 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
                 frag = new TabHomeFragment();
                 break;
             case 1:
-                frag = new TabVideoFragment();
+                frag = new TabHomeFragment();
                 break;
             case 2:
                 frag = new TabRelicsFragment();

@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(pager);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setTabsFromPagerAdapter(adapter);
-        //pager.setOffscreenPageLimit(5);//no reload when change tab
+        pager.setOffscreenPageLimit(5);//no reload when change tab
     }
 
     private void addControl() {

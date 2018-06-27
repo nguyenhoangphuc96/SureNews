@@ -12,21 +12,27 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.lacviet.surenews.Adapter.HomeTabRCVAdapter;
 import com.lacviet.surenews.Model.HomeNewsModel;
 import com.lacviet.surenews.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class TabRelicsFragment extends Fragment {
@@ -131,6 +137,7 @@ public class TabRelicsFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getContext(),"Kết nối internet khá yếu!",Toast.LENGTH_LONG);
+
             }
         });
         requestQueue.add(stringRequest);

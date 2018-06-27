@@ -70,7 +70,6 @@ public class DetailActivity extends AppCompatActivity {
 
     private void loadData() {
         tvTitle.setText(tittle);
-        tvTime.setText(time);
         //
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -80,49 +79,79 @@ public class DetailActivity extends AppCompatActivity {
                 listDetail = new ArrayList<>();
                 Document document = Jsoup.parse(response);
                 if (document != null) {
+                    //get time
+                    Elements elementsTime = document.select("td[class=Time]");
+                    tvTime.setText(elementsTime.get(0).text());
+                    //get body
+
 
                     Elements elementsBody = document.select("p[class=MsoNormal]");
-                    for (int i = 0; i < elementsBody.size(); i++) {
-                        Element spanTag = elementsBody.get(i).getElementsByTag("span").first();
-                        Element imgTag = spanTag.getElementsByTag("img").first();
-                        if (imgTag != null) {
-                            image = imgTag.attr("src");
-                            if (!image.startsWith("http://"))
-                            {
-                                image = baseSrcUrl+image;
+                    if (elementsBody.size()!=0) {
+                        for (int i = 0; i < elementsBody.size(); i++) {
+                            Element spanTag = elementsBody.get(i).getElementsByTag("span").first();
+                            Element imgTag = spanTag.getElementsByTag("img").first();
+                            if (imgTag != null) {
+                                image = imgTag.attr("src");
+                                //
+                                if (!image.startsWith("http://")) {
+                                    image = baseSrcUrl + image;
+                                }
+                                Element spanTextTag = elementsBody.get(i + 1).getElementsByTag("span").first();
+                                text = spanTextTag.text();
+                                listDetail.add(new DetailModel(text, image));
+                                i++;
+                            } else {
+                                Element spanTextTag = spanTag.getElementsByTag("span").first();
+                                text = spanTextTag.text();
+                                listDetail.add(new DetailModel(text, null));
                             }
-                            Element spanTextTag = elementsBody.get(i + 1).getElementsByTag("span").first();
-                            text = spanTextTag.text();
-                            listDetail.add(new DetailModel(text, image));
-                            i++;
-                        } else {
-                            Element spanTextTag = spanTag.getElementsByTag("span").first();
-                            text = spanTextTag.text();
-                            listDetail.add(new DetailModel(text, null));
                         }
+                    } else {
+
+                        /*Toast.makeText(DetailActivity.this,"aaaaaaaaaaaaa",Toast.LENGTH_LONG);
+                        Elements elementsBodyTest = document.select("div[class=ExternalClassC08654FC2365424083E8BACFC00BB2CD]");
+                        Elements elements = elementsBodyTest.get(0).getElementsByTag("p");
+                        for (int i = 0; i < elements.size(); i++) {
+                            Element spanTag = elements.get(i).getElementsByTag("span").first();
+                            Element imgTag = spanTag.getElementsByTag("img").first();
+                            if (imgTag != null) {
+                                image = imgTag.attr("src");
+                                //
+                                if (!image.startsWith("http://")) {
+                                    image = baseSrcUrl + image;
+                                }
+                                Element spanTextTag = elements.get(i + 1).getElementsByTag("span").first();
+                                text = spanTextTag.text();
+                                listDetail.add(new DetailModel(text, image));
+                                i++;
+                            } else {
+                                Element spanTextTag = spanTag.getElementsByTag("span").first();
+                                text = spanTextTag.text();
+                                listDetail.add(new DetailModel(text, null));
+                            }
+                        }*/
                     }
+
                     for (DetailModel mo : listDetail) {
-                      if(mo.getPhoto()!=null)
-                      {
-                          View layout2 = LayoutInflater.from(DetailActivity.this).inflate(R.layout.item_image, loBody, false);
+                        if (mo.getPhoto() != null) {
+                            View layout2 = LayoutInflater.from(DetailActivity.this).inflate(R.layout.item_image, loBody, false);
 
-                          TextView textView = layout2.findViewById(R.id.tvImageText);
-                          ImageView imgView = layout2.findViewById(R.id.imvImage);
+                            TextView textView = layout2.findViewById(R.id.tvImageText);
+                            ImageView imgView = layout2.findViewById(R.id.imvImage);
 
-                          textView.setText(mo.getText());
-                          Picasso.with(DetailActivity.this).load(mo.getPhoto()).into(imgView);
+                            textView.setText(mo.getText());
+                            Picasso.with(DetailActivity.this).load(mo.getPhoto()).into(imgView);
 
-                          loBody.addView(layout2);
-                      }
-                      else {
-                          View layout1 = LayoutInflater.from(DetailActivity.this).inflate(R.layout.item_text, loBody, false);
+                            loBody.addView(layout2);
+                        } else {
+                            View layout1 = LayoutInflater.from(DetailActivity.this).inflate(R.layout.item_text, loBody, false);
 
-                          TextView textView = (TextView) layout1.findViewById(R.id.tvText);
+                            TextView textView = (TextView) layout1.findViewById(R.id.tvText);
 
-                          textView.setText(mo.getText());
+                            textView.setText(mo.getText());
 
-                          loBody.addView(layout1);
-                      }
+                            loBody.addView(layout1);
+                        }
                     }
 
                     pbDetail.setVisibility(View.GONE);
@@ -134,7 +163,7 @@ public class DetailActivity extends AppCompatActivity {
         {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(DetailActivity.this,"Kết nối internet khá yếu!",Toast.LENGTH_LONG);
+                Toast.makeText(DetailActivity.this, "Kết nối internet khá yếu!", Toast.LENGTH_LONG);
             }
         });
         requestQueue.add(stringRequest);
