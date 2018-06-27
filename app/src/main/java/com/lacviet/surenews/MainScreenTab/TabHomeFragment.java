@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.lacviet.surenews.Adapter.HomeTabRCVAdapter;
 import com.lacviet.surenews.DetailScreen.DetailActivity;
+import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.Model.HomeNewsModel;
 import com.lacviet.surenews.R;
 
@@ -35,11 +36,22 @@ import java.util.List;
 public class TabHomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private HomeTabRCVAdapter mAdapter;
-    private ArrayList<HomeNewsModel> listHomeNews;
+    private ArrayList<HomeNewsModel> listHomeNews = new ArrayList<>();
     ProgressBar pbTabhome;
     //
     String url = "http://baclieu.gov.vn/tintuc/lists/posts/post.aspx?Source=%2ftintuc&Category=Tin+t%E1%BB%A9c+%E2%80%93+S%E1%BB%B1+ki%E1%BB%87n&Mode=2";
     String baseSrcUrl = "http://baclieu.gov.vn";
+    //
+    String tittle = "";
+    String time = "";
+    String avatar = "";
+    String subTittle = "";
+    String link = "";
+    ArrayList<String> arrTitle = new ArrayList<>();
+    ArrayList<String> arrTime = new ArrayList<>();
+    ArrayList<String> arrAvatar = new ArrayList<>();
+    ArrayList<String> arrSubtitle = new ArrayList<>();
+    ArrayList<String> arrLink = new ArrayList<>();
     public TabHomeFragment() {
         // Required empty public constructor
     }
@@ -54,22 +66,13 @@ public class TabHomeFragment extends Fragment {
     }
 
     private void loadData() {
-        listHomeNews = new ArrayList<>();
+
         //
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String tittle = "";
-                String time = "";
-                String avatar = "";
-                String subTittle = "";
-                String link = "";
-                ArrayList<String> arrTitle = new ArrayList<>();
-                ArrayList<String> arrTime = new ArrayList<>();
-                ArrayList<String> arrAvatar = new ArrayList<>();
-                ArrayList<String> arrSubtitle = new ArrayList<>();
-                ArrayList<String> arrLink = new ArrayList<>();
+
                 Document document = Jsoup.parse(response);
                 if (document != null) {
 
@@ -137,6 +140,7 @@ public class TabHomeFragment extends Fragment {
         {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(),"Kết nối internet khá yếu!",Toast.LENGTH_LONG);
             }
         });
         requestQueue.add(stringRequest);
@@ -152,8 +156,8 @@ public class TabHomeFragment extends Fragment {
         mAdapter = new HomeTabRCVAdapter(getContext(), new ArrayList<HomeNewsModel>(0), new HomeTabRCVAdapter.PostItemListener() {
 
             @Override
-            public void onPostClick(long id) {
-                startDetailActivity();
+            public void onPostClick(String link,String title,String time) {
+                startDetailActivity(link,title,time);
 
             }
         });
@@ -184,10 +188,12 @@ public class TabHomeFragment extends Fragment {
         recyclerView.addOnScrollListener(scrollListener);*/
     }
 
-    private void startDetailActivity() {
+    private void startDetailActivity(String link,String tittle , String time) {
         Intent intent = new Intent(getContext(), DetailActivity.class);
-        /*KeyString key = new KeyString();
-        intent.putExtra(key.ITEM_KEY, id);*/
+        KeyString key = new KeyString();
+        intent.putExtra(key.LINK, link);
+        intent.putExtra(key.TITLE,tittle);
+        intent.putExtra(key.TIME,time);
         startActivity(intent);
     }
 }

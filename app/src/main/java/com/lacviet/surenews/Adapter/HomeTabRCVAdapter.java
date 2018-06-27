@@ -153,6 +153,8 @@ public class HomeTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         @Override
         public void onClick(View v) {
+            HomeNewsModel item = getItem(getAdapterPosition());
+            this.mItemListener.onPostClick(item.getNewslink(),item.getNewsTittle(),item.getNewsTime());
 
         }
     }
@@ -174,11 +176,12 @@ public class HomeTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         @Override
         public void onClick(View v) {
-
+            HomeNewsModel item = getItem(getAdapterPosition());
+            this.mItemListener.onPostClick(item.getNewslink(),item.getNewsTittle(),item.getNewsTime());
         }
     }
 
     public interface PostItemListener {
-        void onPostClick(long id);
+        void onPostClick(String link, String title,String time);
     }
 }

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.Model.DetailModel;
 import com.lacviet.surenews.Model.HomeNewsModel;
 import com.lacviet.surenews.R;
@@ -37,8 +39,13 @@ public class DetailActivity extends AppCompatActivity {
     TextView tvTitle, tvTime, tvSubTitle;
     ArrayList<DetailModel> listDetail;
     //
-    String url = "http://baclieu.gov.vn/tintuc/lists/posts/post.aspx?Source=%2ftintuc&Category=Tin+t%E1%BB%A9c+%E2%80%93+S%E1%BB%B1+ki%E1%BB%87n&ItemID=8861&Mode=1";
+    String url = "";
     String baseSrcUrl = "http://baclieu.gov.vn";
+    //
+    String tittle = "";
+    String time = "";
+    String image = "";
+    String text = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,28 +53,33 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         addControl();
         actionBar();
+        getDatafromPreviousActivity();
         loadData();
 
 
     }
 
+    private void getDatafromPreviousActivity() {
+        Bundle extras = this.getIntent().getExtras();
+        KeyString key = new KeyString();
+        url = extras.getString(key.LINK);
+        tittle = extras.getString(key.TITLE);
+        time = extras.getString(key.TIME);
+
+    }
+
     private void loadData() {
+        tvTitle.setText(tittle);
+        tvTime.setText(time);
         //
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                String tittle = "";
-                String time = "";
-                String image = "";
-                String text = "";
+
                 listDetail = new ArrayList<>();
                 Document document = Jsoup.parse(response);
                 if (document != null) {
-
-                    Elements elementsTittle = document.select("p[class=Title]");
-                    tittle = elementsTittle.get(0).text();
-                    tvTitle.setText(tittle);
 
                     Elements elementsBody = document.select("p[class=MsoNormal]");
                     for (int i = 0; i < elementsBody.size(); i++) {
@@ -94,8 +106,8 @@ public class DetailActivity extends AppCompatActivity {
                       {
                           View layout2 = LayoutInflater.from(DetailActivity.this).inflate(R.layout.item_image, loBody, false);
 
-                          TextView textView = (TextView) layout2.findViewById(R.id.tvImageText);
-                          ImageView imgView = (ImageView) layout2.findViewById(R.id.imvImage);
+                          TextView textView = layout2.findViewById(R.id.tvImageText);
+                          ImageView imgView = layout2.findViewById(R.id.imvImage);
 
                           textView.setText(mo.getText());
                           Picasso.with(DetailActivity.this).load(mo.getPhoto()).into(imgView);
@@ -103,12 +115,13 @@ public class DetailActivity extends AppCompatActivity {
                           loBody.addView(layout2);
                       }
                       else {
-                          LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(
-                                  LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                          TextView tv=new TextView(DetailActivity.this);
-                          tv.setLayoutParams(lparams);
-                          tv.setText(mo.getText());
-                          loBody.addView(tv);
+                          View layout1 = LayoutInflater.from(DetailActivity.this).inflate(R.layout.item_text, loBody, false);
+
+                          TextView textView = (TextView) layout1.findViewById(R.id.tvText);
+
+                          textView.setText(mo.getText());
+
+                          loBody.addView(layout1);
                       }
                     }
 
@@ -121,6 +134,7 @@ public class DetailActivity extends AppCompatActivity {
         {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Toast.makeText(DetailActivity.this,"Kết nối internet khá yếu!",Toast.LENGTH_LONG);
             }
         });
         requestQueue.add(stringRequest);
@@ -132,7 +146,6 @@ public class DetailActivity extends AppCompatActivity {
         loBody = findViewById(R.id.loBody);
         tvTitle = findViewById(R.id.tvTitle);
         tvTime = findViewById(R.id.tvTime);
-        tvSubTitle = findViewById(R.id.tvSubtitle);
     }
 
     private void actionBar() {

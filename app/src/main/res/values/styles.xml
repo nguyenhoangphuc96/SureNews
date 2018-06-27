@@ -33,5 +33,19 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/colorGrayforText</item>
     </style>
+    <style name="TextDetailTitle" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/colorGrayBlack</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextDetailContent" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorBlackGrayContentText</item>
+    </style>
+    <style name="TextDetailCaptionImage" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/colorGrayforText</item>
+        <item name="android:textStyle">italic</item>
+    </style>
 
 </resources>

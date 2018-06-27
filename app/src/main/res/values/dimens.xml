@@ -2,4 +2,5 @@
 <resources>
     <dimen name="cardview_corner_radius">10dp</dimen>
     <dimen name="rcv_item_padding">7dp</dimen>
+    <dimen name="detail_title_padding">5dp</dimen>
 </resources>

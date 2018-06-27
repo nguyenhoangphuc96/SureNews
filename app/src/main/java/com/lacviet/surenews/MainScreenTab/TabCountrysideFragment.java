@@ -131,6 +131,7 @@ public class TabCountrysideFragment extends Fragment {
         {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(),"Kết nối internet khá yếu!",Toast.LENGTH_LONG);
             }
         });
         requestQueue.add(stringRequest);
@@ -146,7 +147,7 @@ public class TabCountrysideFragment extends Fragment {
         mAdapter = new HomeTabRCVAdapter(getContext(), new ArrayList<HomeNewsModel>(0), new HomeTabRCVAdapter.PostItemListener() {
 
             @Override
-            public void onPostClick(long id) {
+            public void onPostClick(String link, String title,String time) {
 
             }
         });

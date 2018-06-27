@@ -11,6 +11,7 @@
     <color name="colorLittleRed">#fc3939</color>
     <color name="colorBlack">#000000</color>
     <color name="colorGrayBlack">#232323</color>
+    <color name="colorBlackGrayContentText">#292929</color>
     <color name="colorTextDecriptionGray">#9F9F9F</color>
     <color name="colorTextSelected">#1091D3</color>
     <color name="colorTextSearchBox">#DDDDDD</color>

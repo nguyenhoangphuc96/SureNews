@@ -6,6 +6,8 @@
         android:id="@+id/tvText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="@dimen/detail_title_padding"
+        style="@style/TextDetailContent"
         />
 
 </LinearLayout>
