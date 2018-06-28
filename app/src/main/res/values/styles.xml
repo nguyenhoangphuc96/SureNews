@@ -47,5 +47,8 @@
         <item name="android:textColor">@color/colorGrayforText</item>
         <item name="android:textStyle">italic</item>
     </style>
+    <style name="TextEditTextFeedback" parent="@style/TextAppearance.Design.Counter">
+        <item name="android:textSize">13sp</item>
+    </style>
 
 </resources>

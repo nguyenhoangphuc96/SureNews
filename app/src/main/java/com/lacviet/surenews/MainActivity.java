@@ -1,5 +1,6 @@
 package com.lacviet.surenews;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -18,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lacviet.surenews.Adapter.MainScreenPagerAdapter;
+import com.lacviet.surenews.Feedback.FeedbackActivity;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -105,7 +107,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_search:
+            case R.id.menu_feedback:
+                Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
