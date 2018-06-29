@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="100"
-    android:background="@drawable/img_dangnhap">
+    android:background="@drawable/img_dangnhap"
+    android:orientation="vertical"
+    android:weightSum="100">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@null"
-            app:title="Góp ý"
-            >
+            app:title="Góp ý">
+
             <TextView
                 android:id="@+id/tvTitleToolbar"
                 android:layout_width="wrap_content"
@@ -28,148 +29,218 @@
 
         </android.support.v7.widget.Toolbar>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="100"
-        >
+        android:weightSum="100">
+
         <LinearLayout
-            android:weightSum="100"
-            android:layout_marginVertical="10dp"
-            android:orientation="horizontal"
-            android:layout_marginHorizontal="30dp"
-            android:layout_weight="18"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/shape_transparent_black_background">
-            <ImageView
-                android:id="@+id/imvFeedback1"
-                android:layout_margin="@dimen/feedback_imageview_margin"
-                android:layout_weight="33.5"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="18"
+            android:background="@drawable/shape_transparent_black_background"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_add_image"
-                android:background="@drawable/shape_transparent_background"
-                android:visibility="invisible"/>
-            <ImageView
-                android:id="@+id/imvFeedback2"
+                android:layout_margin="@dimen/feedback_imageview_margin"
+                android:layout_weight="33.5"
+
+                >
+
+                <android.support.v7.widget.CardView xmlns:cardview="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    cardview:cardBackgroundColor="@color/transparent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imvFeedback1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_add_image"
+                            android:visibility="invisible"
+                            android:background="@color/transparent35White"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="@dimen/feedback_imageview_margin"
                 android:layout_weight="33"
+
+                >
+
+                <android.support.v7.widget.CardView xmlns:cardview="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    cardview:cardBackgroundColor="@color/transparent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imvFeedback2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_add_image"
+                            android:visibility="invisible"
+                            android:background="@color/transparent35White"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_add_image"
-                android:background="@drawable/shape_transparent_background"
-                android:visibility="invisible"/>
-            <ImageView
-                android:id="@+id/imvFeedback3"
                 android:layout_margin="@dimen/feedback_imageview_margin"
                 android:layout_weight="33.5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_add_image"
-                android:background="@drawable/shape_transparent_background"
-                />
 
+                >
+
+                <android.support.v7.widget.CardView xmlns:cardview="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    cardview:cardBackgroundColor="@color/transparent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imvFeedback3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_add_image"
+                            android:visibility="visible"
+                            android:background="@color/transparent35White"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:paddingHorizontal="@dimen/feedback_paading_horitzal"
-            android:layout_weight="14"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="14"
+            android:paddingHorizontal="@dimen/feedback_paading_horitzal">
+
             <EditText
                 android:id="@+id/edtFeedbackContent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/shape_transparent_black_background"
                 android:ems="10"
-                android:textAppearance="@style/TextEditTextFeedback"
-                android:textColor="@color/colorWhite"
+                android:gravity="top"
                 android:hint="Nội dung góp ý"
-                android:textColorHint="@color/colorWhite"
+                android:inputType="text|textMultiLine"
                 android:paddingLeft="@dimen/edittext_padding_left"
                 android:paddingTop="@dimen/edittext_padding_left"
-                android:layout_marginVertical="10dp"
-                android:inputType="text|textMultiLine"
-                android:background="@drawable/shape_transparent_black_background"
+                android:textAppearance="@style/TextEditTextFeedback"
+                android:textColor="@color/colorWhite"
 
-                android:gravity="top"/>
+                android:textColorHint="@color/colorWhite" />
 
         </LinearLayout>
-        <LinearLayout
-            android:paddingHorizontal="@dimen/feedback_paading_horitzal"
 
-            android:layout_weight="23"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
+            android:layout_height="match_parent"
+            android:layout_weight="23"
+            android:paddingHorizontal="@dimen/feedback_paading_horitzal">
+
             <EditText
                 android:id="@+id/edtName"
-                android:layout_marginVertical="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/shape_transparent_black_background"
                 android:ems="10"
-                android:paddingLeft="@dimen/edittext_padding_left"
                 android:hint="Họ và tên"
                 android:inputType="text"
-                android:textColorHint="@color/colorWhite"
+                android:paddingLeft="@dimen/edittext_padding_left"
                 android:textAppearance="@style/TextEditTextFeedback"
                 android:textColor="@color/colorWhite"
-                android:background="@drawable/shape_transparent_black_background"
-                />
+                android:textColorHint="@color/colorWhite" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:paddingHorizontal="@dimen/feedback_paading_horitzal"
-
-            android:layout_weight="23"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
+            android:layout_height="match_parent"
+            android:layout_weight="23"
+            android:paddingHorizontal="@dimen/feedback_paading_horitzal">
+
             <EditText
                 android:id="@+id/edtSDT"
-                android:layout_marginVertical="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/shape_transparent_black_background"
                 android:ems="10"
-                android:paddingLeft="@dimen/edittext_padding_left"
                 android:hint="SĐT"
                 android:inputType="text"
-                android:textColorHint="@color/colorWhite"
+                android:paddingLeft="@dimen/edittext_padding_left"
                 android:textAppearance="@style/TextEditTextFeedback"
                 android:textColor="@color/colorWhite"
-                android:background="@drawable/shape_transparent_black_background"
-                />
+                android:textColorHint="@color/colorWhite" />
 
         </LinearLayout>
+
         <LinearLayout
-            android:paddingHorizontal="@dimen/feedback_paading_horitzal"
-            android:layout_weight="22"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="22"
+            android:paddingHorizontal="@dimen/feedback_paading_horitzal">
+
             <Button
                 android:id="@+id/btnSendFeedback"
-                android:layout_marginVertical="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textAppearance="@style/TextTitleGlobalWhite"
-                android:textColor="@color/colorWhite"
+                android:layout_marginVertical="10dp"
                 android:background="@drawable/shape_transparent_background"
-                android:text="Gửi góp ý" />
+                android:text="Gửi góp ý"
+                android:textAppearance="@style/TextTitleGlobalWhite"
+                android:textColor="@color/colorWhite" />
 
         </LinearLayout>
-
-
-
-
-
-
 
 
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>

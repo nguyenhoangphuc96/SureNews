@@ -53,5 +53,7 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.10.2'
     //
     implementation 'com.github.jrvansuita:PickImage:+'
+    //
+    implementation 'com.jaeger.statusbarutil:library:1.4.0'
 
 }
