@@ -37,22 +37,26 @@ public class TabVideoFragment extends Fragment {
 
     private void addData() {
         listVideo = new ArrayList<>();
-        listVideo.add(new VideoModel(1,"Cuộc phân định ngôi đầu bảng của Nga và Uruguay",
+        listVideo.add(new VideoModel(1,"Clip: Khách sạn siêu sang Trung Quốc đổ sập chỉ trong 10 giây",
                 "",
-                "https://v.vnecdn.net/vnexpress/video/web/mp4/2018/06/25/gau-nga-khang-dinh-suc-manh-tuyet-doi-o-bang-a-1529895740.mp4",
+                "http://streaming1.danviet.vn/upload/2-2018/videoclip/2018-06-28/1530198322-videoplayback--1-.mp4",
                 "2h trước"));
-        listVideo.add(new VideoModel(2,"Cầu thủ Senegal mong HLV giữ 'đầu tỉnh táo' trước đội Nhật Bản",
+        listVideo.add(new VideoModel(2,"Thái Lan: Khoan hang động để tìm kiếm đội bóng mất tích",
                 "",
-                "https://v.vnecdn.net/vnexpress/video/web/mp4/2018/06/24/tuyen-nhat-ban-se-cham-soc-ky-luong-sadio-mane-1529820041.mp4",
-                "2h trước"));
-        listVideo.add(new VideoModel(3,"Nguyên phó thống đốc ngân hàng nhà nước ra tòa",
+                "http://streaming1.danviet.vn/upload/2-2018/videoclip/2018-06-28/1530147487-rescuers-continue-search-for-thai-soccer-team_x264.mp4",
+                "3h trước"));
+        listVideo.add(new VideoModel(3,"Xót xa cặp vợ chồng bới rác vớt vát tài sản ở căn nhà bị lũ đánh sập",
                 "",
-                "https://v.vnecdn.net/vnexpress/video/web/mp4/2018/06/25/nguyen-pho-thong-doc-ngan-hang-nha-nuoc-dang-thanh-binh-hau--1529905342.mp4",
-                "2h trước"));
+                "http://streaming1.danviet.vn/upload/2-2018/videoclip/2018-06-28/1530182479-x--t-xa-c---p-v----ch---ng-b---i-t--m-k--t-s---t-trong-c--n-nh---b----l-------nh.mp4",
+                "2 ngày trước"));
         listVideo.add(new VideoModel(4,"Hà Giang huy động xe chuyên dụng đưa hàng nghìn sĩ tử đi thi",
                 "",
                 "https://v.vnecdn.net/vnexpress/video/web/mp4/2018/06/25/ha-giang-huy-dong-xe-chuyen-dung-dua-thi-sinh-di-thi-1529915206.mp4",
-                "2h trước"));
+                "2 ngày trước"));
+        listVideo.add(new VideoModel(5,"Tàu vũ trụ Nhật Bản tiếp cận được tiểu hành tinh có dấu hiệu của sự sống",
+                "",
+                "http://streaming1.danviet.vn/upload/2-2018/videoclip/2018-06-29/1530243373-taus.mp4",
+                "5 ngày trước"));
         mAdapter.updateAnswers(listVideo);
     }
 

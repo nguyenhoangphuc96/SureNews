@@ -59,6 +59,7 @@ public class VideoTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                     mp.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
                         @Override
                         public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
+
                             /*
                              * add media controller
                              */

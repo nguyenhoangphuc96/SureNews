@@ -33,6 +33,8 @@
         <activity android:name=".DetailScreen.DetailActivity"></activity>
         <activity android:name=".Feedback.FeedbackActivity"></activity>
         <activity android:name=".Feedback.SDTConfirmActivity"></activity>
+        <activity android:name=".DetailScreen.DetailHomeActivityTemp"></activity>
+        <activity android:name=".DetailScreen.DetailCountryActivityTemp"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"
