@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.lacviet.surenews.Adapter.MainScreenPagerAdapter;
 import com.lacviet.surenews.Feedback.FeedbackActivity;
+import com.lacviet.surenews.GovementMenu.GovementMenuActivity;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -43,14 +44,17 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                // set item as selected to persist highlight
-                item.setChecked(true);
-                // close drawer when item is tapped
-                drawerLayout.closeDrawers();
+                switch (item.getItemId()) {
+                    case R.id.nav_home:{
+                        return true;
+                    }
+                    case R.id.nav_govement:{
+                        Intent intent = new Intent(MainActivity.this, GovementMenuActivity.class);
+                        startActivity(intent);
+                        return true;
+                    }
 
-                // Add code here to update the UI based on the item selected
-                // For example, swap UI fragments here
-
+                }
                 return true;
             }
         });

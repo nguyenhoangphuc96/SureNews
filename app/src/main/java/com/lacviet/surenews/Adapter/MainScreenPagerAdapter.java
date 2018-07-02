@@ -5,13 +5,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.lacviet.surenews.HomeMenu.TabActivitiesLeaderFragment;
+import com.lacviet.surenews.HomeMenu.TabAdministrativeReformFragment;
+import com.lacviet.surenews.HomeMenu.TabEconomyFragment;
+import com.lacviet.surenews.HomeMenu.TabHotHomeFragment;
+import com.lacviet.surenews.HomeMenu.TabLawFragment;
+import com.lacviet.surenews.HomeMenu.TabPoliticalNewsFragment;
+import com.lacviet.surenews.HomeMenu.TabSocioculturalFragment;
+import com.lacviet.surenews.HomeMenu.TabTrafficSafetyFragment;
 import com.lacviet.surenews.MainScreenTab.TabCountrySideFragmentTemp;
-import com.lacviet.surenews.MainScreenTab.TabCountrysideFragment;
-import com.lacviet.surenews.MainScreenTab.TabHomeFragment;
 import com.lacviet.surenews.MainScreenTab.TabHomeFragmentTemp;
 import com.lacviet.surenews.MainScreenTab.TabNewsFragment;
-import com.lacviet.surenews.MainScreenTab.TabRelicsFragment;
-import com.lacviet.surenews.MainScreenTab.TabVideoFragment;
+import com.lacviet.surenews.HomeMenu.TabVideoFragment;
 
 public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
@@ -25,16 +30,31 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
         Fragment frag=null;
         switch (position){
             case 0:
-                frag = new TabHomeFragmentTemp();
+                frag = new TabHotHomeFragment();
                 break;
             case 1:
                 frag = new TabVideoFragment();
                 break;
             case 2:
-                frag = new TabCountrySideFragmentTemp();
+                frag = new TabActivitiesLeaderFragment();
                 break;
             case 3:
-                frag = new TabNewsFragment();
+                frag = new TabPoliticalNewsFragment();
+                break;
+            case 4:
+                frag = new TabEconomyFragment();
+                break;
+            case 5:
+                frag = new TabSocioculturalFragment();
+                break;
+            case 6:
+                frag = new TabTrafficSafetyFragment();
+                break;
+            case 7:
+                frag = new TabLawFragment();
+                break;
+            case 8:
+                frag = new TabAdministrativeReformFragment();
                 break;
         }
         return frag;
@@ -42,23 +62,38 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 9;
     }
     @Override
     public CharSequence getPageTitle(int position) {
         String title = "";
         switch (position){
             case 0:
-                title = "Trang chủ";
+                title = "Tin nổi bật";
                 break;
             case 1:
                 title = "Video";
                 break;
             case 2:
-                title = "Xây dựng nông thôn mới";
+                title = "Hoạt động lãnh đạo";
                 break;
             case 3:
-                title = "Tin tức - sự kiện";
+                title = "Thời sự - chính trị";
+                break;
+            case 4:
+                title = "Kinh tế";
+                break;
+            case 5:
+                title = "Văn hóa - xã hội";
+                break;
+            case 6:
+                title = "An toàn giao thông";
+                break;
+            case 7:
+                title = "Pháp luật";
+                break;
+            case 8:
+                title = "Cải cách hành chánh";
                 break;
         }
         return title;

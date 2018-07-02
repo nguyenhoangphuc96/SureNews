@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_search"
-            android:icon="@drawable/ic_search_white"
-            android:title="Tìm kiếm" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Trang chủ" />
         <item
-            android:id="@+id/nav_favor_news"
-            android:icon="@drawable/ic_favor_news"
-            android:title="Chuyên mục yêu thích" />
+            android:id="@+id/nav_govement"
+            android:icon="@drawable/ic_govement"
+            android:title="Chính quyền" />
         <item
-            android:id="@+id/nav_saved_news"
-            android:icon="@drawable/ic_saved_news"
-            android:title="Tin đã lưu" />
+            android:id="@+id/nav_development"
+            android:icon="@drawable/ic_development"
+            android:title="Đầu tư - phát triển" />
         <item
-            android:id="@+id/nav_readed_news"
-            android:icon="@drawable/ic_readed_news"
-            android:title="Tin đã đọc" />
+            android:id="@+id/nav_public_service"
+            android:icon="@drawable/ic_public"
+            android:title="Dịch vụ công" />
         <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_logout"
-            android:title="Đăng xuất" />
-    </group>
+            android:id="@+id/nav_statistical"
+            android:icon="@drawable/ic_statistical"
+            android:title="Thông tin thống kê" />
+
 </menu>
