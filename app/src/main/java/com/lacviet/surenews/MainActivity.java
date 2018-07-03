@@ -19,8 +19,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lacviet.surenews.Adapter.MainScreenPagerAdapter;
+import com.lacviet.surenews.DevelopmentMenu.DevelopmentMenuActivity;
 import com.lacviet.surenews.Feedback.FeedbackActivity;
 import com.lacviet.surenews.GovementMenu.GovementMenuActivity;
+import com.lacviet.surenews.StatisticalMenu.StatisticalMenuActivity;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -46,10 +48,23 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.nav_home:{
+                        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
                         return true;
                     }
                     case R.id.nav_govement:{
                         Intent intent = new Intent(MainActivity.this, GovementMenuActivity.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                    case R.id.nav_development:{
+                        Intent intent = new Intent(MainActivity.this, DevelopmentMenuActivity.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                    case R.id.nav_statistical:{
+                        Intent intent = new Intent(MainActivity.this, StatisticalMenuActivity.class);
                         startActivity(intent);
                         return true;
                     }
@@ -68,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(pager);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setTabsFromPagerAdapter(adapter);
-        pager.setOffscreenPageLimit(4);//no reload when change tab
+        pager.setOffscreenPageLimit(9);//no reload when change tab
     }
 
     private void addControl() {

@@ -14,10 +14,6 @@
             android:icon="@drawable/ic_development"
             android:title="Đầu tư - phát triển" />
         <item
-            android:id="@+id/nav_public_service"
-            android:icon="@drawable/ic_public"
-            android:title="Dịch vụ công" />
-        <item
             android:id="@+id/nav_statistical"
             android:icon="@drawable/ic_statistical"
             android:title="Thông tin thống kê" />

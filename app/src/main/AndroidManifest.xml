@@ -36,6 +36,8 @@
         <activity android:name=".DetailScreen.DetailHomeActivityTemp"></activity>
         <activity android:name=".DetailScreen.DetailCountryActivityTemp"></activity>
         <activity android:name=".GovementMenu.GovementMenuActivity"></activity>
+        <activity android:name=".DevelopmentMenu.DevelopmentMenuActivity"></activity>
+        <activity android:name=".StatisticalMenu.StatisticalMenuActivity"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"
