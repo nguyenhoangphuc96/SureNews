@@ -38,6 +38,10 @@
         <activity android:name=".GovementMenu.GovementMenuActivity"></activity>
         <activity android:name=".DevelopmentMenu.DevelopmentMenuActivity"></activity>
         <activity android:name=".StatisticalMenu.StatisticalMenuActivity"></activity>
+
+        <activity android:name=".HomeMenu.DetailActivitiesLeaderActivity"></activity>
+        <activity android:name=".HomeMenu.DetailPoliticalNewsActivity"></activity>
+        <activity android:name=".HomeMenu.DetailEconomyActivity"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"

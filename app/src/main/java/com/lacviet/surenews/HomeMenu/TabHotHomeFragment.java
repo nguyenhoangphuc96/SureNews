@@ -26,6 +26,7 @@ public class TabHotHomeFragment extends Fragment {
     private ArrayList<NewsModel> listNews = new ArrayList<>();
     ProgressBar pbTabhome;
     String baseSrcUrl = "http://baclieu.gov.vn";
+    String baseSrcUrlNew = "http://congthongtin.bioportal.vn";
     public TabHotHomeFragment() {
         // Required empty public constructor
     }
@@ -100,6 +101,21 @@ public class TabHotHomeFragment extends Fragment {
                 "Thứ Năm, 09/06/2016, 16:05",
                 "Sáng 9/6, đồng chí Lê Minh Khái, Bí thư Tỉnh ủy đã chủ trì cuộc họp công bố Quyết định về việc thành lập Ban Chỉ đạo thực hiện Chương trình mục tiêu Quốc gia xây dựng nông thôn mới trên địa bàn tỉnh Bạc Liêu giai đoạn 2016 – 2020; đánh giá kết quả thực hiện Chương trình giai đoạn 2011 – 2015 và triển khai kế hoạch giai đoạn 2016 – 2020.",
                 baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2016-6/QC962016_16125.jpg"));
+        listNews.add(new NewsModel(13,
+                "Triển khai kế hoạch sản xuất nông nghiệp 6 tháng cuối năm 2018",
+                "Thứ Năm, 28/06/2018, 08:00",
+                "Ngày 14/6, Sở Nông nghiệp và Phát triển nông thôn (NN&PTNT) tổ chức Hội nghị sơ kết 6 tháng đầu năm và triển khai kế hoạch, giải pháp thực hiện 6 tháng cuối năm 2018. Ông Lương Ngọc Lân, Giám đốc Sở NN&PTNT dự và chủ trì Hội nghị.",
+                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/trien%20khai%20ke%20hoach%20nn%206%20thang%20cuoi%20nam1562018_153449.jpg"));
+        listNews.add(new NewsModel(14,
+                "Các giải pháp trọng tâm để phát triển ngành tôm bền vững",
+                "Thứ Hai, 25/06/2018, 09:25",
+                "Ngày 03/6, tại Trung tâm Văn hóa tỉnh Bạc Liêu, Bộ NN&PTNT phối hợp với UBND tỉnh Bạc Liêu tổ chức Hội nghị “Các giải pháp trọng tâm để phát triển ngành tôm bền vững”. Đồng chí Nguyễn Xuân Cường - Ủy viên BCH Trung ương Đảng - Bộ trưởng Bộ NN&PTNT và đồng chí Nguyễn Quang Dương - Ủy viên BCH Trung ương Đảng - Bí thư Tỉnh ủy Bạc Liêu đồng chủ trì Hội nghị.",
+                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/cac%20giai%20phap%20trong%20tam562018_85247.jpg"));
+        listNews.add(new NewsModel(15,
+                "Bạc Liêu: Định hướng thành lập HTX công nghệ cao phát triển tôm",
+                "Thứ Hai, 25/06/2018, 09:25",
+                "Để chuẩn bị cho việc thành lập Hợp tác xã công nghệ cao phát triển tôm Bạc Liêu, sáng 22/6, Chủ tịch UBND tỉnh Dương Thành Trung đã chủ trì buổi họp mặt với Lãnh đạo các Sở, Ban, Ngành liên quan và các doanh nghiệp, hộ nuôi tôm trên địa bàn tỉnh. Dự buổi Họp mặt có ông Đặng Huy Đông, nguyên Thứ trưởng Bộ Kế hoạch và Đầu tư.",
+                baseSrcUrlNew+"/PublishingImages/dinh%20huong%20thanh%20lap%20htx2562018_104544.jpg"));
 
         mAdapter.updateAnswers(listNews);
         pbTabhome.setVisibility(View.GONE);
