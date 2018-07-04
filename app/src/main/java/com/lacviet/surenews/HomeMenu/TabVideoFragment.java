@@ -23,6 +23,7 @@ public class TabVideoFragment extends Fragment {
     private RecyclerView recyclerView;
     private VideoTabRCVAdapter mAdapter;
     private List<VideoModel> listVideo;
+    String baseUrlVideo = "http://video.baobaclieu.vn";
     public TabVideoFragment() {
         // Required empty public constructor
     }
@@ -37,25 +38,28 @@ public class TabVideoFragment extends Fragment {
 
     private void addData() {
         listVideo = new ArrayList<>();
-        listVideo.add(new VideoModel(1,"Clip: Khách sạn siêu sang Trung Quốc đổ sập chỉ trong 10 giây",
+        listVideo.add(new VideoModel(1,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
+                "Bạc Liêu hôm nay",
                 "",
-                "http://streaming1.danviet.vn/upload/2-2018/videoclip/2018-06-28/1530198322-videoplayback--1-.mp4",
+                baseUrlVideo+"/uploads/video/2017/08/01/bac lieu hom nay (moi).mp4",
                 "2h trước"));
-        listVideo.add(new VideoModel(2,"Thái Lan: Khoan hang động để tìm kiếm đội bóng mất tích",
+        listVideo.add(new VideoModel(2,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
+                "Bạc Liêu quê hương tôi",
                 "",
-                "http://streaming1.danviet.vn/upload/2-2018/videoclip/2018-06-28/1530147487-rescuers-continue-search-for-thai-soccer-team_x264.mp4",
+                baseUrlVideo+"/uploads/video/2017/05/11/bac-lieu-que-toi.mp4",
                 "3h trước"));
-        listVideo.add(new VideoModel(3,"Xót xa cặp vợ chồng bới rác vớt vát tài sản ở căn nhà bị lũ đánh sập",
+        listVideo.add(new VideoModel(3,"Nông dân Bạc Liêu trúng mùa giữa cơn đại hạn",
                 "",
-                "http://streaming1.danviet.vn/upload/2-2018/videoclip/2018-06-28/1530182479-x--t-xa-c---p-v----ch---ng-b---i-t--m-k--t-s---t-trong-c--n-nh---b----l-------nh.mp4",
+                baseUrlVideo+"/uploads/video/2017/05/11/Nông dân Bạc Liêu trúng mùa giữa cơn đại hạn - VTC.mp4",
                 "2 ngày trước"));
-        listVideo.add(new VideoModel(4,"Hà Giang huy động xe chuyên dụng đưa hàng nghìn sĩ tử đi thi",
+        listVideo.add(new VideoModel(4,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
+                "Tấm gương vượt khó",
                 "",
-                "https://v.vnecdn.net/vnexpress/video/web/mp4/2018/06/25/ha-giang-huy-dong-xe-chuyen-dung-dua-thi-sinh-di-thi-1529915206.mp4",
+                baseUrlVideo+"/uploads/video/2017/05/11/ncna260317.mp4",
                 "2 ngày trước"));
-        listVideo.add(new VideoModel(5,"Tàu vũ trụ Nhật Bản tiếp cận được tiểu hành tinh có dấu hiệu của sự sống",
+        listVideo.add(new VideoModel(5,"Nuôi tôm siêu thâm canh công nghệ cao trong nhà kín",
                 "",
-                "http://streaming1.danviet.vn/upload/2-2018/videoclip/2018-06-29/1530243373-taus.mp4",
+                baseUrlVideo+"/uploads/video/2017/05/18/nuoi tom trong nha kinh.mp4",
                 "5 ngày trước"));
         mAdapter.updateAnswers(listVideo);
     }

@@ -19,7 +19,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     cardview:cardBackgroundColor="@color/colorBackgroundToolbarGray"
-                    cardview:cardCornerRadius="@dimen/cardview_corner_radius">
+                    cardview:cardElevation="10dp">
 
                     <VideoView
                         android:id="@+id/videoView"
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đồng đội cũ dự đoán Messi sắp chia tay tuyển Argentina"
-                android:textAppearance="@style/TextTitleNews" />
+                android:textAppearance="@style/TextSubTitleNews" />
 
             <TextView
                 android:id="@+id/tvTimeVideo"
