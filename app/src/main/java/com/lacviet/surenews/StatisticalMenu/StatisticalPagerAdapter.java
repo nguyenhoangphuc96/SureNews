@@ -5,12 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.lacviet.surenews.DevelopmentMenu.TabBusinessOperationFragment;
-import com.lacviet.surenews.GovementMenu.TabCityNewsFragment;
-import com.lacviet.surenews.GovementMenu.TabCommandOperatingFragment;
-import com.lacviet.surenews.GovementMenu.TabDepartmentNewsFragment;
-import com.lacviet.surenews.HomeMenu.TabActivitiesLeaderFragment;
-
 public class StatisticalPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
 

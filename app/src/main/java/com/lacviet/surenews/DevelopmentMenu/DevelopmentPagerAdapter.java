@@ -5,11 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.lacviet.surenews.GovementMenu.TabCityNewsFragment;
-import com.lacviet.surenews.GovementMenu.TabCommandOperatingFragment;
-import com.lacviet.surenews.GovementMenu.TabDepartmentNewsFragment;
-import com.lacviet.surenews.HomeMenu.TabActivitiesLeaderFragment;
-
 public class DevelopmentPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
 
@@ -22,13 +17,13 @@ public class DevelopmentPagerAdapter extends FragmentStatePagerAdapter {
         Fragment frag=null;
         switch (position){
             case 0:
-                frag = new TabInvestNewsFragment();
+                frag = new TabInvestProjectFragment();
                 break;
             case 1:
-                frag = new TabBusinessOperationFragment();
+                frag = new TabInvestCollabFragment();
                 break;
             case 2:
-                frag = new TabReflectsAnswerFragment();
+                frag = new TabPolicyFragment();
                 break;
         }
         return frag;
@@ -43,13 +38,13 @@ public class DevelopmentPagerAdapter extends FragmentStatePagerAdapter {
         String title = "";
         switch (position){
             case 0:
-                title = "Tin đầu tư - phát triển";
+                title = "Dự án đầu tư";
                 break;
             case 1:
-                title = "Hoạt động doanh nghiệp";
+                title = "Hợp tác - đầu tư";
                 break;
             case 2:
-                title = "Phản ánh - giải đáp";
+                title = "Chủ trương - chính sách";
                 break;
 
 

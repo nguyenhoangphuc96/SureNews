@@ -27,10 +27,10 @@ public class GovementPagerAdapter extends FragmentStatePagerAdapter {
         Fragment frag=null;
         switch (position){
             case 0:
-                frag = new TabActivitiesLeaderFragment();
+                frag = new TabZoningFragment();
                 break;
             case 1:
-                frag = new TabCommandOperatingFragment();
+                frag = new TabActivitiesLeaderFragment();
                 break;
             case 2:
                 frag = new TabDepartmentNewsFragment();
@@ -51,10 +51,10 @@ public class GovementPagerAdapter extends FragmentStatePagerAdapter {
         String title = "";
         switch (position){
             case 0:
-                title = "Hoạt động lãnh đạo tỉnh";
+                title = "Quy hoạch phát triển";
                 break;
             case 1:
-                title = "Thông tin chỉ đạo, điều hành";
+                title = "Hoạt động lãnh đạo";
                 break;
             case 2:
                 title = "Tin hoạt động sở ngành";
