@@ -1,10 +1,16 @@
 package com.lacviet.surenews.DetailScreen;
 
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,7 +24,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.lacviet.surenews.Feedback.FeedbackActivity;
 import com.lacviet.surenews.KeyString;
+import com.lacviet.surenews.MainActivity;
 import com.lacviet.surenews.Model.DetailModel;
 import com.lacviet.surenews.R;
 import com.squareup.picasso.Picasso;
@@ -34,7 +42,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
     Toolbar toolbar;
     ProgressBar pbDetail;
     LinearLayout loBody;
-    TextView tvTitle, tvTime, tvSubTitle;
+    TextView tvTitle, tvTime, tvSubTitle, textView;
     ArrayList<String> listDetailHome1 = new ArrayList<>();
     ArrayList<String> listDetailHome2 = new ArrayList<>();
     ArrayList<String> listDetailHome3 = new ArrayList<>();
@@ -71,6 +79,11 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
     String subtitle = "";
     String image = "";
     String text = "";
+    //change size
+    float sizeTitleDefault,sizeContentDefault,sizeTimeDefault,sizeTitle,sizeContent,sizeTime,sizecaptionImage;
+
+    //
+    View layoutImage,layoutText,layoutAuthor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,6 +91,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         addControl();
         actionBar();
+        textSize();
         getDatafromPreviousActivity();
         initData();
         loadData();
@@ -158,7 +172,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
             case 8:{
                 listDetailHome8.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/xa%20hung%20hoi%2011262018_144430.jpg");
                 listDetailHome8.add("Đường liên ấp của xã Hưng Hội được bê-tông hóa.");
-                listDetailHome8.add("/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/xa%20hung%20hoi%2021262018_14452.jpg");
+                listDetailHome8.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/xa%20hung%20hoi%2021262018_14452.jpg");
                 listDetailHome8.add("Xã Hưng Hội làm lộ giao thông nông thôn. Ảnh: C.L");
                 listDetailHome8.add("Là xã có khá đông đồng bào Khmer sinh sống, đời sống kinh tế của người dân còn gặp nhiều khó khăn, vì vậy khi thực hiện phong trào xây dựng nông thôn mới (XDNTM) xã Hưng Hội có xuất phát điểm khá thấp. Song, nhờ sự nỗ lực của địa phương và sự đồng tình hưởng ứng của người dân, đến cuối tháng 5/2018, xã Hưng Hội đã đạt 14/19 tiêu chí XDNTM. Còn 5 tiêu chí chưa đạt là: Quy hoạch, thủy lợi, điện, bưu điện, nhà ở dân cư và thu nhập. Tuy nhiên, các tiêu chí này đã thực hiện được nhiều tiểu mục.");
                 listDetailHome8.add("Từ đầu năm đến nay, xã Hưng Hội đã thi công 3 tuyến lộ bê-tông với chiều dài 610m, sửa chữa một tuyến lộ nhựa dài 1.900m. Tổng kinh phí thực hiện các công trình hơn 232 triệu đồng, trong đó, người dân đóng góp hơn một nửa. Ông Hứa Sa Thi (ấp Cái Giá, xã Hưng Hội) bày tỏ: “Trước đây, con lộ trước nhà tôi sình lầy, khó đi lắm. Khi chính quyền đến vận động làm lộ bê-tông, bà con rất phấn khởi và đóng góp tiền, ngày công cùng với chính quyền xây dựng hoàn thành công trình”. Ngoài ra, từ nguồn vốn hỗ trợ gần 2 tỷ đồng (theo Nghị định 35/NĐ-CP của Thủ tướng Chính phủ), xã đã sên vét 26 tuyến kênh nội đồng, 4 tuyến kênh cấp 3 và làm 6 tuyến lộ bê-tông với chiều dài gần 3km.");
@@ -525,41 +539,118 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
 
 
     }
-
+    private void textSize() {
+        TypedValue varSizeTitle = new TypedValue();
+        getResources().getValue(R.dimen.textsize_title_default,varSizeTitle,true);
+        sizeTitleDefault=varSizeTitle.getFloat();
+        sizeTitle=varSizeTitle.getFloat();
+        //
+        TypedValue varSizeContent = new TypedValue();
+        getResources().getValue(R.dimen.textsize_content_default,varSizeContent,true);
+        sizeContentDefault=varSizeContent.getFloat();
+        sizeContent=varSizeContent.getFloat();
+        //
+        TypedValue varSizeTime = new TypedValue();
+        getResources().getValue(R.dimen.textsize_time_default,varSizeTime,true);
+        sizeTimeDefault=varSizeTime.getFloat();
+        sizeTime=varSizeTime.getFloat();
+        //
+        sizecaptionImage=15;
+    }
     private void loadDataById(ArrayList<String> listDetailHome) {
         //
         tvTitle.setText(title);
         tvTime.setText(time);
         tvSubTitle.setText(subtitle);
         //body
-        for(int i = 0; i<listDetailHome.size();i++)
+        for(int i = 0; i<listDetailHome.size()-1;i++)
         {
-            if (listDetailHome.get(i).startsWith("http://")) {
-                View layout2 = LayoutInflater.from(DetailHomeActivityTemp.this).inflate(R.layout.item_image, loBody, false);
+            if (listDetailHome.get(i).startsWith("http")) {
+                layoutImage = LayoutInflater.from(DetailHomeActivityTemp.this).inflate(R.layout.item_image, loBody, false);
 
-                TextView textView = layout2.findViewById(R.id.tvImageText);
-                ImageView imgView = layout2.findViewById(R.id.imvImage);
+                textView = layoutImage.findViewById(R.id.tvImageText);
+                ImageView imgView = layoutImage.findViewById(R.id.imvImage);
                 image = listDetailHome.get(i);
                 text = listDetailHome.get(i+1);
                 //
                 textView.setText(text);
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizecaptionImage);
                 Picasso.with(DetailHomeActivityTemp.this).load(image).into(imgView);
 
-                loBody.addView(layout2);
+                loBody.addView(layoutImage);
                 i++;
 
             } else {
-                View layout1 = LayoutInflater.from(DetailHomeActivityTemp.this).inflate(R.layout.item_text, loBody, false);
+                layoutText = LayoutInflater.from(DetailHomeActivityTemp.this).inflate(R.layout.item_text, loBody, false);
 
-                TextView textView = (TextView) layout1.findViewById(R.id.tvText);
+                textView = (TextView) layoutText.findViewById(R.id.tvText);
 
                 textView.setText(listDetailHome.get(i));
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
 
-                loBody.addView(layout1);
+                loBody.addView(layoutText);
             }
         }
+        //author
+        layoutAuthor = LayoutInflater.from(DetailHomeActivityTemp.this).inflate(R.layout.item_text, loBody, false);
+
+        textView = (TextView) layoutAuthor.findViewById(R.id.tvText);
+
+        textView.setText(listDetailHome.get(listDetailHome.size()-1));
+        textView.setTypeface(null, Typeface.ITALIC);
+        textView.setGravity(Gravity.END);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
+        loBody.addView(layoutAuthor);
+
         pbDetail.setVisibility(View.GONE);
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_decrease_size: {
+                sizeContent=sizeContent-1;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,--sizeTitle);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,--sizeTime);
+                //
+
+                loBody.removeViews(3,loBody.getChildCount()-3);
+                loadData();
+                return true;
+            }
+            case R.id.menu_default_size: {
+                sizeContent = sizeContentDefault;
+                sizeTime=sizeTimeDefault;
+                sizeTitle=sizeTitleDefault;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeTitleDefault);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContentDefault);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeTimeDefault);
+                //
+                loBody.removeViews(3,loBody.getChildCount()-3);
+                loadData();
+                return true;
+            }
+            case R.id.menu_increase_size: {
+                sizeContent=sizeContent+1;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,++sizeTitle);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,++sizeTime);
+                //
+
+                loBody.removeViews(3,loBody.getChildCount()-3);
+                loadData();
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void getDatafromPreviousActivity() {
@@ -598,4 +689,5 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
 
 
     }
+
 }

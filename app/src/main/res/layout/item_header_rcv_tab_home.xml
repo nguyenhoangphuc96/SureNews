@@ -59,7 +59,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đồng đội cũ dự đoán Messi sắp chia tay tuyển Argentina"
-                android:textAppearance="@style/TextTitleNews" />
+                android:textAppearance="@style/TextTitleNews"
+                android:lineSpacingMultiplier="@dimen/line_spacing_text_rcv"/>
 
             <TextView
                 android:id="@+id/tvSubTittleHot"
@@ -69,7 +70,7 @@
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:text="Lão tướng của tuyển Argentina cho biết, toàn đội vẫn là một khối thống nhất và quyết tâm hạ Nigeria ở trận cuối cùng."
-                />
+                android:lineSpacingMultiplier="@dimen/line_spacing_text_rcv"/>
             <TextView
                 android:id="@+id/tvTimeHot"
                 android:layout_width="match_parent"

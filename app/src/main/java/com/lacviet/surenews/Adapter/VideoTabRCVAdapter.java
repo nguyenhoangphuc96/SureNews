@@ -52,11 +52,11 @@ public class VideoTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             String url = item.getVideoUrl(); // your URL here
             Uri videoUri = Uri.parse(url);
             ((VHItem) holder).videoView.setVideoURI(videoUri);
-            ((VHItem) holder).videoView.seekTo(10);
+            //((VHItem) holder).videoView.seekTo(10);
             ((VHItem) holder).videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
-                    ((VHItem) holder).videoView.seekTo(10);
+
                     mp.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
                         @Override
                         public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
@@ -66,6 +66,7 @@ public class VideoTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                              */
 
                             MediaController mc = new MediaController(mContext);
+                            mc.setMediaPlayer(((VHItem) holder).videoView);
                             ((VHItem) holder).videoView.setMediaController(mc);
                             /*
                              * and set its position on screen
@@ -73,6 +74,7 @@ public class VideoTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                             mc.setAnchorView(((VHItem) holder).videoView);
                         }
                     });
+                    ((VHItem) holder).videoView.seekTo(10);
                 }
             });
 

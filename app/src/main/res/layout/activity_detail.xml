@@ -41,6 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/TextDetailTitle"
+                    android:lineSpacingMultiplier="@dimen/line_spacing_text"
                     />
 
                 <TextView
@@ -48,13 +49,15 @@
                     android:id="@+id/tvTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Thứ Hai, 25/06/2018, 09:25" />
+                    android:text="Thứ Hai, 25/06/2018, 09:25"
+                    />
                 <TextView
                     android:padding="@dimen/detail_title_padding"
                     android:id="@+id/tvSubTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/TextDetailContent"
+                    android:lineSpacingMultiplier="@dimen/line_spacing_text"
                     />
             </LinearLayout>
         </ScrollView>

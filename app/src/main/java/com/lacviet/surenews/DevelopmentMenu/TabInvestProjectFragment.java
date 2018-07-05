@@ -130,7 +130,7 @@ public class TabInvestProjectFragment extends Fragment {
     }
 
     private void startDetailActivity(int id, String title, String time, String subTitle) {
-        Intent intent = new Intent(getContext(), DetailDepartmentNewsActivity.class);
+        Intent intent = new Intent(getContext(), DetailInvestProjectActivity.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
         intent.putExtra(key.TITLE, title);

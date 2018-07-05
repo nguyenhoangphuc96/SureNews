@@ -70,7 +70,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đồng đội cũ dự đoán Messi sắp chia tay tuyển Argentina"
-                android:textAppearance="@style/TextSubTitleNews" />
+                android:textAppearance="@style/TextSubTitleNews"
+                android:lineSpacingMultiplier="@dimen/line_spacing_text_rcv"/>
 
             <TextView
                 android:id="@+id/tvTime"

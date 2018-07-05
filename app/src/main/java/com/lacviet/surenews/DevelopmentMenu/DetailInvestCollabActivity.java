@@ -1,16 +1,22 @@
 package com.lacviet.surenews.DevelopmentMenu;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.lacviet.surenews.DetailScreen.DetailHomeActivityTemp;
 import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.R;
 import com.squareup.picasso.Picasso;
@@ -21,7 +27,7 @@ public class DetailInvestCollabActivity extends AppCompatActivity {
     Toolbar toolbar;
     ProgressBar pbDetail;
     LinearLayout loBody;
-    TextView tvTitle, tvTime, tvSubTitle;
+    TextView tvTitle, tvTime, tvSubTitle,textView;
     ArrayList<String> listDetailHome1 = new ArrayList<>();
     ArrayList<String> listDetailHome2 = new ArrayList<>();
     ArrayList<String> listDetailHome3 = new ArrayList<>();
@@ -43,6 +49,11 @@ public class DetailInvestCollabActivity extends AppCompatActivity {
     String subtitle = "";
     String image = "";
     String text = "";
+    //change size
+    float sizeTitleDefault,sizeContentDefault,sizeTimeDefault,sizeTitle,sizeContent,sizeTime,sizecaptionImage;
+
+    //
+    View layoutImage,layoutText,layoutAuthor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +61,7 @@ public class DetailInvestCollabActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         addControl();
         actionBar();
+        textSize();
         getDatafromPreviousActivity();
         initData();
         loadData();
@@ -269,40 +281,118 @@ public class DetailInvestCollabActivity extends AppCompatActivity {
 
 
     }
-
+    private void textSize() {
+        TypedValue varSizeTitle = new TypedValue();
+        getResources().getValue(R.dimen.textsize_title_default,varSizeTitle,true);
+        sizeTitleDefault=varSizeTitle.getFloat();
+        sizeTitle=varSizeTitle.getFloat();
+        //
+        TypedValue varSizeContent = new TypedValue();
+        getResources().getValue(R.dimen.textsize_content_default,varSizeContent,true);
+        sizeContentDefault=varSizeContent.getFloat();
+        sizeContent=varSizeContent.getFloat();
+        //
+        TypedValue varSizeTime = new TypedValue();
+        getResources().getValue(R.dimen.textsize_time_default,varSizeTime,true);
+        sizeTimeDefault=varSizeTime.getFloat();
+        sizeTime=varSizeTime.getFloat();
+        //
+        sizecaptionImage=15;
+    }
     private void loadDataById(ArrayList<String> listDetailHome) {
         //
         tvTitle.setText(title);
         tvTime.setText(time);
         tvSubTitle.setText(subtitle);
         //body
-        for (int i = 0; i < listDetailHome.size(); i++) {
+        for(int i = 0; i<listDetailHome.size()-1;i++)
+        {
             if (listDetailHome.get(i).startsWith("http")) {
-                View layout2 = LayoutInflater.from(DetailInvestCollabActivity.this).inflate(R.layout.item_image, loBody, false);
+                layoutImage = LayoutInflater.from(DetailInvestCollabActivity.this).inflate(R.layout.item_image, loBody, false);
 
-                TextView textView = layout2.findViewById(R.id.tvImageText);
-                ImageView imgView = layout2.findViewById(R.id.imvImage);
+                textView = layoutImage.findViewById(R.id.tvImageText);
+                ImageView imgView = layoutImage.findViewById(R.id.imvImage);
                 image = listDetailHome.get(i);
-                text = listDetailHome.get(i + 1);
+                text = listDetailHome.get(i+1);
                 //
                 textView.setText(text);
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizecaptionImage);
                 Picasso.with(DetailInvestCollabActivity.this).load(image).into(imgView);
 
-                loBody.addView(layout2);
+                loBody.addView(layoutImage);
                 i++;
 
             } else {
-                View layout1 = LayoutInflater.from(DetailInvestCollabActivity.this).inflate(R.layout.item_text, loBody, false);
+                layoutText = LayoutInflater.from(DetailInvestCollabActivity.this).inflate(R.layout.item_text, loBody, false);
 
-                TextView textView = (TextView) layout1.findViewById(R.id.tvText);
+                textView = (TextView) layoutText.findViewById(R.id.tvText);
 
                 textView.setText(listDetailHome.get(i));
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
 
-                loBody.addView(layout1);
+                loBody.addView(layoutText);
             }
         }
+        //author
+        layoutAuthor = LayoutInflater.from(DetailInvestCollabActivity.this).inflate(R.layout.item_text, loBody, false);
+
+        textView = (TextView) layoutAuthor.findViewById(R.id.tvText);
+
+        textView.setText(listDetailHome.get(listDetailHome.size()-1));
+        textView.setTypeface(null, Typeface.ITALIC);
+        textView.setGravity(Gravity.END);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
+        loBody.addView(layoutAuthor);
+
         pbDetail.setVisibility(View.GONE);
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_decrease_size: {
+                sizeContent=sizeContent-1;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,--sizeTitle);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,--sizeTime);
+                //
+
+                loBody.removeViews(3,loBody.getChildCount()-3);
+                loadData();
+                return true;
+            }
+            case R.id.menu_default_size: {
+                sizeContent = sizeContentDefault;
+                sizeTime=sizeTimeDefault;
+                sizeTitle=sizeTitleDefault;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeTitleDefault);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContentDefault);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeTimeDefault);
+                //
+                loBody.removeViews(3,loBody.getChildCount()-3);
+                loadData();
+                return true;
+            }
+            case R.id.menu_increase_size: {
+                sizeContent=sizeContent+1;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,++sizeTitle);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,++sizeTime);
+                //
+
+                loBody.removeViews(3,loBody.getChildCount()-3);
+                loadData();
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void getDatafromPreviousActivity() {
