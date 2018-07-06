@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_decrease_size"
         android:icon="@drawable/ic_size_decrease"
-        android:title="decrease"
+        android:title="decrease size"
         app:showAsAction="always" />
     <item android:id="@+id/menu_default_size"
         android:icon="@drawable/ic_size_default"
-        android:title="decrease"
+        android:title="normal size"
         app:showAsAction="always" />
     <item android:id="@+id/menu_increase_size"
         android:icon="@drawable/ic_size_increase"
-        android:title="decrease"
+        android:title="increase size"
         app:showAsAction="always" />
 </menu>

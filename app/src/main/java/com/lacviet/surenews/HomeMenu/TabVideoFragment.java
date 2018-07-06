@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,6 @@ public class TabVideoFragment extends Fragment {
     private RecyclerView recyclerView;
     private VideoTabRCVAdapter mAdapter;
     private List<VideoModel> listVideo;
-    String baseUrlVideo = "http://video.baobaclieu.vn";
     public TabVideoFragment() {
         // Required empty public constructor
     }
@@ -38,28 +38,28 @@ public class TabVideoFragment extends Fragment {
 
     private void addData() {
         listVideo = new ArrayList<>();
-        listVideo.add(new VideoModel(1,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
+        listVideo.add(new VideoModel(1,"Nông dân Bạc Liêu trúng mùa giữa cơn đại hạn",
+                "",
+                "android.resource://" + getContext().getPackageName() + "/"+getRawResIdByName("v1"),
+                "Thứ Sáu, 29/06/2018, 08:20"));
+        listVideo.add(new VideoModel(2,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
                 "Bạc Liêu hôm nay",
                 "",
-                baseUrlVideo+"/uploads/video/2017/08/01/bac lieu hom nay (moi).mp4",
-                "2h trước"));
-        listVideo.add(new VideoModel(2,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
+                "android.resource://" + getContext().getPackageName() + "/"+getRawResIdByName("v2"),
+                "Thứ Tư, 27/06/2018, 13:25"));
+        listVideo.add(new VideoModel(3,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
                 "Bạc Liêu quê hương tôi",
                 "",
-                baseUrlVideo+"/uploads/video/2017/05/11/bac-lieu-que-toi.mp4",
-                "3h trước"));
-        listVideo.add(new VideoModel(3,"Nông dân Bạc Liêu trúng mùa giữa cơn đại hạn",
-                "",
-                baseUrlVideo+"/uploads/video/2017/05/11/Nông dân Bạc Liêu trúng mùa giữa cơn đại hạn - VTC.mp4",
-                "2 ngày trước"));
+                "android.resource://" + getContext().getPackageName() + "/"+getRawResIdByName("v3"),
+                "Thứ Ba, 15/05/2018, 15:50"));
         listVideo.add(new VideoModel(4,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
                 "Tấm gương vượt khó",
                 "",
-                baseUrlVideo+"/uploads/video/2017/05/11/ncna260317.mp4",
-                "2 ngày trước"));
+                "android.resource://" + getContext().getPackageName() + "/"+getRawResIdByName("v4"),
+                "30/06/2018"));
         listVideo.add(new VideoModel(5,"Nuôi tôm siêu thâm canh công nghệ cao trong nhà kín",
                 "",
-                baseUrlVideo+"/uploads/video/2017/05/18/nuoi tom trong nha kinh.mp4",
+                "android.resource://" + getContext().getPackageName() + "/"+getRawResIdByName("v5"),
                 "5 ngày trước"));
         mAdapter.updateAnswers(listVideo);
     }
@@ -83,5 +83,14 @@ public class TabVideoFragment extends Fragment {
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
+    }
+    // Tìm ID ứng với tên của file nguồn (Trong thư mục raw).
+    public int getRawResIdByName(String resName) {
+        String pkgName = getContext().getPackageName();
+
+        // Trả về 0 nếu không tìm thấy.
+        int resID = this.getResources().getIdentifier(resName, "raw", pkgName);
+        Log.i("AndroidVideoView", "Res Name: " + resName + "==> Res ID = " + resID);
+        return resID;
     }
 }

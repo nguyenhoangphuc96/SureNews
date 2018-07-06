@@ -38,19 +38,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DetailHomeActivityTemp.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DetailScreen/DetailHomeActivityTemp.java">
+      <file leaf-file-name="VideoTabRCVAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/VideoTabRCVAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="541" column="4" lean-forward="false" selection-start-line="541" selection-start-column="4" selection-end-line="653" selection-end-column="5" />
+            <state relative-caret-position="170">
+              <caret line="68" column="49" lean-forward="false" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
               <folding>
-                <element signature="method#initData#0;class#DetailHomeActivityTemp#0" expanded="false" />
-                <element signature="method#loadData#0;class#DetailHomeActivityTemp#0" expanded="false" />
-                <element signature="method#textSize#0;class#DetailHomeActivityTemp#0" expanded="false" />
-                <element signature="method#loadDataById#0;class#DetailHomeActivityTemp#0" expanded="false" />
-                <element signature="method#onCreateOptionsMenu#0;class#DetailHomeActivityTemp#0" expanded="false" />
-                <element signature="method#onOptionsItemSelected#0;class#DetailHomeActivityTemp#0" expanded="false" />
+                <element signature="e#3270#3271#0" expanded="true" />
+                <element signature="e#3309#3310#0" expanded="true" />
+                <element signature="e#3619#3620#0" expanded="true" />
+                <element signature="e#3672#3673#0" expanded="true" />
+                <element signature="e#3714#3715#0" expanded="true" />
+                <element signature="e#3746#3747#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TabVideoFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabVideoFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="80" column="43" lean-forward="false" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item_rcv_tab_video.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_rcv_tab_video.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TabDepartmentNewsFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/TabDepartmentNewsFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="782">
+              <caret line="46" column="55" lean-forward="false" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -2089,9 +2132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_tab_statistical_operation.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/StatisticalMenu/TabStatisticalOperationFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_tab_socio_economic.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/StatisticalMenu/TabSocioEconomicFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/StatisticalMenu/StatisticalPagerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_statistical.xml" />
@@ -2114,21 +2154,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DevelopmentMenu/TabInvestCollabFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_tab_policy.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DevelopmentMenu/TabPolicyFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabActivitiesLeaderFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabPoliticalNewsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabVideoFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DevelopmentMenu/TabInvestProjectFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/VideoTabRCVAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabHotHomeFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_text.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_rcv_tab_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_rcv_tab_video.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_header_rcv_tab_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/drawer_view.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/floats.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/DetailDepartmentNewsActivity.java" />
@@ -2137,9 +2172,17 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DevelopmentMenu/DetailInvestProjectActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DevelopmentMenu/DetailPolicyActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/DetailZoningActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailActivitiesLeaderActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailEconomyActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailPoliticalNewsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailActivitiesLeaderActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/KeyString.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/VideoTabRCVAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_rcv_tab_video.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabVideoFragment.java" />
       </list>
     </option>
   </component>
@@ -2164,7 +2207,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
@@ -2176,64 +2219,13 @@
             <path>
               <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="surenews" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="surenews" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="DetailScreen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="surenews" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="DevelopmentMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="surenews" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="GovementMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="surenews" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="HomeMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
               <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="raw" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
@@ -2244,14 +2236,29 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SureNews" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SureNews" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="SureNews" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SureNews" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="Pixel_2_API_26" />
-    <property name="last_opened_file_path" value="D:/SINO/Android_App/ImagePicker/ImagePicker" />
+    <property name="device.picker.selection" value="F7AZFG06C950" />
+    <property name="last_opened_file_path" value="D:/SINO/SourceTreeProject/SureNews" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -2261,6 +2268,8 @@
       <recent name="com.lacviet.surenews" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\NHPHUC\VEBRARY\2018\SureNews\app\src\main\res\raw" />
+      <recent name="D:\NHPHUC\VEBRARY\2018\SureNews\app\libs" />
       <recent name="D:\NHPHUC\VEBRARY\2018\SureNews\app\src\main\res\drawable" />
       <recent name="D:\NHPHUC\VEBRARY\2018\SureNews\app\src\main\res" />
     </key>
@@ -2429,18 +2438,26 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28517398" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5030257" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2449,7 +2466,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2462,6 +2479,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28517398" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -2512,60 +2530,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tab_activities_leader.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="14" column="39" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/TabCommandOperatingFragment.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/DetailCommandOperatingActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/GovementPagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="61" column="18" lean-forward="false" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tab_zoning.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="40" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/MainScreenTab/TabCountrySideFragmentTemp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/TabZoningFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="97" column="56" lean-forward="false" selection-start-line="97" selection-start-column="56" selection-end-line="97" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DetailScreen/DetailCountryActivityTemp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="116" column="13" lean-forward="false" selection-start-line="54" selection-start-column="12" selection-end-line="116" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2573,7 +2541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="42" column="43" lean-forward="true" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2581,17 +2548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="19" column="53" lean-forward="true" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/TabDepartmentNewsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="139" column="5" lean-forward="true" selection-start-line="43" selection-start-column="3" selection-end-line="139" selection-end-column="5" />
-          <folding>
-            <element signature="method#addData#0;class#TabDepartmentNewsFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2644,9 +2600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
           <caret line="140" column="5" lean-forward="true" selection-start-line="44" selection-start-column="4" selection-end-line="140" selection-end-column="5" />
-          <folding>
-            <element signature="method#addData#0;class#TabInvestCollabFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2654,18 +2607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="53" column="125" lean-forward="false" selection-start-line="53" selection-start-column="125" selection-end-line="53" selection-end-column="125" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="48" column="71" lean-forward="false" selection-start-line="48" selection-start-column="71" selection-end-line="48" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2673,15 +2614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="109" column="37" lean-forward="false" selection-start-line="109" selection-start-column="37" selection-end-line="109" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabEconomyFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="78" column="133" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="78" selection-end-column="133" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2689,15 +2621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102">
           <caret line="108" column="37" lean-forward="false" selection-start-line="108" selection-start-column="37" selection-end-line="108" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabVideoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2705,9 +2628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="124" column="43" lean-forward="true" selection-start-line="124" selection-start-column="43" selection-end-line="124" selection-end-column="43" />
-          <folding>
-            <element signature="method#addData#0;class#TabInvestProjectFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2715,15 +2635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
           <caret line="85" column="19" lean-forward="false" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/VideoTabRCVAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="76" column="59" lean-forward="false" selection-start-line="76" selection-start-column="59" selection-end-line="76" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2734,18 +2645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="73" column="75" lean-forward="false" selection-start-line="73" selection-start-column="75" selection-end-line="73" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_rcv_tab_video.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="47" column="75" lean-forward="false" selection-start-line="47" selection-start-column="75" selection-end-line="47" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2756,11 +2655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="61" column="53" lean-forward="false" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
-          <folding>
-            <element signature="e#1871#1896#0" expanded="false" />
-            <element signature="e#2441#2471#0" expanded="false" />
-            <element signature="e#2988#3018#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2785,7 +2679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="49" lean-forward="false" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2796,7 +2689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2815,32 +2707,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_detail.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="135" column="5" lean-forward="false" selection-start-line="119" selection-start-column="4" selection-end-line="135" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabHotHomeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
           <caret line="206" column="61" lean-forward="false" selection-start-line="206" selection-start-column="61" selection-end-line="206" selection-end-column="61" />
-          <folding>
-            <element signature="method#addData#0;class#TabHotHomeFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2851,9 +2721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <element signature="e#463#489#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2864,31 +2731,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/floats.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/floats.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="46" column="55" lean-forward="false" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2896,19 +2746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="method#initData#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="e#33971#34001#0" expanded="false" />
-            <element signature="e#34212#34244#0" expanded="false" />
-            <element signature="e#34462#34491#0" expanded="false" />
-            <element signature="method#loadDataById#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="e#39535#39677#0" expanded="false" />
-            <element signature="e#39676#39677#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2916,29 +2753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="63" column="19" lean-forward="true" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
-          <folding>
-            <element signature="method#textSize#0;class#DetailInvestCollabActivity#0" expanded="false" />
-            <element signature="e#35138#35168#0" expanded="false" />
-            <element signature="e#35379#35411#0" expanded="false" />
-            <element signature="e#35629#35658#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#DetailInvestCollabActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#DetailInvestCollabActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DevelopmentMenu/DetailInvestProjectActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="method#textSize#0;class#DetailInvestProjectActivity#0" expanded="false" />
-            <element signature="e#34541#34571#0" expanded="false" />
-            <element signature="e#34782#34814#0" expanded="false" />
-            <element signature="e#35032#35061#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#DetailInvestProjectActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#DetailInvestProjectActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2946,13 +2760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="313" column="5" lean-forward="false" selection-start-line="313" selection-start-column="5" selection-end-line="313" selection-end-column="5" />
-          <folding>
-            <element signature="e#35612#35642#0" expanded="false" />
-            <element signature="e#35853#35885#0" expanded="false" />
-            <element signature="e#36103#36132#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#DetailPolicyActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#DetailPolicyActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2960,29 +2767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="30" column="49" lean-forward="false" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
-          <folding>
-            <element signature="method#textSize#0;class#DetailZoningActivity#0" expanded="false" />
-            <element signature="e#42972#43002#0" expanded="false" />
-            <element signature="e#43213#43245#0" expanded="false" />
-            <element signature="e#43463#43492#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#DetailZoningActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#DetailZoningActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailActivitiesLeaderActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="338" column="75" lean-forward="true" selection-start-line="338" selection-start-column="75" selection-end-line="338" selection-end-column="75" />
-          <folding>
-            <element signature="method#textSize#0;class#DetailActivitiesLeaderActivity#0" expanded="false" />
-            <element signature="e#33638#33668#0" expanded="false" />
-            <element signature="e#33879#33911#0" expanded="false" />
-            <element signature="e#34129#34158#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#DetailActivitiesLeaderActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#DetailActivitiesLeaderActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2990,14 +2774,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
           <caret line="30" column="49" lean-forward="false" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
-          <folding>
-            <element signature="method#textSize#0;class#DetailEconomyActivity#0" expanded="false" />
-            <element signature="e#17620#17650#0" expanded="false" />
-            <element signature="e#17861#17893#0" expanded="false" />
-            <element signature="e#18111#18140#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#DetailEconomyActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#DetailEconomyActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3005,28 +2781,164 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="416" column="47" lean-forward="true" selection-start-line="416" selection-start-column="47" selection-end-line="416" selection-end-column="47" />
-          <folding>
-            <element signature="method#textSize#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-            <element signature="e#46297#46327#0" expanded="false" />
-            <element signature="e#46538#46570#0" expanded="false" />
-            <element signature="e#46788#46817#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DetailScreen/DetailHomeActivityTemp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="541" column="4" lean-forward="false" selection-start-line="541" selection-start-column="4" selection-end-line="653" selection-end-column="5" />
+        <state relative-caret-position="68">
+          <caret line="94" column="30" lean-forward="false" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DevelopmentMenu/DetailInvestProjectActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/TabCityNewsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1819">
+          <caret line="135" column="5" lean-forward="false" selection-start-line="119" selection-start-column="4" selection-end-line="135" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/MainScreenTab/TabNewsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-901">
+          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/KeyString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="84" lean-forward="false" selection-start-line="8" selection-start-column="84" selection-end-line="8" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailActivitiesLeaderActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="290" column="22" lean-forward="false" selection-start-line="290" selection-start-column="22" selection-end-line="290" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabEconomyFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/PickImage-2.2.3.aar/cbf1b68d59c9e1e1882682646017bc1c/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="44" lean-forward="false" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
           <folding>
-            <element signature="method#initData#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#loadDataById#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#DetailHomeActivityTemp#0" expanded="false" />
+            <element signature="e#934#952#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_detail.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_rcv_tab_video.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/TabDepartmentNewsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="55" lean-forward="false" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabVideoFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="80" column="43" lean-forward="false" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/VideoTabRCVAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="68" column="49" lean-forward="false" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+          <folding>
+            <element signature="e#3270#3271#0" expanded="true" />
+            <element signature="e#3309#3310#0" expanded="true" />
+            <element signature="e#3619#3620#0" expanded="true" />
+            <element signature="e#3672#3673#0" expanded="true" />
+            <element signature="e#3714#3715#0" expanded="true" />
+            <element signature="e#3746#3747#0" expanded="true" />
           </folding>
         </state>
       </provider>
