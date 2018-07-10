@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.lacviet.surenews.DevelopmentMenu.TabInvestCollabFragment;
 import com.lacviet.surenews.HomeMenu.TabActivitiesLeaderFragment;
 import com.lacviet.surenews.HomeMenu.TabAdministrativeReformFragment;
 import com.lacviet.surenews.HomeMenu.TabEconomyFragment;
@@ -36,7 +37,7 @@ public class GovementPagerAdapter extends FragmentStatePagerAdapter {
                 frag = new TabDepartmentNewsFragment();
                 break;
             case 3:
-                frag = new TabCityNewsFragment();
+                frag = new TabInvestCollabFragment();
                 break;
         }
         return frag;

@@ -63,11 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         return true;
                     }
-                    case R.id.nav_statistical:{
-                        Intent intent = new Intent(MainActivity.this, StatisticalMenuActivity.class);
-                        startActivity(intent);
-                        return true;
-                    }
+
 
                 }
                 return true;

@@ -5,6 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.lacviet.surenews.DevelopmentMenu.TabInvestCollabFragment;
+import com.lacviet.surenews.DevelopmentMenu.TabInvestProjectFragment;
+import com.lacviet.surenews.DevelopmentMenu.TabPolicyFragment;
+import com.lacviet.surenews.GovementMenu.TabDepartmentNewsFragment;
 import com.lacviet.surenews.HomeMenu.TabActivitiesLeaderFragment;
 import com.lacviet.surenews.HomeMenu.TabAdministrativeReformFragment;
 import com.lacviet.surenews.HomeMenu.TabEconomyFragment;
@@ -17,6 +21,8 @@ import com.lacviet.surenews.MainScreenTab.TabCountrySideFragmentTemp;
 import com.lacviet.surenews.MainScreenTab.TabHomeFragmentTemp;
 import com.lacviet.surenews.MainScreenTab.TabNewsFragment;
 import com.lacviet.surenews.HomeMenu.TabVideoFragment;
+import com.lacviet.surenews.StatisticalMenu.TabSocioEconomicFragment;
+import com.lacviet.surenews.StatisticalMenu.TabSpecializeNewsFragment;
 
 public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
@@ -45,16 +51,16 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
                 frag = new TabEconomyFragment();
                 break;
             case 5:
-                frag = new TabSocioculturalFragment();
+                frag = new TabInvestCollabFragment();
                 break;
             case 6:
-                frag = new TabTrafficSafetyFragment();
+                frag = new TabDepartmentNewsFragment();
                 break;
             case 7:
-                frag = new TabLawFragment();
+                frag = new TabPolicyFragment();
                 break;
             case 8:
-                frag = new TabAdministrativeReformFragment();
+                frag = new TabInvestProjectFragment();
                 break;
         }
         return frag;
