@@ -21,6 +21,7 @@ public class VideoTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private List<VideoModel> VideoList;
     private Context mContext;
     private PostItemListener mItemListener;
+    MediaController mc;
 
 
     public VideoTabRCVAdapter(Context mContext, List<VideoModel> homeNewsList, PostItemListener itemListener) {
@@ -53,27 +54,27 @@ public class VideoTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             Uri videoUri = Uri.parse(url);
             ((VHItem) holder).videoView.setVideoURI(videoUri);
             //((VHItem) holder).videoView.seekTo(10);
+            if (mc == null) {
+                mc = new MediaController(mContext);
+                mc.setAnchorView(((VHItem) holder).videoView);
+                ((VHItem) holder).videoView.setMediaController(mc);
+            }
             ((VHItem) holder).videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
+
 
                     mp.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
                         @Override
                         public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
 
-                            /*
-                             * add media controller
-                             */
 
-                            MediaController mc = new MediaController(mContext);
-                            mc.setMediaPlayer(((VHItem) holder).videoView);
-                            ((VHItem) holder).videoView.setMediaController(mc);
-                            /*
-                             * and set its position on screen
-                             */
                             mc.setAnchorView(((VHItem) holder).videoView);
+
+
                         }
                     });
+
                     ((VHItem) holder).videoView.seekTo(10);
                 }
             });
@@ -85,6 +86,49 @@ public class VideoTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         {
             e.printStackTrace();
         }
+
+        /***get clicked view and play video url at this position**//*
+        try {
+            //play video using android api, when video view is clicked.
+            String url = item.getVideoUrl(); // your URL here
+            Uri videoUri = Uri.parse(url);
+            ((VHItem) holder).videoView.setVideoURI(videoUri);
+            //((VHItem) holder).videoView.seekTo(10);
+            ((VHItem) holder).videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+
+                    mp.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
+                        @Override
+                        public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
+
+                            *//*
+         * add media controller
+         *//*
+                            MediaController mc = new MediaController(mContext);
+                            mc.setMediaPlayer(((VHItem) holder).videoView);
+                            ((VHItem) holder).videoView.setMediaController(mc);
+                            *//*
+         * and set its position on screen
+         *//*
+                            mc.setAnchorView(((VHItem) holder).videoView);
+
+
+
+                        }
+                    });
+
+                    ((VHItem) holder).videoView.seekTo(10);
+                }
+            });
+
+
+        } catch (
+                Exception e)
+
+        {
+            e.printStackTrace();
+        }*/
 
     }
 

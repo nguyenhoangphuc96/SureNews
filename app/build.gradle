@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.lacviet.surenews"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 2
         versionName "1.0.1"
@@ -55,7 +55,12 @@ dependencies {
     implementation 'com.github.jrvansuita:PickImage:+'
     //
     implementation 'com.jaeger.statusbarutil:library:1.4.0'
-    //
+    //video
+    implementation 'com.github.tcking:giraffeplayer2:0.1.12'
+    implementation 'com.github.tcking:ijkplayer-arm64:0.8.4' //support arm64
+    implementation 'com.github.tcking:ijkplayer-armv5:0.8.4' //support armv5
+    implementation 'com.github.tcking:ijkplayer-x86:0.8.4' //support x86 // build cho máy ảo bạn dùng complie này là được
+    implementation 'com.github.tcking:ijkplayer-x86_64:0.8.4' //support x86_64
 
 
 }

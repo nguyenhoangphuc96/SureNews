@@ -96,6 +96,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-verifier" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-apk" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-main-apk-res" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-resources" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaPrecompile" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifest-checker" />
@@ -137,10 +138,10 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-crash-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:design-27.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test:monitor-1.0.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support:multidex-instrumentation-1.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-27.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics-impl-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-iid-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.tcking:viewquery-1.5" level="project" />
     <orderEntry type="library" name="Gradle: de.hdodenhof:circleimageview-1.3.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.vr:sdk-base-1.140.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: net.sf.kxml:kxml2:2.3.0@jar" level="project" />
@@ -157,12 +158,15 @@
     <orderEntry type="library" name="Gradle: com.google.vr:sdk-common-1.140.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable-27.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.volley:volley-1.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.tcking:ijkplayer-armv5-0.8.4" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-utils-27.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-10.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.findbugs:jsr305:2.0.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-awareness-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.tcking:ijkplayer-java-0.8.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.tcking:ijkplayer-arm64-0.8.4" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-api-10.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-10.0.1" level="project" />
@@ -179,7 +183,6 @@
     <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7-27.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.squareup:javawriter:2.1.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:retrofit:2.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:multidex-1.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-27.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-config-10.0.1" level="project" />
@@ -190,8 +193,11 @@
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast-framework-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.14.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wearable-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.tcking:ijkplayer-armv7a-0.8.4" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.1.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.tcking:giraffeplayer2-0.1.12" level="project" />
     <orderEntry type="library" name="Gradle: com.google.protobuf.nano:protobuf-javanano:3.1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.tcking:ijkplayer-x86-0.8.4" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-10.0.1" level="project" />
@@ -201,6 +207,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-27.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-identity-10.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.tcking:ijkplayer-x86_64-0.8.4" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-location-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-10.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-lite-10.0.1" level="project" />
