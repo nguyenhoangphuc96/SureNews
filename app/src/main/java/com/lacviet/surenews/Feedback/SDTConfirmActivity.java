@@ -17,22 +17,19 @@ import com.lacviet.surenews.R;
 
 public class SDTConfirmActivity extends AppCompatActivity {
     private Toolbar toolbar;
-    private TextView tvTitleToolbar;
-    Button btnConfirm;
+    private TextView tvTitleToolbar,tvConfirm;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sdt_confirm);
-        //set transparent stt bar
-        StatusBarUtil.setTransparent(this);
         addControl();
         actionBar();
         addEvent();
     }
 
     private void addEvent() {
-        btnConfirm.setOnClickListener(new View.OnClickListener() {
+        tvConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDialogSuccess();
@@ -89,7 +86,7 @@ public class SDTConfirmActivity extends AppCompatActivity {
     private void addControl() {
         toolbar = findViewById(R.id.toolbar);
         tvTitleToolbar = findViewById(R.id.tvTitleToolbar);
-        btnConfirm = findViewById(R.id.btnConfirmSDT);
+        tvConfirm = findViewById(R.id.tvConfirm);
 
 
     }

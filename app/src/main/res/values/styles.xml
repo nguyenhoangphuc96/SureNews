@@ -50,5 +50,9 @@
     <style name="TextEditTextFeedback" parent="@style/TextAppearance.Design.Counter">
         <item name="android:textSize">14sp</item>
     </style>
+    <style name="TextButtonBluelight" parent="@style/TextAppearance.Design.Counter">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
 
 </resources>

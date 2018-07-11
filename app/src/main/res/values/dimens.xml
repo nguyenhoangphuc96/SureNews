@@ -11,4 +11,6 @@
     <dimen name="textsize_title_default" format="float" type="dimen">24</dimen>
     <dimen name="textsize_content_default" format="float" type="dimen">20</dimen>
     <dimen name="textsize_time_default" format="float" type="dimen">13</dimen>
+    <dimen name="textview_blue_light_paddingright">5dp</dimen>
+    <dimen name="button_bluelight_padding_vertical">5dp</dimen>
 </resources>

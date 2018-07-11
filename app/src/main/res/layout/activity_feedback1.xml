@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:weightSum="100">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBackgroundToolbarBlue"
+            app:title="Góp ý">
+
+            <TextView
+                android:id="@+id/tvTitleToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textAppearance="@style/TextTitleGlobalWhite" />
+
+        </android.support.v7.widget.Toolbar>
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/edittext_padding_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="24"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hình ảnh đính kèm"
+                    style="@style/TextEditTextFeedback"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/feedback_imageview_margin"
+                    android:layout_weight="33.5"
+
+                    >
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cvFeedback1"
+                        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        cardview:cardBackgroundColor="@color/transparent"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imvFeedback1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+
+                                android:scaleType="centerInside"
+                                android:src="@drawable/img_add_photo"
+                                 />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/feedback_imageview_margin"
+                    android:layout_weight="33"
+
+                    >
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cvFeedback2"
+                        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        cardview:cardBackgroundColor="@color/transparent"
+                        android:visibility="invisible">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imvFeedback2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+
+                                android:scaleType="centerInside"
+                                android:src="@drawable/img_add_photo"
+                                 />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/feedback_imageview_margin"
+                    android:layout_weight="33.5"
+
+                    >
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cvFeedback3"
+                        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        cardview:cardBackgroundColor="@color/transparent"
+                        android:visibility="invisible">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imvFeedback3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+
+                                android:scaleType="centerInside"
+                                android:src="@drawable/img_add_photo"
+                                 />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/loPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nội dung"
+                    style="@style/TextEditTextFeedback"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+
+                    android:id="@+id/edtFeedbackContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/edittext_padding_left"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/shape_transparent_black_background"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:inputType="text|textMultiLine"
+                    android:textAppearance="@style/TextEditTextFeedback"
+                    android:textColor="@color/colorBlack"
+                    android:paddingLeft="@dimen/edittext_padding_left"
+                    android:paddingTop="@dimen/edittext_padding_left"
+                    android:textColorHint="@color/colorWhite" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="28"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Họ tên"
+                    style="@style/TextEditTextFeedback"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/edittext_padding_left"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/shape_transparent_black_background"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:paddingLeft="@dimen/edittext_padding_left"
+                    android:textAppearance="@style/TextEditTextFeedback"
+                    android:textColor="@color/colorBlack" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="28"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số điện thoại"
+                    style="@style/TextEditTextFeedback"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/edtSDT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/edittext_padding_left"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/shape_transparent_black_background"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:paddingLeft="@dimen/edittext_padding_left"
+                    android:textAppearance="@style/TextEditTextFeedback"
+                    android:textColor="@color/colorBlack" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/tvSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
+                android:background="@drawable/border_button_bluelight"
+                android:gravity="center"
+                android:paddingVertical="@dimen/button_bluelight_padding_vertical"
+                android:text="Gửi góp ý"
+                android:textAppearance="@style/TextButtonBluelight" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

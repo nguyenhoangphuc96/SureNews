@@ -21,6 +21,7 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
@@ -41,20 +42,18 @@ import com.vansuita.pickimage.listeners.IPickResult;
 
 public class FeedbackActivity extends AppCompatActivity implements IPickResult, View.OnClickListener {
     private Toolbar toolbar;
-    private TextView tvTitleToolbar;
+    private TextView tvTitleToolbar,tvSend;
     ImageView imv1, imv2, imv3;
+    CardView cv1,cv2,cv3;
     Boolean flagImv1= false;
     Boolean flagImv2= false;
     Boolean flagImv3= false;
-    Button btnSend;
     //
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feedback);
-        //set transparent stt bar
-        StatusBarUtil.setTransparent(this);
+        setContentView(R.layout.activity_feedback1);
         addControl();
         actionBar();
         addEvent();
@@ -65,7 +64,7 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
         imv1.setOnClickListener(this);
         imv2.setOnClickListener(this);
         imv3.setOnClickListener(this);
-        btnSend.setOnClickListener(this);
+        tvSend.setOnClickListener(this);
 
     }
 
@@ -91,7 +90,11 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
         imv1 = findViewById(R.id.imvFeedback1);
         imv2 = findViewById(R.id.imvFeedback2);
         imv3 = findViewById(R.id.imvFeedback3);
-        btnSend = findViewById(R.id.btnSendFeedback);
+        cv1 = findViewById(R.id.cvFeedback1);
+        cv2 = findViewById(R.id.cvFeedback2);
+        cv3 = findViewById(R.id.cvFeedback3);
+
+        tvSend = findViewById(R.id.tvSend);
 
     }
 
@@ -99,9 +102,9 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
     public void onClick(View v) {
         int id = v.getId();
         switch (id){
-            case R.id.imvFeedback3:{
+            case R.id.imvFeedback1:{
                 PickImageDialog.build(new PickSetup()).show(FeedbackActivity.this);
-                flagImv3 = true;
+                flagImv1 = true;
 
                 break;
             }
@@ -111,12 +114,12 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
 
                 break;
             }
-            case R.id.imvFeedback1:{
+            case R.id.imvFeedback3:{
                 PickImageDialog.build(new PickSetup()).show(FeedbackActivity.this);
-                flagImv1 = true;
+                flagImv3 = true;
                 break;
             }
-            case R.id.btnSendFeedback:{
+            case R.id.tvSend:{
                 startConfirmSDTActivity();
 
             }
@@ -131,21 +134,21 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
 
     @Override
     public void onPickResult(PickResult pickResult) {
-        if(flagImv3)
+        if(flagImv1)
         {
-            imv3.setImageBitmap(pickResult.getBitmap());
-            imv2.setVisibility(View.VISIBLE);
-            flagImv3=false;
+            imv1.setImageBitmap(pickResult.getBitmap());
+            cv2.setVisibility(View.VISIBLE);
+            flagImv1=false;
         }
         if (flagImv2){
             imv2.setImageBitmap(pickResult.getBitmap());
-            imv1.setVisibility(View.VISIBLE);
+            cv3.setVisibility(View.VISIBLE);
             flagImv2=false;
         }
-        if (flagImv1)
+        if (flagImv3)
         {
-            imv1.setImageBitmap(pickResult.getBitmap());
-            flagImv1=false;
+            imv3.setImageBitmap(pickResult.getBitmap());
+            flagImv3=false;
         }
 
     }

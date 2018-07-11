@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_dangnhap"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     android:weightSum="100">
 
@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@null"
+            android:background="@color/colorBackgroundToolbarBlue"
             app:title="Xác nhận SĐT">
 
             <TextView
@@ -49,7 +49,7 @@
                 android:text="Để xác thực việc gửi góp ý, hãy nhập mã vừa gửi đến số điện thoại của bạn vào khung bên dưới: "
                 android:paddingLeft="@dimen/edittext_padding_left"
                 android:textAppearance="@style/TextTitleGlobalWhite"
-                android:textColor="@color/colorWhite" />
+                android:textColor="@color/colorBlack" />
 
         </LinearLayout>
 
@@ -76,23 +76,20 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginVertical="10dp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/feedback_paading_horitzal">
+            android:layout_gravity="center">
 
-                <Button
-                    android:gravity="center"
-                    android:id="@+id/btnConfirmSDT"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:background="@drawable/shape_transparent_background"
-                    android:text="Xác nhận"
-                    android:textAppearance="@style/TextTitleGlobalWhite"
-                    android:textColor="@color/colorWhite" />
-
-
+            <TextView
+                android:id="@+id/tvConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
+                android:background="@drawable/border_button_bluelight"
+                android:gravity="center"
+                android:paddingVertical="@dimen/button_bluelight_padding_vertical"
+                android:text="Xác nhận"
+                android:textAppearance="@style/TextButtonBluelight" />
         </LinearLayout>
 
 
