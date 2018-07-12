@@ -13,4 +13,6 @@
     <dimen name="textsize_time_default" format="float" type="dimen">13</dimen>
     <dimen name="textview_blue_light_paddingright">5dp</dimen>
     <dimen name="button_bluelight_padding_vertical">5dp</dimen>
+    <dimen name="padding_spinner_advanced_search">10dp</dimen>
+    <dimen name="edittext_margin_vertical">5dp</dimen>
 </resources>

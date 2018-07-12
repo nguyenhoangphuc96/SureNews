@@ -40,9 +40,9 @@ public class SDTConfirmActivity extends AppCompatActivity {
 
     private void showDialogSuccess() {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Gửi góp ý thành công!");
+        alertDialogBuilder.setTitle("Gửi phản ánh thành công!");
         alertDialogBuilder
-                .setMessage("Bạn có muốn gửi tiếp góp ý?")
+                .setMessage("Bạn có muốn tiếp tục gửi phản ánh khác?")
                 .setCancelable(false)
                 .setPositiveButton("Có",
                         new DialogInterface.OnClickListener() {

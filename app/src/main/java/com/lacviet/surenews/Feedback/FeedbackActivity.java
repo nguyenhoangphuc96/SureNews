@@ -10,6 +10,7 @@ import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
@@ -25,8 +26,11 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +49,7 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
     private TextView tvTitleToolbar,tvSend;
     ImageView imv1, imv2, imv3;
     CardView cv1,cv2,cv3;
+    Spinner spnfeedback;
     Boolean flagImv1= false;
     Boolean flagImv2= false;
     Boolean flagImv3= false;
@@ -56,6 +61,7 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
         setContentView(R.layout.activity_feedback1);
         addControl();
         actionBar();
+        dropDownSpinner();
         addEvent();
 
     }
@@ -95,6 +101,7 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
         cv3 = findViewById(R.id.cvFeedback3);
 
         tvSend = findViewById(R.id.tvSend);
+        spnfeedback = findViewById(R.id.spinnerFeedback);
 
     }
 
@@ -151,5 +158,32 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
             flagImv3=false;
         }
 
+    }
+    private void dropDownSpinner() {
+
+
+        String[] items = new String[]{"An ninh - Trật tự", "An toàn giao thông", "An toàn thực phẩm", "Khác"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, items);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnfeedback.setAdapter(adapter);
+
+        spnfeedback.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                if (parent.getChildAt(0) != null) {
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+                    ((TextView) parent.getChildAt(0)).setTextSize(13);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
     }
 }

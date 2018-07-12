@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorBackgroundToolbarBlue"
-            app:title="Góp ý">
+            app:title="Tiếp nhận phản ánh nhân dân">
 
             <TextView
                 android:id="@+id/tvTitleToolbar"
@@ -40,7 +40,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="24"
+            android:layout_weight="18"
             android:orientation="vertical">
 
             <LinearLayout
@@ -180,11 +180,42 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="22">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chuyên mục"
+                    style="@style/TextEditTextFeedback"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginHorizontal="@dimen/padding_spinner_advanced_search"
+                android:layout_marginVertical="3dp"
+                android:padding="@dimen/edittext_margin_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_transparent_black_background">
+                <Spinner
+
+                    android:id="@+id/spinnerFeedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    />
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="20"
+            android:layout_weight="16"
             android:orientation="vertical">
 
             <LinearLayout
@@ -208,7 +239,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/edittext_padding_left"
-                    android:layout_marginVertical="10dp"
+                    android:layout_marginVertical="@dimen/edittext_margin_vertical"
                     android:background="@drawable/shape_transparent_black_background"
                     android:ems="10"
                     android:gravity="top"
@@ -227,7 +258,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="28"
+            android:layout_weight="22"
             android:orientation="vertical">
 
             <LinearLayout
@@ -250,7 +281,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/edittext_padding_left"
-                    android:layout_marginVertical="10dp"
+                    android:layout_marginVertical="@dimen/edittext_margin_vertical"
                     android:background="@drawable/shape_transparent_black_background"
                     android:ems="10"
                     android:inputType="text"
@@ -266,7 +297,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="28"
+            android:layout_weight="22"
             android:orientation="vertical">
 
             <LinearLayout
@@ -289,7 +320,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/edittext_padding_left"
-                    android:layout_marginVertical="10dp"
+                    android:layout_marginVertical="@dimen/edittext_margin_vertical"
                     android:background="@drawable/shape_transparent_black_background"
                     android:ems="10"
                     android:inputType="text"
@@ -316,7 +347,7 @@
                 android:background="@drawable/border_button_bluelight"
                 android:gravity="center"
                 android:paddingVertical="@dimen/button_bluelight_padding_vertical"
-                android:text="Gửi góp ý"
+                android:text="Gửi phản ánh"
                 android:textAppearance="@style/TextButtonBluelight" />
         </LinearLayout>
 

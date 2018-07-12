@@ -28,6 +28,7 @@ public class TabVideoFragment extends Fragment {
     private RecyclerView recyclerView;
     private VideoPlayerTabRCVAdapter mAdapter;
     private List<VideoModel> listVideo;
+    VideoPlayerTabRCVAdapter.VHItem vhItem;
     public TabVideoFragment() {
         // Required empty public constructor
     }
@@ -45,25 +46,30 @@ public class TabVideoFragment extends Fragment {
         listVideo.add(new VideoModel(1,"Nông dân Bạc Liêu trúng mùa giữa cơn đại hạn",
                 "",
                 "http://video.baobaclieu.vn/uploads/video/2017/05/11/N%C3%B4ng%20d%C3%A2n%20B%E1%BA%A1c%20Li%C3%AAu%20tr%C3%BAng%20m%C3%B9a%20gi%E1%BB%AFa%20c%C6%A1n%20%C4%91%E1%BA%A1i%20h%E1%BA%A1n%20-%20VTC.mp4",
-                "Thứ Sáu, 29/06/2018, 08:20"));
+                "Thứ Sáu, 29/06/2018, 08:20",
+                "http://video.baobaclieu.vn/uploads/thumbnail/2017/05/11/MOI.jpg"));
         listVideo.add(new VideoModel(2,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
                 "Bạc Liêu hôm nay",
                 "",
                 "http://video.baobaclieu.vn/uploads/video/2017/08/01/bac%20lieu%20hom%20nay%20(moi).mp4",
-                "Thứ Tư, 27/06/2018, 13:25"));
+                "Thứ Tư, 27/06/2018, 13:25",
+                "http://video.baobaclieu.vn/uploads/thumbnail/2017/08/01/43.jpg"));
         listVideo.add(new VideoModel(3,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
                 "Bạc Liêu quê hương tôi",
                 "",
                 "http://video.baobaclieu.vn/uploads/video/2017/05/11/bac-lieu-que-toi.mp4",
-                "Thứ Ba, 15/05/2018, 15:50"));
+                "Thứ Ba, 15/05/2018, 15:50",
+                "http://video.baobaclieu.vn/uploads/video/2017/05/11/bac-lieu-que-toi.jpg"));
         listVideo.add(new VideoModel(4,"Cá sấu Bạc Liêu rớt giá thê thảm",
                 "",
                 "http://video.baobaclieu.vn/uploads/video/2017/05/11/ca-sau-bac-lieu.mp4",
-                "30/06/2018"));
+                "30/06/2018",
+                "http://video.baobaclieu.vn/uploads/thumbnail/2017/05/11/ca-sau.jpg"));
         listVideo.add(new VideoModel(5,"Nuôi tôm siêu thâm canh công nghệ cao trong nhà kín",
                 "",
                 "http://video.baobaclieu.vn/uploads/video/2017/05/18/nuoi%20tom%20trong%20nha%20kinh.mp4",
-                "5 ngày trước"));
+                "5 ngày trước",
+                "http://video.baobaclieu.vn/uploads/thumbnail/2017/05/18/xa%20vinh%20thinh%201.jpg"));
         mAdapter.updateAnswers(listVideo);
     }
 
@@ -78,16 +84,25 @@ public class TabVideoFragment extends Fragment {
 
             }
         });
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        //StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        //final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        final StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(mAdapter);
         recyclerView.setHasFixedSize(true);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
-        //auto stop & play after recyclerView scroll
+
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                recyclerView.setLayoutManager(layoutManager);
+            }
+
+        });
+        //auto stop & play after recyclerView scroll
+        /*recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 if (newState == SCROLL_STATE_IDLE) {
@@ -132,9 +147,16 @@ public class TabVideoFragment extends Fragment {
 
             }
 
-        });
+        });*/
 
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+
     // Tìm ID ứng với tên của file nguồn (Trong thư mục raw).
     public int getRawResIdByName(String resName) {
         String pkgName = getContext().getPackageName();
@@ -144,4 +166,5 @@ public class TabVideoFragment extends Fragment {
         Log.i("AndroidVideoView", "Res Name: " + resName + "==> Res ID = " + resID);
         return resID;
     }
+
 }

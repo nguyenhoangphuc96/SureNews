@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:text="Để xác thực việc gửi góp ý, hãy nhập mã vừa gửi đến số điện thoại của bạn vào khung bên dưới: "
+                android:text="Để xác thực việc gửi phản ánh, hãy nhập mã vừa gửi đến số điện thoại của bạn vào khung bên dưới: "
                 android:paddingLeft="@dimen/edittext_padding_left"
                 android:textAppearance="@style/TextTitleGlobalWhite"
                 android:textColor="@color/colorBlack" />
@@ -66,12 +66,11 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_transparent_black_background"
                 android:ems="10"
-                android:hint="SĐT"
                 android:inputType="text"
                 android:paddingLeft="@dimen/edittext_padding_left"
                 android:textAppearance="@style/TextEditTextFeedback"
-                android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite" />
+                android:textColor="@color/colorBlack"
+                 />
 
         </LinearLayout>
 

@@ -15,6 +15,7 @@ import android.widget.VideoView;
 
 import com.lacviet.surenews.Model.VideoModel;
 import com.lacviet.surenews.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -63,6 +64,9 @@ public class VideoPlayerTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.
         ((VHItem) holder).tvTime.setText(item.getVideoTime());
         //
         String url = item.getVideoUrl(); // your URL here
+        if (((VHItem) holder).videoView.getCoverView() != null) {
+            Picasso.with(mContext).load(item.getVideoCoverView()).into(((VHItem) holder).videoView.getCoverView());
+        }
 
 
         ((VHItem) holder).videoView.setVideoPath(url).setFingerprint(position);
@@ -97,7 +101,7 @@ public class VideoPlayerTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.
         return VideoList;
     }
 
-    class VHItem extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class VHItem extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tvTittle, tvTime;
         public tcking.github.com.giraffeplayer2.VideoView videoView;
         PostItemListener mItemListener;
@@ -118,9 +122,13 @@ public class VideoPlayerTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.
         public void onClick(View v) {
 
         }
+        public void pauseVideo(){
+        videoView.getPlayer().pause();
+        }
     }
 
     public interface PostItemListener {
         void onPostClick(long id);
     }
+
 }

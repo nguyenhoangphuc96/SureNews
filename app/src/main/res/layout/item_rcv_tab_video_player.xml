@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
     android:orientation="vertical"
     android:padding="@dimen/rcv_item_padding">
@@ -13,27 +13,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.CardView xmlns:cardview="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/cvVideo"
+            android:layout_height="match_parent">
+            <tcking.github.com.giraffeplayer2.VideoView
+                android:id="@+id/video_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                cardview:cardBackgroundColor="@color/colorBackgroundToolbarGray"
-                cardview:cardElevation="10dp">
+                android:layout_height="300dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <tcking.github.com.giraffeplayer2.VideoView
-                        android:id="@+id/video_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="250dp" />
-                </LinearLayout>
-
-
-            </android.support.v7.widget.CardView>
         </LinearLayout>
 
 

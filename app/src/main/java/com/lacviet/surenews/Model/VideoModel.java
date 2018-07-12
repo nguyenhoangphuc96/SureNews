@@ -6,13 +6,15 @@ public class VideoModel {
     private String videoSubTittle;
     private String videoUrl;
     private String videoTime;
+    private String videoCoverView;
 
-    public VideoModel(Integer videoId, String videoTittle, String videoSubTittle, String videoUrl, String videoTime) {
+    public VideoModel(Integer videoId, String videoTittle, String videoSubTittle, String videoUrl, String videoTime, String videoCoverView) {
         this.videoId = videoId;
         this.videoTittle = videoTittle;
         this.videoSubTittle = videoSubTittle;
         this.videoUrl = videoUrl;
         this.videoTime = videoTime;
+        this.videoCoverView = videoCoverView;
     }
 
     public Integer getVideoId() {
@@ -53,5 +55,13 @@ public class VideoModel {
 
     public void setVideoTime(String videoTime) {
         this.videoTime = videoTime;
+    }
+
+    public String getVideoCoverView() {
+        return videoCoverView;
+    }
+
+    public void setVideoCoverView(String videoCoverView) {
+        this.videoCoverView = videoCoverView;
     }
 }
