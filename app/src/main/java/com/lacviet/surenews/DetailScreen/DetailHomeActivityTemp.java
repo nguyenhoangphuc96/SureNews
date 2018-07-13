@@ -3,6 +3,7 @@ package com.lacviet.surenews.DetailScreen;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -42,6 +43,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class DetailHomeActivityTemp extends AppCompatActivity {
     Toolbar toolbar;
@@ -86,15 +88,19 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
     String image = "";
     String text = "";
     //change size
-    float sizeTitleDefault,sizeContentDefault,sizeTimeDefault,sizeTitle,sizeContent,sizeTime,sizecaptionImage;
+    float sizeTitleDefault, sizeContentDefault, sizeTimeDefault, sizeTitle, sizeContent, sizeTime, sizecaptionImage;
 
     //
-    View layoutImage,layoutText,layoutAuthor, layoutSameNews;
+    View layoutImage, layoutText, layoutAuthor;
     //same news
+    View layoutSameNews;
     SamenewsRCVAdapter mAdapter;
     RecyclerView recyclerView;
     ProgressBar pbSameNew;
     ArrayList<NewsModel> listSameNews = new ArrayList<>();
+    //
+    TextToSpeech textToSpeech;
+    Boolean isClickSpeak = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -121,42 +127,43 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
 
 
     }
+
     private void addData() {
         listSameNews.add(new NewsModel(1,
                 "Triển khai nhiệm vụ công tác 6 tháng cuối năm 2018 của ngành Lao động - Thương binh và Xã hội",
                 "Thứ Năm, 28/06/2018, 08:00",
                 "Chiều 26/6, Giám đốc Sở Lao động - Thương binh và Xã hội (LĐTB&XH) Trần Hồng Chiến đã chủ trì Hội nghị sơ kết 6 tháng đầu năm và triển khai phương hướng nhiệm vụ công tác 6 tháng cuối năm 2018 của Ngành LĐTB&XH.",
-                baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/28-62862018_8816.jpg"));
+                baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/28-62862018_8816.jpg"));
         listSameNews.add(new NewsModel(2,
                 "Khởi công Dự án Bệnh viện Đa khoa Bạc Liêu - Sài Gòn",
                 "Thứ Hai, 25/06/2018, 09:25",
                 "Ngày 24/6, Công ty Cổ phần Bệnh viện Đa khoa Bạc Liêu - Sài Gòn tổ chức lễ khởi công xây dựng dự án Bệnh viện Đa khoa Bạc Liêu - Sài Gòn. Đồng chí Vương Phương Nam, Phó Chủ tịch UBND tỉnh cùng đại diện Lãnh đạo các Sở, Ban, Ngành đã đến dự.",
-                baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/khoi%20cong%20bv%20da%20khoa2562018_164113.jpg"));
+                baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/khoi%20cong%20bv%20da%20khoa2562018_164113.jpg"));
         listSameNews.add(new NewsModel(3,
                 "Bạc Liêu: Định hướng thành lập HTX công nghệ cao phát triển tôm",
                 "Thứ Hai, 25/06/2018, 09:25",
                 "Để chuẩn bị cho việc thành lập Hợp tác xã công nghệ cao phát triển tôm Bạc Liêu, sáng 22/6, Chủ tịch UBND tỉnh Dương Thành Trung đã chủ trì buổi họp mặt với Lãnh đạo các Sở, Ban, Ngành liên quan và các doanh nghiệp, hộ nuôi tôm trên địa bàn tỉnh. Dự buổi Họp mặt có ông Đặng Huy Đông, nguyên Thứ trưởng Bộ Kế hoạch và Đầu tư.",
-                baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/dinh%20huong%20thanh%20lap%20htx2562018_104544.jpg"));
+                baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/dinh%20huong%20thanh%20lap%20htx2562018_104544.jpg"));
         listSameNews.add(new NewsModel(4,
                 "Tập huấn cấp giấy phép lao động qua mạng điện tử cho người lao động nước ngoài",
                 "Thứ Hai, 25/06/2018, 09:25",
                 "Sáng ngày 21/6, Sở Lao động - Thương binh và Xã hội (LĐTB&XH) tổ chức Hội nghị tập huấn cấp giấy phép lao động cho người lao động nước ngoài làm việc tại Việt Nam trên địa bàn tỉnh Bạc Liêu cho các doanh nghiệp, đơn vị, tổ chức, cá nhân có sử dụng lao động nước ngoài trên địa bàn tỉnh.",
-                baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/tap%20huan%20cap%20giay%20phep2262018_13461.jpg"));
+                baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/tap%20huan%20cap%20giay%20phep2262018_13461.jpg"));
         listSameNews.add(new NewsModel(5,
                 "Đại hội Công đoàn tỉnh Bạc Liêu lần thứ X, nhiệm kỳ 2018 - 2023 thành công tốt đẹp",
                 "Thứ Bảy, 23/06/2018, 10:30",
                 "Đại hội Công đoàn tỉnh Bạc Liêu lần thứ X, nhiệm kỳ 2018 - 2023 được diễn ra trong 2 ngày 21 và 22/6/2018. Dự đại hội có ông Trần Thanh Hải, Phó Chủ tịch Thường trực Tổng LĐLĐ Việt Nam; bà Lê Thị Ái Nam, Phó Bí thư Thường trực Tỉnh ủy, Chủ tịch HĐND tỉnh và 246 đại biểu đại diện cho hơn 32.000 công nhân, viên chức, lao động (CNVCLĐ) trong tỉnh.",
-                baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/dai%20hoi%20cong%20doan2562018_103755.jpg"));
+                baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/dai%20hoi%20cong%20doan2562018_103755.jpg"));
         listSameNews.add(new NewsModel(6,
                 "Phiên họp Ủy ban nhân dân tỉnh tháng 6/2018 - lần 2",
                 "Thứ Năm, 28/06/2018, 08:00",
                 "Chiều ngày 21/6, Chủ tịch UBND tỉnh Dương Thành Trung chủ trì phiên họp UBND tỉnh tháng 6/2018 - lần 2 để xem xét, cho ý kiến đối với các nội dung thuộc thẩm quyền của HĐND tỉnh.",
-                baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/phien%20hop%20ubnd%20th6%20l22262018_13386.jpg"));
+                baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/phien%20hop%20ubnd%20th6%20l22262018_13386.jpg"));
         listSameNews.add(new NewsModel(7,
                 "Sở Lao động - Thương binh và Xã hội triển khai các quyết định của Chủ tịch UBND tỉnh",
                 "Thứ Năm, 28/06/2018, 08:00",
                 "Sáng 21/6, Sở Lao động - Thương binh và Xã hội (LĐTB&XH) tổ chức Hội nghị triển khai các quyết định của Chủ tịch UBND tỉnh về Quy chế phối hợp cai nghiện ma túy tại gia đình, cộng đồng; Quy chế phối hợp, hỗ trợ, giúp đỡ người sau cai nghiện ma túy, người mại dâm hoàn lương, người bị mua bán trở về.",
-                baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/so%20lao%20dong2262018_104830.jpg"));
+                baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/so%20lao%20dong2262018_104830.jpg"));
         listSameNews.add(new NewsModel(8,
                 "Xã Hưng Hội: Tích cực xây dựng nông thôn mới",
                 "Thứ Ba, 12/06/2018, 14:40",
@@ -172,97 +179,19 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 "Thứ Năm, 20/04/2017, 08:05",
                 "Với chủ đề hoạt động của Tháng Thanh niên là:“Tuổi trẻ Bạc Liêu chung tay xây dựng nông thôn mới và văn minh đô thị”, tuổi trẻ Bạc Liêu đã ra sức thực hiện nhiều công trình, phần việc thiết thực, có ý nghĩa xã hội sâu sắc, để lại nhiều hiệu ứng tốt đẹp trong lòng người dân.",
                 baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2017-4/20-4-2017Untitled-12042017_92227.jpg"));
-        listSameNews.add(new NewsModel(11,
-                "Huyện Hòa Bình: Đẩy mạnh xây dựng nông thôn mới, đô thị văn minh",
-                "Thứ Năm, 20/04/2017, 07:40",
-                "Nâng cao chất lượng khu dân cư tiên tiến, khu dân cư văn hóa gắn với cuộc vận động xây dựng nông thôn mới (XDNTM), đô thị văn minh là việc làm được Ủy ban MTTQ Việt Nam huyện Hòa Bình tập trung đẩy mạnh, và ngày càng phát huy hiệu quả thiết thực...",
-                baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2017-4/NTM2042017_7429.jpg"));
-        listSameNews.add(new NewsModel(12,
-                "Họp Ban Chỉ đạo Chương trình xây dựng nông thôn mới giai đoạn 2016 – 2020",
-                "Thứ Năm, 09/06/2016, 16:05",
-                "Sáng 9/6, đồng chí Lê Minh Khái, Bí thư Tỉnh ủy đã chủ trì cuộc họp công bố Quyết định về việc thành lập Ban Chỉ đạo thực hiện Chương trình mục tiêu Quốc gia xây dựng nông thôn mới trên địa bàn tỉnh Bạc Liêu giai đoạn 2016 – 2020; đánh giá kết quả thực hiện Chương trình giai đoạn 2011 – 2015 và triển khai kế hoạch giai đoạn 2016 – 2020.",
-                baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2016-6/QC962016_16125.jpg"));
-        listSameNews.add(new NewsModel(13,
-                "Triển khai kế hoạch sản xuất nông nghiệp 6 tháng cuối năm 2018",
-                "Thứ Năm, 28/06/2018, 08:00",
-                "Ngày 14/6, Sở Nông nghiệp và Phát triển nông thôn (NN&PTNT) tổ chức Hội nghị sơ kết 6 tháng đầu năm và triển khai kế hoạch, giải pháp thực hiện 6 tháng cuối năm 2018. Ông Lương Ngọc Lân, Giám đốc Sở NN&PTNT dự và chủ trì Hội nghị.",
-                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/trien%20khai%20ke%20hoach%20nn%206%20thang%20cuoi%20nam1562018_153449.jpg"));
-        listSameNews.add(new NewsModel(14,
-                "Các giải pháp trọng tâm để phát triển ngành tôm bền vững",
-                "Thứ Hai, 25/06/2018, 09:25",
-                "Ngày 03/6, tại Trung tâm Văn hóa tỉnh Bạc Liêu, Bộ NN&PTNT phối hợp với UBND tỉnh Bạc Liêu tổ chức Hội nghị “Các giải pháp trọng tâm để phát triển ngành tôm bền vững”. Đồng chí Nguyễn Xuân Cường - Ủy viên BCH Trung ương Đảng - Bộ trưởng Bộ NN&PTNT và đồng chí Nguyễn Quang Dương - Ủy viên BCH Trung ương Đảng - Bí thư Tỉnh ủy Bạc Liêu đồng chủ trì Hội nghị.",
-                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/cac%20giai%20phap%20trong%20tam562018_85247.jpg"));
-        listSameNews.add(new NewsModel(15,
-                "Bạc Liêu: Định hướng thành lập HTX công nghệ cao phát triển tôm",
-                "Thứ Hai, 25/06/2018, 09:25",
-                "Để chuẩn bị cho việc thành lập Hợp tác xã công nghệ cao phát triển tôm Bạc Liêu, sáng 22/6, Chủ tịch UBND tỉnh Dương Thành Trung đã chủ trì buổi họp mặt với Lãnh đạo các Sở, Ban, Ngành liên quan và các doanh nghiệp, hộ nuôi tôm trên địa bàn tỉnh. Dự buổi Họp mặt có ông Đặng Huy Đông, nguyên Thứ trưởng Bộ Kế hoạch và Đầu tư.",
-                baseSrcUrlNew+"/PublishingImages/dinh%20huong%20thanh%20lap%20htx2562018_104544.jpg"));
-        listSameNews.add(new NewsModel(16,
-                "Hội thi tiếng hát nông dân tỉnh Bạc Liêu năm 2018",
-                "Thứ Sáu, 29/06/2018, 08:20",
-                "Sáng ngày 26 tháng 6 năm 2018, tại Nhà khách Hùng Vương; Hội Nông dân tỉnh Bạc Liêu tổ chức hội thi Tiếng hát nông dân năm 2018. Hội thi có 22 thí sinh là hội viên Hội Nông dân thuộc 7 huyện, thị xã, thành phố trong tỉnh dự thi.",
-                baseUrlSoNgoaiVu + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/302962018_82446.jpg"));
-        listSameNews.add(new NewsModel(17,
-                "Lớp bồi dưỡng kiến thức và kỹ năng đối ngoại cho cán bộ, công chức, viên chức làm công tác Hội nhập quốc tế tỉnh Bạc Liêu năm 2018",
-                "Thứ Tư, 27/06/2018, 13:25",
-                "Thực hiện Quyết định số 2007/QĐ-TTg ngày 16/11/2015 của Thủ tướng Chính phủ về việc phê duyệt “Đề án bồi dưỡng kiến thức và kỹ năng cho công chức, viên chức làm công tác hội nhập quốc tế”, Kế hoạch bồi dưỡng kiến thức và kỹ năng cho cán bộ, công chức, viên chức làm công tác hội nhập quốc tế trên địa bàn tỉnh Bạc Liêu giai đoạn 2016 - 2020 của Ủy ban nhân dân tỉnh Bạc Liêu (tại Quyết định số 1701/QĐ-UBND ngày 07/10/2016), sáng ngày 21/6/2018, Sở Ngoại vụ chủ trì, phối hợp với Cục Ngoại vụ, Bộ Ngoại giao tổ chức Lớp bồi dưỡng kiến thức và kỹ năng đối ngoại cho cán bộ, công chức, viên chức làm công tác Hội nhập quốc tế tỉnh Bạc Liêu năm 2018, với thời gian 02 ngày (ngày 21 và 22/6/2018); đây là lớp bồi dưỡng thứ 2 do Sở Ngoại vụ tổ chức trong năm 2018.",
-                baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/1%20NHỎ2762018_132823.jpg"));
-        listSameNews.add(new NewsModel(18,
-                "Cụm Thi đua số 5 - Khu vực Tây Nam Bộ tổ chức tọa đàm, trao đổi kinh nghiệm về chuyên môn, nghiệp vụ",
-                "Thứ Ba, 15/05/2018, 15:50",
-                "Ngày 11 tháng 5 năm 2018, tại thành phố Cần Thơ, Cụm thi đua số 5 đã tổ chức buổi tọa đàm, trao đổi kinh nghiệm nhằm nâng cao trình độ, chuyên môn, nghiệp vụ giữa các cơ quan ngoại vụ các tỉnh khu vực Tây Nam Bộ.",
-                baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-5/11752018_95250.png"));
-        listSameNews.add(new NewsModel(19,
-                "Đến năm 2020 cơ bản hoàn thành hỗ trợ nhà ở cho đối tượng chính sách, người có công",
-                "30/06/2018",
-                "Ngày 12/11, UBND tỉnh Bạc Liêu ban hành Kế hoạch thực hiện Chương trình của Ban Chấp hành Đảng bộ tỉnh (khóa XIV) về “Một số vấn đề cải cách chính sách tiền lương, bảo hiểm xã hội, trợ cấp ưu đãi người có công và định hướng cải cách đến năm 2020”",
-                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2013-7/trao-nha2972013_91022.jpg"));
-        listSameNews.add(new NewsModel(20,
-                "Bảo đảm cân đối cung cầu, bình ổn thị trường vào dịp Tết Nguyên đán Giáp Ngọ 2014",
-                "29/06/2018",
-                "Ngày 17/12, UBND tỉnh vừa ký Quyết định số 2685/QĐ-UBND ban hành Kế hoạch thực hiện Chương trình dữ trữ hàng hóa bình ổn giá vào dịp Tết Nguyên đán Giáp Ngọ 2014 trên địa bàn tỉnh Bạc Liêu.",
-                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2013-12/hang_binh_on_120122013_143459.jpg"));
-        listSameNews.add(new NewsModel(21,
-                "Quy hoạch Bảo vệ và phát triển rừng tỉnh Bạc Liêu giai đoạn 2014-2020",
-                "29/06/2018",
-                "UBND tỉnh vừa ban hành Quy hoạch Bảo vệ và phát triển rừng tỉnh Bạc Liêu giai đoạn 2014-2020.",
-                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2014-1/trongrung1012014_134836.jpg"));
-        listSameNews.add(new NewsModel(22,
-                "Ủy ban An toàn giao thông Quốc gia làm việc với tỉnh Bạc Liêu",
-                "Thứ Hai, 25/06/2018, 09:25",
-                "Chiều ngày 20/3, Ủy ban An toàn giao thông (ATGT) Quốc gia do đồng chí Khuất Việt Hùng, Phó Chủ tịch chuyên trách Ủy ban ATGT Quốc gia làm Trưởng đoàn đã có buổi làm việc với tỉnh Bạc Liêu về việc kiểm tra, đôn đốc công tác bảo đảm trật tự ATGT trên địa bàn tỉnh.",
-                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-3/uy%20ban%20an%20toan%20gt2232018_9574.jpg"));
-        listSameNews.add(new NewsModel(23,
-                "Hội nghị chuyên đề về công tác giải quyết khiếu nại, tố cáo",
-                "Thứ Bảy, 23/06/2018, 10:30",
-                "Chiều ngày 22/5, UBND tỉnh tổ chức Hội nghị chuyên đề về công tác giải quyết khiếu nại, tố cáo. Dự và chủ trì Hội nghị có đồng chí Nguyễn Quang Dương, Ủy viên BCH Trung ương Đảng, Bí thư Tỉnh ủy; đồng chí Dương Thành Trung, Phó Bí thư Tỉnh ủy, Chủ tịch UBND tỉnh.",
-                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-5/hoi%20nghi%20chuyen%20de2452018_83311.jpg"));
-        listSameNews.add(new NewsModel(24,
-                "Hội nghị triển khai văn bản pháp luật và hướng dẫn nghiệp vụ cho công chức 2018",
-                "Thứ Năm, 28/06/2018, 08:00",
-                "Ngày 10/4 tại Hội trường Công an tỉnh, Sở Tư pháp tổ chức Hội nghị triển khai văn bản pháp luật và hướng dẫn nghiệp vụ cho công chức tư pháp năm 2018. Tham dự Hội nghị có đồng chí Nguyễn Bá Ân, Giám đốc Sở Tư pháp.",
-                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-4/hoi%20nghi%20trien%20khai%20VBPL1342018_84612.jpg"));
-        listSameNews.add(new NewsModel(25,
-                "Hội đồng nhân dân tỉnh giám sát việc thực hiện công tác cải hành chính tại huyện Hồng Dân",
-                "Thứ Năm, 28/06/2018, 08:00",
-                "Ngày 30/3, Đoàn giám sát của HĐND tỉnh do ông Hồ Thanh Thủy, Phó Chủ tịch HĐND tỉnh làm trưởng đoàn đã đến tiếp xúc cử tri tại xã Ninh Hòa, huyện Hồng Dân chuyên đề về cải cách hành chính.",
-                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-4/hoi%20dong%20nhan%20dan242018_103857.jpg"));
-        listSameNews.add(new NewsModel(11,
-                "Kế hoạch triển khai công tác bảo đảm trật tự an toàn giao thông năm 2015",
-                "29/06/2018",
-                "Ban An toàn giao thông tỉnh vừa ban hành Kế hoạch triển khai công tác bảo đảm trật tự an toàn giao thông (TTAGT) năm 2015 nhằm phấn đấu giảm cả 3 tiêu chí về số vụ, số người chết và số người bị thương do tai nạn giao thông từ 5 đến 10% so với năm 2014; không để xảy ra ùn tắc giao thông trên địa bàn.",
-                "http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2015-3/NamATGT2632015_16515.jpg"));
+
         mAdapter.updateAnswers(listSameNews);
         pbSameNew.setVisibility(View.GONE);
 
 
     }
+
     private void showDataToRecyclerView() {
         mAdapter = new SamenewsRCVAdapter(this, new ArrayList<NewsModel>(0), new SamenewsRCVAdapter.PostItemListener() {
 
             @Override
             public void onPostClick(int id, String title, String time, String subTitle) {
-                startDetailActivity(id,title,time,subTitle);
+                startDetailActivity(id, title, time, subTitle);
             }
 
         });
@@ -275,58 +204,59 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
         recyclerView.addItemDecoration(dividerItemDecoration);
 
     }
+
     private void startDetailActivity(int id, String title, String time, String subTitle) {
         Intent intent = new Intent(this, DetailHomeActivityTemp.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
-        intent.putExtra(key.TITLE,title);
-        intent.putExtra(key.SUB_TITLE,subTitle);
-        intent.putExtra(key.TIME,time);
+        intent.putExtra(key.TITLE, title);
+        intent.putExtra(key.SUB_TITLE, subTitle);
+        intent.putExtra(key.TIME, time);
         startActivity(intent);
     }
 
     private void initData() {
         switch (id) {
-            case 1:{
+            case 1: {
                 listDetailHome1.add("Trong 6 tháng đầu năm 2018, toàn Ngành LĐTB&XH triển khai thực hiện có hiệu quả các lĩnh vực, cụ thể: Trên 14.300 lao động trong và ngoài tỉnh được giải quyết việc làm; 140 người được xuất khẩu lao động; đào tạo nghề cho hơn 4.700 người; chi trả đầy đủ chế độ trợ cấp ưu đãi người có công với cách mạng cho gần 11.000 người; trên 27.000 người được cấp thẻ BHYT; duy trì tốt việc hỗ trợ, giúp đỡ trên 170 thương binh 1/4, 2/4  có mức sống trung bình gặp khó khăn; phụng dưỡng hơn 140 Mẹ Việt Nam anh hùng... Bên cạnh đó, công tác giảm nghèo và bảo trợ xã hội; công tác bảo vệ, chăm sóc trẻ em và bình đẳng giới cũng được thực hiện tốt.");
-                listDetailHome1.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/28-62862018_8816.jpg");
+                listDetailHome1.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/28-62862018_8816.jpg");
                 listDetailHome1.add("Quang cảnh Hội nghị");
                 listDetailHome1.add("Trong 6 tháng cuối năm 2018, Ngành LĐTB&XH tiếp tục thực hiện các nội dung: Đẩy mạnh các giải pháp về giải quyết việc làm; đôn đốc, chỉ đạo công tác tuyển sinh và đào tạo nghề; triển khai thực hiện chính sách hỗ trợ người có công có khó khăn về nhà ở; phối hợp với các đơn vị truyền thông thực hiện tuyên truyền các nội dung, hoạt động về giảm nghèo và bảo trợ xã hội; thực hiện tốt chế độ trợ giúp cho các đối tượng bảo trợ xã hội, chủ động thực hiện tốt công tác cứu trợ đột xuất trên địa bàn, phòng chống tệ nạn xã hội…");
                 listDetailHome1.add("Phát biểu kết luận Hội nghị, Giám đốc Sở LĐTB&XH Trần Hồng Chiến đã biểu dương sự nỗ lực, cố gắng của Ngành LĐTB&XH thời gian qua, đồng thời chỉ đạo các đơn vị triển khai thực hiện tốt các hoạt động kỷ niệm 71 năm ngày Thương binh Liệt sĩ (27/7/1947 - 27/7/2018) cũng như các chỉ tiêu, nhiệm vụ đã đề ra.");
                 listDetailHome1.add("Sự Nghiệp");
                 break;
             }
-            case 2:{
+            case 2: {
                 //
-                listDetailHome2.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/khoi%20cong%20bv%20da%20khoa2562018_164113.jpg");
+                listDetailHome2.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/khoi%20cong%20bv%20da%20khoa2562018_164113.jpg");
                 listDetailHome2.add("Đồng chí Vương Phương Nam - Phó Chủ tịch UBND tỉnh (người thứ 3, từ phải qua) thực hiện nghi thức khởi công xây dựng dự án");
-                listDetailHome2.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/khoi%20cong%20bv%20da%20khoa%2012562018_163640.jpg");
+                listDetailHome2.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/khoi%20cong%20bv%20da%20khoa%2012562018_163640.jpg");
                 listDetailHome2.add("Phối cảnh Bệnh viện Đa khoa Bạc Liêu – Sài Gòn");
                 listDetailHome2.add("Dự án tọa lạc tại khóm 10, phường 1, thành phố Bạc Liêu với tổng diện tích trên 37.000m2, diện tích xây dựng 8.424 m2, diện tích sàn xây dựng lên đến 55.671 m2. Quy mô xây dựng 10 tầng, công suất 400 giường bệnh ngoại trú/ngày, 436 giường bệnh nội trú, khu khách sạn 21 phòng với 112 giường... Tổng mức đầu tư toàn dự án trên 1.369 tỷ đồng. Dự kiến dự án sẽ hoàn thành đưa vào khai thác vào cuối năm 2020./.");
                 listDetailHome2.add("Châu Khánh");
                 break;
             }
-            case 3:{
+            case 3: {
                 //
-                listDetailHome3.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/dinh%20huong%20thanh%20lap%20htx2562018_104544.jpg");
+                listDetailHome3.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/dinh%20huong%20thanh%20lap%20htx2562018_104544.jpg");
                 listDetailHome3.add("Chủ tịch UBND tỉnh Dương Thành Trung phát biểu tại buổi họp mặt");
                 listDetailHome3.add("Tại buổi họp mặt, nguyên Thứ trưởng Bộ Kế hoạch và Đầu tư, Đặng Huy Đông cho biết: Việc thực hiện mô hình HTX công nghệ cao phát triển tôm sẽ giúp bà con được liên kết với các nhà cung ứng vật tư đầu vào (thức ăn, thuốc, chế phẩm sinh học, giống, bạt lót...); sử dụng vật tư với giá thấp hơn so với giá mua ở các đại lý bên ngoài, kiểm soát tốt hơn chất lượng tôm nguyên liệu nhằm hạn chế rủi ro, thiệt hại cho người nuôi.");
                 listDetailHome3.add("Ông Dương Thành Trung, Chủ tịch UBND tỉnh nhận định: Việc thành lập HTX công nghệ cao phát triển tôm Bạc Liêu là việc làm cần thiết để bảo vệ lợi ích chính đáng của các doanh nghiệp, hộ nuôi tôm. Vì vậy, các doanh nghiệp và các hộ nôi tôm nhỏ lẻ cần liên kết lại với nhau, thống nhất về quy trình nuôi tôm sạch, nhằm tạo ra sản phẩm có chất lượng, đem lại lợi nhuận cao hơn cho người nuôi. Từ đó khẳng định được thương hiệu con tôm Bạc Liêu, đồng thời, ông khẳng định tỉnh sẽ hỗ trợ tích cực để Hợp tác xã công nghệ cao phát triển tôm Bạc Liêu được thành lập và đi vào hoạt động trong thời gian tới./.");
                 listDetailHome3.add("Sự Nghiệp");
                 break;
             }
-            case 4:{
+            case 4: {
                 //
-                listDetailHome4.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/tap%20huan%20cap%20giay%20phep2262018_13461.jpg");
+                listDetailHome4.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/tap%20huan%20cap%20giay%20phep2262018_13461.jpg");
                 listDetailHome4.add("Quang cảnh buổi tập huấn");
                 listDetailHome4.add("Tại buổi tập huấn, các doanh nghiệp đã được Sở LĐ-TB&XH hệ thống lại một số quy định về sử dụng lao động nước ngoài, xác nhận lao động nước ngoài không thuộc diện cấp giấy phép lao động, cấp lại giấy phép lao động theo Thông tư số 23/2017/TT-BLĐTBXH ngày 15/8/2017 của Bộ LĐTB&XH về việc hướng dẫn thực hiện cấp giấy phép lao động cho người lao động nước ngoài làm việc tại Việt Nam qua mạng điện tử; hướng dẫn sử dụng phần mềm trong việc nộp hồ sơ đề nghị cấp giấy phép lao động cho lao động nước ngoài làm việc tại tỉnh qua mạng điện tử. Tại buổi tập huấn, các doanh nghiệp cũng đã được giải đáp một số khó khăn, vướng mắc trong việc thực hiện cấp giấy phép lao động cho lao động nước ngoài làm việc tại tỉnh.");
                 listDetailHome4.add("Thực hiện việc cấp giấy phép lao động qua mạng điện tử cho người lao động nước ngoài sẽ giảm thời gian thực hiện các trình tự, thủ tục liên quan việc cấp giấy phép lao động, cũng như tạo điều kiện thận lợi cho doanh nghiệp, tổ chức và nâng cao tiện ích trong công tác quản lý lao động nước ngoài trên địa bàn tỉnh./.");
                 listDetailHome4.add("Đức Hình");
                 break;
             }
-            case 5:{
+            case 5: {
                 //
-                listDetailHome5.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/dai%20hoi%20cong%20doan2562018_103755.jpg");
+                listDetailHome5.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/dai%20hoi%20cong%20doan2562018_103755.jpg");
                 listDetailHome5.add("Lãnh đạo Tổng LĐLĐ Việt Nam và Lãnh đạo Tỉnh ủy tặng hoa chúc mừng Ban Chấp hành Công đoàn tỉnh Bạc Liêu khóa X, nhiệm kỳ 2018 - 2023");
                 listDetailHome5.add("Trong nhiệm kỳ qua, dưới sự lãnh đạo, chỉ đạo của Tổng LĐLĐ Việt Nam, Ban Chấp hành Đảng bộ tỉnh, phong trào CNVCLĐ tỉnh nhà có sự phát triển. Nội dung, phương thức hoạt động có nhiều đổi mới, chức năng đại diện bảo vệ quyền lợi hợp pháp, chính đáng và chăm lo lợi ích của đoàn viên, người lao động ngày càng được đẩy mạnh, mang lại lợi ích thiết thực, động viên CNVCLĐ hăng hái thi đua lao động, sản xuất.");
                 listDetailHome5.add("Công tác xây dựng tổ chức Công đoàn và phát triển đoàn viên được chú trọng, tỷ lệ công đoàn cơ sở đạt tiêu chuẩn vững mạnh ngày càng tăng. Nhiệm kỳ qua đã thành lập mới 47 công đoàn cơ sở và kết nạp gần 6.700 đoàn viên mới. Công đoàn các cấp đã xây dựng quỹ Mái ấm công đoàn và trợ vốn cho CNVCLĐ nghèo gần 13,4 tỷ đồng. Từ nguồn quỹ này đã xây dựng mới và sửa chữa gần 200 căn Mái ấm công đoàn và hỗ trợ cho trên 7.000 lượt CNVCLĐ nghèo phát triển kinh tế gia đình.");
@@ -335,9 +265,9 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome5.add("HLam");
                 break;
             }
-            case 6:{
+            case 6: {
                 //
-                listDetailHome6.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/phien%20hop%20ubnd%20th6%20l22262018_13386.jpg");
+                listDetailHome6.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/phien%20hop%20ubnd%20th6%20l22262018_13386.jpg");
                 listDetailHome6.add("Quang cảnh phiên họp");
                 listDetailHome6.add("Tại phiên họp, thành viên UBND tỉnh đã thống nhất thông qua nội dung dự thảo Tờ trình của UBND tỉnh và Nghị quyết của HĐND tỉnh phân bổ định mức chi bảo đảm cho công tác xây dựng văn bản quy phạm pháp luật trên địa bàn tỉnh để trình kỳ họp HĐND sắp tới.");
                 listDetailHome6.add("Thành viên UBND tỉnh đã thảo luận, đóng góp ý kiến sửa đổi, bổ sung nội dung của các dự thảo: Tờ trình của UBND tỉnh và Nghị quyết của HĐND tỉnh về sửa đổi, bổ sung Nghị quyết 11/2017/NQ-HĐND ngày 07/12/2017 của HĐND tỉnh về nhiệm vụ phát triển kinh tế - xã hội năm 2018, Tờ trình của UBND tỉnh và Nghị quyết của HĐND tỉnh ban hành Quy định về phân cấp quản lý, sử dụng tài sản công thuộc phạm vi quản lý của tỉnh Bạc Liêu, Tờ trình của UBND tỉnh và Nghị quyết của HĐND tỉnh quy định mức đóng góp, chế độ miễn, giảm và hỗ trợ cho học viên cai nghiện ma túy bắt buộc tại cơ sở cai nghiện ma túy và tại cộng đồng; chế độ miễn cho hoc viên cai nghiện tự nguyện tại cơ sở cai nghiện ma túy công lập trên địa bàn tỉnh.");
@@ -345,9 +275,9 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome6.add("Đức Hình");
                 break;
             }
-            case 7:{
+            case 7: {
                 //
-                listDetailHome7.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/so%20lao%20dong2262018_104830.jpg");
+                listDetailHome7.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/so%20lao%20dong2262018_104830.jpg");
                 listDetailHome7.add("Quang cảnh Hội nghị");
                 listDetailHome7.add("Tham dự Hội nghị có đại diện Lãnh đạo các Sở, Ban, Ngành, UBND và Phòng LĐTB&XH các huyện, thị xã, thành phố.");
                 listDetailHome7.add("Hội nghị đã triển khai Quyết định số 178/QĐ-UBND ngày 02/5/2018 của Chủ tịch UBND tỉnh về việc ban hành Quy chế phối hợp cai nghiện ma túy tại gia đình, cộng đồng trên địa bàn tỉnh Bạc Liêu và Quyết định số 736/QĐ-UBND ngày 29/01/2018 của Chủ tịch UBND tỉnh về ban hành Quy chế phối hợp hỗ trợ, giúp đỡ người sau cai nghiện ma túy, người mại dâm hoàn lương, người bị mua bán trở về.");
@@ -355,10 +285,10 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome7.add("Sự Nghiệp");
                 break;
             }
-            case 8:{
-                listDetailHome8.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/xa%20hung%20hoi%2011262018_144430.jpg");
+            case 8: {
+                listDetailHome8.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/xa%20hung%20hoi%2011262018_144430.jpg");
                 listDetailHome8.add("Đường liên ấp của xã Hưng Hội được bê-tông hóa.");
-                listDetailHome8.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/xa%20hung%20hoi%2021262018_14452.jpg");
+                listDetailHome8.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/xa%20hung%20hoi%2021262018_14452.jpg");
                 listDetailHome8.add("Xã Hưng Hội làm lộ giao thông nông thôn. Ảnh: C.L");
                 listDetailHome8.add("Là xã có khá đông đồng bào Khmer sinh sống, đời sống kinh tế của người dân còn gặp nhiều khó khăn, vì vậy khi thực hiện phong trào xây dựng nông thôn mới (XDNTM) xã Hưng Hội có xuất phát điểm khá thấp. Song, nhờ sự nỗ lực của địa phương và sự đồng tình hưởng ứng của người dân, đến cuối tháng 5/2018, xã Hưng Hội đã đạt 14/19 tiêu chí XDNTM. Còn 5 tiêu chí chưa đạt là: Quy hoạch, thủy lợi, điện, bưu điện, nhà ở dân cư và thu nhập. Tuy nhiên, các tiêu chí này đã thực hiện được nhiều tiểu mục.");
                 listDetailHome8.add("Từ đầu năm đến nay, xã Hưng Hội đã thi công 3 tuyến lộ bê-tông với chiều dài 610m, sửa chữa một tuyến lộ nhựa dài 1.900m. Tổng kinh phí thực hiện các công trình hơn 232 triệu đồng, trong đó, người dân đóng góp hơn một nửa. Ông Hứa Sa Thi (ấp Cái Giá, xã Hưng Hội) bày tỏ: “Trước đây, con lộ trước nhà tôi sình lầy, khó đi lắm. Khi chính quyền đến vận động làm lộ bê-tông, bà con rất phấn khởi và đóng góp tiền, ngày công cùng với chính quyền xây dựng hoàn thành công trình”. Ngoài ra, từ nguồn vốn hỗ trợ gần 2 tỷ đồng (theo Nghị định 35/NĐ-CP của Thủ tướng Chính phủ), xã đã sên vét 26 tuyến kênh nội đồng, 4 tuyến kênh cấp 3 và làm 6 tuyến lộ bê-tông với chiều dài gần 3km.");
@@ -371,9 +301,9 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome8.add("Nguồn: baobaclieu.vn");
                 break;
             }
-            case 9:{
+            case 9: {
                 //
-                listDetailHome9.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-3/chu%20tich2632018_92056.jpg");
+                listDetailHome9.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-3/chu%20tich2632018_92056.jpg");
                 listDetailHome9.add("Chủ tịch UBND tỉnh - Dương Thành Trung (bìa trái) trao bằng công nhận xã Định Thành đạt chuẩn NTM. Ảnh: C.L");
                 listDetailHome9.add("Từ năm 2011 đến nay, tổng kinh phí triển khai thực hiện chương trình xây dựng NTM đạt trên 150 tỷ đồng, trong đó: vốn ngân sách Trung ương hơn 4,1 tỷ đồng, vốn ngân sách tỉnh, huyện trên 67 tỷ đồng, vốn ngân sách xã là 0,7 tỷ đồng, vốn tín dụng hơn 1 tỷ đồng, vốn nhân dân đóng góp gần 66,5 tỷ đồng, nguồn vốn vận động doanh nghiệp gần 2 tỷ đồng và vốn lồng ghép trên 8,7 tỷ đồng. Báo cáo tại buổi lễ, ông Nguyễn Hoàng Ly - Bí thư Đảng ủy, Chủ tịch UBND xã Định Thành cho biết, nhiều năm qua Đảng bộ, chính quyền và nhân dân luôn tích cực tập trung tuyên truyền, vận động người dân thực hiện phong trào xây dựng NTM. Trong đó, việc đầu tư phát triển, hoàn thiện cơ sở hạ tầng thiết yếu nhằm phục vụ phát triển sản xuất, nâng cao đời sống của người dân cũng là lĩnh vực được địa phương chú trọng quan tâm trong quá trình xây dựng NTM");
                 listDetailHome9.add("Phát biểu tại buổi lễ, ông Dương Thành Trung - Chủ tịch UBND tỉnh, chúc mừng kết quả mà Đảng bộ, chính quyền và nhân dân xã Định Thành đã đạt được trong phong trào xây dựng NTM. Đồng thời, đề nghị địa phương tiếp tục giữ vững các tiêu chí và phấn đấu đạt chuẩn xã NTM kiểu mẫu trong thời gian tới, nhất là đề ra các chủ trương, giải pháp để ngày càng nâng cao mức sống cho người dân; tạo điều kiện phát triển các mô hình kinh tế hiệu quả giúp người dân nâng cao thu nhập; đặc biệt là cần làm rõ vai trò, nhiệm vụ và lợi ích của người dân trong xây dựng NTM.");
@@ -381,19 +311,19 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome9.add("Nguồn: Báo Bạc Liêu");
                 break;
             }
-            case 10:{
+            case 10: {
                 //
                 listDetailHome10.add("Trong Tháng Thanh niên, các cấp bộ Đoàn tích cực tuyên truyền và vận động nhân dân tham gia xây dựng nông thôn mới theo các tiêu chí cụ thể, đồng thời tổ chức ra quân phát quang các tuyến đường liên xã dài hơn 23 km; cắt tỉa hàng rào cây xanh; tu sửa hơn 22 km đường giao thông nông thôn; đắp 10 móng cầu bê tông; xây dựng 03 cây cầu giao thông nông thôn; sửa chữa 36 cây cầu gỗ và bê tông. Bên cạnh đó, phối hợp với các ngành chức năng tổ chức hơn 130 cuộc ra quân lập lại trật tự đô thị, tuyên truyền nhắc nhở các hộ dân trên địa bàn đô thị không buôn bán, đậu xe lấn chiếm vỉa hè với hơn 4.300 lực lượng đoàn viên thanh niên (ĐVTN) tham gia.");
-                listDetailHome10.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2017-4/20-4-2017Untitled-12042017_92227.jpg");
+                listDetailHome10.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2017-4/20-4-2017Untitled-12042017_92227.jpg");
                 listDetailHome10.add("Tuổi trẻ Bạc Liêu thực hiện những công trình, phần việc thiết thực (ảnh KV)");
                 listDetailHome10.add("Phát huy tinh thần xung kích, tình nguyện của tuổi trẻ tham gia bảo vệ môi trường, trong Tháng Thanh niên, các cấp bộ Đoàn tổ chức nhiều buổi ra quân dọn vệ sinh và tuyên truyền về nước sạch, vệ sinh môi trường, trồng 4.500 cây xanh các loại; vận động nhân dân tháo dỡ hơn 300 nhà vệ sinh trên sông, ao đìa; thu gom xử lý 16 tấn rác thải; xây dựng 18 nhà tiêu hợp vệ sinh. Ngoài ra, các cấp bộ Đoàn cũng triển khai thực hiện quyết liệt những hoạt động chăm lo, hỗ trợ thanh thiếu nhi và an sinh xã hội: Tổ chức 05 buổi tư vấn hướng nghiệp và giới thiệu việc làm cho hơn 1.200 ĐVTN; tặng hơn 400 suất quà cho gia đình chính sách và hộ nghèo; tặng quà và học bổng cho các em học sinh có hoàn cảnh khó khăn với tổng trị giá 430 triệu đồng; khám chữa bệnh và cấp phát thuốc miễn phí cho 950 gia đình chính sách, hộ nghèo, người già neo đơn, gia đình có hoàn cảnh khó khăn.");
                 listDetailHome10.add("Đồng chí Trương Hồng Trang, nguyên Bí Thư Tỉnh Đoàn khẳng định: Tổ chức các phong trào hành động, các công trình, phần việc cụ thể, thiết thực trong Tháng Thanh niên đã giúp tuổi trẻ Bạc Liêu phát huy vai trò, khả năng, tinh thần tình nguyện, sức sáng tạo của tuổi trẻ trong xây dựng nông thôn mới và văn minh đô thị. Qua đó, tạo được hình ảnh đẹp về thế hệ thanh niên thời kỳ mới, dám dấn thân vào những việc mới, việc khó để thực hiện nhiệm vụ xây dựng và bảo vệ quê hương, đất nước.");
                 listDetailHome10.add("Khánh Vy");
                 break;
             }
-            case 11:{
+            case 11: {
                 //
-                listDetailHome11.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2017-4/NTM2042017_7429.jpg");
+                listDetailHome11.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2017-4/NTM2042017_7429.jpg");
                 listDetailHome11.add("Một trong những khu dân cư tiêu biểu của xã Vĩnh Bình (huyện Hòa Bình) nhờ thực hiện cuộc vận động xây dựng nông thôn mới, đô thị văn minh. Ảnh: X.T");
                 listDetailHome11.add("Với tinh thần chủ động, hàng năm MTTQ Việt Nam huyện Hòa Bình đều đề ra kế hoạch và phát động nhiều phong trào thi đua yêu nước: “Toàn dân đoàn kết xây dựng đời sống văn hóa ở khu dân cư gắn với XDNTM”, thi đua thực hiện các nhiệm vụ trọng tâm của huyện về phát triển kinh tế, giảm nghèo, vệ sinh môi trường, đảm bảo an ninh trật tự, tham gia hưởng ứng “Ngày Vì người nghèo”…");
                 listDetailHome11.add("Ông Hứa Ngọc Thoanh, Chủ tịch Ủy ban MTTQ Việt Nam huyện Hòa Bình, cho biết: Qua các phong trào thi đua do MTTQ huyện phát động đã phát huy được sức mạnh và tinh thần đoàn kết, tự quản của nhân dân, tạo động lực cho phát triển kinh tế, góp phần thực hiện chính sách giảm nghèo, đền ơn đáp nghĩa, nâng cao ý thức tự giác của nhân dân trong thực hiện chủ trương, chính sách, pháp luật của Đảng và Nhà nước, phát huy các giá trị truyền thống tốt đẹp của dân tộc, giữ vững an ninh chính trị, trật tự an toàn xã hội, xây dựng hệ thống chính trị vững mạnh...");
@@ -403,10 +333,10 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome11.add("Xuân Thưởng – Báo Bạc Liêu Online");
                 break;
             }
-            case 12:{
+            case 12: {
                 //
                 listDetailHome12.add("Dự họp có đồng chí Dương Thành Trung, Chủ tịch UBND tỉnh và lãnh đạo các sở, ban, ngành, hội, đoàn thể, huyện, thị xã, thành phố.");
-                listDetailHome12.add(baseSrcUrl+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2016-6/QC962016_16125.jpg");
+                listDetailHome12.add(baseSrcUrl + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2016-6/QC962016_16125.jpg");
                 listDetailHome12.add("Quang cảnh cuộc họp");
                 listDetailHome12.add("Phát biểu tại cuộc họp, Bí thư Tỉnh ủy Lê Minh Khái nhấn mạnh: Chương trình xây dựng nông thôn mới là một trong hai chương trình trọng điểm của quốc gia. Chương trình đã được các cấp, các ngành từ Trung ương đến địa phương xây dựng kế hoạch và triển khai thực hiện chặt chẽ. Kết quả Chương trình đã mang lại nhiều ý nghĩa quan trọng đối với cư dân khu vực nông thôn ở các địa phương, nhất là những tỉnh nông nghiệp như Bạc Liêu.");
                 listDetailHome12.add("Qua 5 năm triển khai Chương trình xây dựng nông thôn mới, Bạc Liêu đã đạt được những kết quả bước đầu. Bộ mặt một số khu vực nông thôn trong tỉnh cơ bản được cải thiện, đời sống nhân dân có bước chuyển biến tốt cả vật chất lẫn tinh thần. Chương trình xây dựng nông thôn mới đã huy động sự vào cuộc của cả hệ thống chính trị và sự hưởng ứng nhiệt tình của người dân.");
@@ -444,7 +374,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 break;
             }
             case 15: {
-                listDetailHome15.add(baseSrcUrl+"/PublishingImages/dinh%20huong%20thanh%20lap%20htx2562018_104544.jpg");
+                listDetailHome15.add(baseSrcUrl + "/PublishingImages/dinh%20huong%20thanh%20lap%20htx2562018_104544.jpg");
                 listDetailHome15.add("Chủ tịch UBND tỉnh Dương Thành Trung phát biểu tại buổi họp mặt");
                 listDetailHome15.add("Tại buổi họp mặt, nguyên Thứ trưởng Bộ Kế hoạch và Đầu tư, Đặng Huy Đông cho biết: Việc thực hiện mô hình HTX công nghệ cao phát triển tôm sẽ giúp bà con được liên kết với các nhà cung ứng vật tư đầu vào (thức ăn, thuốc, chế phẩm sinh học, giống, bạt lót...); sử dụng vật tư với giá thấp hơn so với giá mua ở các đại lý bên ngoài, kiểm soát tốt hơn chất lượng tôm nguyên liệu nhằm hạn chế rủi ro, thiệt hại cho người nuôi.\n" +
                         "\n" +
@@ -453,7 +383,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 break;
             }
             case 16: {
-                listDetailHome16.add(baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/302962018_82446.jpg");
+                listDetailHome16.add(baseUrlSoNgoaiVu + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/302962018_82446.jpg");
                 listDetailHome16.add("Ảnh: Bà Lê Thanh Giang - Chủ tịch HND tỉnh, Trưởng BTC Hội thi trao cờ lưu niệm cho các trưởng đoàn.");
                 listDetailHome16.add("Đến dự Hội thi có các đ/c trong Ban tổ chức, Ban Giám khảo, đại diện lãnh đạo các Sở ngành liên quan, Hội nông dân các địa phương, đông đảo cổ động viên. Với sự tranh tài của 22 thí sinh dự thi 21 tiết mục gồm: cổ nhạc, tân nhạc và ca tài tử. Kết quả, Ban tổ chức đã trao 2 giải nhất, 4 giải nhì, 5 giải ba và 10 giải khuyến khích; giải nhất thể loại tân nhạc thuộc về thí sinh Phạm Văn Sâm (huyện Vĩnh Lợi), giải Nhất thể loại cổ nhạc thuộc về đôi song ca Huỳnh Văn Em - Đỗ Thị Ngọc Huyền (huyện Hồng Dân).\n" +
                         "Nhằm duy trì và phát triển phong trào văn hóa, văn nghệ trong cán bộ, hội viên Hội Nông dân các cấp trong tỉnh; góp phần bảo tồn và phát huy giá trị nghệ thuật đờn ca tài tử Nam bộ, bản Dạ cổ hoài lang và bài ca vọng cổ tiêu biểu của Bạc Liêu.");
@@ -462,34 +392,34 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
             }
             case 17: {
                 listDetailHome17.add("Đối tượng tham dự Lớp bồi dưỡng là cán bộ, công chức, viên chức làm công tác hội nhập quốc tế thuộc các cơ quan Đảng của tỉnh; các Sở, ban, ngành, đơn vị; Mặt trận Tổ quốc và các đoàn thể cấp tỉnh; các hội đặc thù; các cơ quan, đơn vị cấp huyện; các trường Đại học, Cao đẳng trên địa bàn tỉnh. Các giảng viên, báo cáo viên trình bày các chuyên đề gồm: PGS.TS Trần Việt Thái, Phó Viện trưởng Viện Nghiên cứu chiến lược Bộ Ngoại giao; ông Phạm Thành Nam, Phó Vụ trưởng Vụ Kinh tế đa phương và ông Vũ Xuân Trường, nguyên Đại sứ Việt Nam tại Philippin, chuyên gia kinh tế, Bộ Ngoại giao.");
-                listDetailHome17.add(baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/1%20NHỎ2762018_132823.jpg");
+                listDetailHome17.add(baseUrlSoNgoaiVu + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/1%20NHỎ2762018_132823.jpg");
                 listDetailHome17.add("Ông Vưu Nghị Bình, Giám đốc Sở Ngoại vụ phát biểu khai giảng lớp bồi dưỡng");
-                listDetailHome17.add(baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/1.2%20nhỏ2762018_132918.jpg");
+                listDetailHome17.add(baseUrlSoNgoaiVu + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/1.2%20nhỏ2762018_132918.jpg");
                 listDetailHome17.add("Quang cảnh lớp bồi dưỡng");
-                listDetailHome17.add(baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/2%20NHỎ2762018_133025.jpg");
+                listDetailHome17.add(baseUrlSoNgoaiVu + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/2%20NHỎ2762018_133025.jpg");
                 listDetailHome17.add("PGS.TS Trần Việt Thái, Phó Viện trưởng Viện Nghiên cứu Chiến lược, Bộ Ngoại giao trình bày chuyên đề đường lối đối ngoại của Đảng và Nhà nước về Hội nhập quốc tế");
                 listDetailHome17.add("Phát biểu tại lớp bồi dưỡng, ông Vưu Nghị Bình, Giám đốc Sở Ngoại vụ cho rằng việc tổ chức lớp học này là hết sức quan trọng, thiết thực và bổ ích, nhằm giúp cho học viên nắm rõ về cục diện quan hệ quốc tế và chiến lược hội nhập quốc tế; về đường lối đối ngoại của Đảng và Nhà nước, các định hướng lớn trong quan hệ đa phương đến năm 2030, vai trò nòng cốt của Việt Nam trong ASEAN; về công tác Ngoại giao kinh tế và kỹ năng xúc tiến đầu tư, thương mại; về các hiệp định thương mại và đầu tư của Việt Nam với các đối tác lớn, cơ hội, thách thức của Việt Nam khi tham gia. Để lớp bồi dưỡng đạt kết quả cao, Giám đốc Sở Ngoại vụ đề nghị các đồng chí tham dự lớp học phải có mặt đầy đủ, tập trung theo dõi, lắng nghe và tiếp thu các nội dung mà các giảng viên trình bày; đồng thời, cũng mong rằng từ những thông tin, kiến thức được lĩnh hội, cập nhật qua lớp bồi dưỡng này, các đồng chí sẽ nghiên cứu, vận dụng sáng tạo trong quá trình triển khai thực hiện các nhiệm vụ liên quan đến lĩnh vực công tác đối ngoại và hội nhập quốc tế nhằm đạt được kết quả cao nhất, góp phần đẩy mạnh phát triển kinh tế - xã hội, giữ vững ổn định an ninh – chính trị của tỉnh.\n" +
                         "\n" +
                         "Sau 02 ngày học tập, Ban Tổ chức lớp đã trao Giấy chứng nhận cho các học viên hoàn thành lớp bồi dưỡng.");
-                listDetailHome17.add(baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/3-nhỏ2762018_133233.jpg");
+                listDetailHome17.add(baseUrlSoNgoaiVu + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/3-nhỏ2762018_133233.jpg");
                 listDetailHome17.add("Đại diện các đoàn, đơn vị nhận giấy chứng nhận và chụp hình với ông Vưu Nghị Bình, Giám đốc Sở Ngoại vụ");
-                listDetailHome17.add(baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/3--nhỏ2762018_133420.jpg");
+                listDetailHome17.add(baseUrlSoNgoaiVu + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/3--nhỏ2762018_133420.jpg");
                 listDetailHome17.add("Đại diện các đoàn, đơn vị nhận giấy chứng nhận và chụp hình với ông Phạm Thành Nam, Phó Vụ trưởng Vụ Hợp tác kinh tế đa phương, Bộ Ngoại giao");
-                listDetailHome17.add(baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/3---2762018_133611.jpg");
+                listDetailHome17.add(baseUrlSoNgoaiVu + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-6/3---2762018_133611.jpg");
                 listDetailHome17.add("Đại diện các đoàn, đơn vị nhận giấy chứng nhận và chụp hình với ông Nguyễn Quốc Liêm, Phó Giám đốc Sở Ngoại vụ");
                 listDetailHome17.add("Theo kế hoạch, từ nay đến cuối năm 2018, Sở Ngoại vụ sẽ tham mưu Ủy ban nhân dân tỉnh mở thêm 02 lớp dành cho cán bộ, công chức, viên chức và doanh nghiệp làm công tác hội nhập quốc tế./.");
                 listDetailHome17.add("Bá Thép");
                 break;
             }
             case 18: {
-                listDetailHome18.add(baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-5/11752018_95250.png");
+                listDetailHome18.add(baseUrlSoNgoaiVu + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-5/11752018_95250.png");
                 listDetailHome18.add("Quang cảnh hội nghị");
                 listDetailHome18.add("Tham dự buổi tọa đàm có đại diện Lãnh đạo 13 cơ quan ngoại vụ các tỉnh và 50 cán bộ, công chức thuộc Cụm thi đua số 5. Về phía Hàn Quốc, có ông Jeong Woo Jin, Phó Tổng Lãnh sự quán Hàn Quốc; ông Lee Bok Hang, Lãnh sự phụ trách visa; ông Ahn Seong Ho, Lãnh sự phụ trách thương mại - đầu tư cùng các cán bộ khác của Lãnh sự quán Hàn Quốc.\n" +
                         "\n" +
                         "Tại buổi tọa đàm ông Nguyễn Thanh Điền, Giám đốc Sở Ngoại vụ tỉnh Cà Mau và ông Phạm Thế Vinh, Giám đốc Sở Ngoại vụ thành phố Cần Thơ đồng chủ trì đã nêu lên tình hình thực hiện nhiệm vụ trên các lĩnh vực trong thời gian qua, những thuận lợi, khó khăn, vướng mắc thường gặp và đây là dịp để các cơ quan ngoại vụ của địa phương cùng trao đổi học tập kinh nghiệm.\n" +
                         "\n" +
                         "Phát biểu về hoạt động lãnh sự ông Nguyễn Hữu Xuân, Giám đốc Sở Ngoại vụ tỉnh Đồng Tháp đã nêu lên một số nội dung về công tác lãnh sự và lễ tân đối ngoại, chia sẻ về quy trình đón tiếp đoàn, quản lý đoàn ra nước ngoài,… Ông Nguyễn Việt Thông, Phó Giám đốc Sở Ngoại vụ tỉnh Kiên Giang phát biểu về công tác ngoại giao kinh tế. Kết thúc phiên thứ nhất, ông Nguyễn Thanh Điền, Giám đốc Sở Ngoại vụ tỉnh Cà Mau - Cụm trưởng đã phát biểu và đánh giá cao ý kiến thảo luận của các đại biểu, đồng thời đề nghị trong thời gian tới cụm cần tổ chức nhiều hơn các hoạt động giao lưu, hội thảo theo chuyên đề để các địa phương có điều kiện học tập, trao đổi kinh nghiệm.");
-                listDetailHome18.add(baseUrlSoNgoaiVu+"/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-5/21752018_95413.png");
+                listDetailHome18.add(baseUrlSoNgoaiVu + "/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-5/21752018_95413.png");
                 listDetailHome18.add("Đoàn Sở Ngoại vụ tỉnh Bạc Liêu chụp ảnh lưu niệm với Đoàn Lãnh sự quán Hàn Quốc tại thành phố Hồ Chí Minh");
                 listDetailHome18.add("Tại phiên 2, đã tổ chức giao lưu, trao đổi kinh nghiệm giữa các cơ quan ngoại vụ khu vực Tây Nam Bộ với Tổng Lãnh sự quán Hàn Quốc tại Thành phố Hồ Chí Minh, các tỉnh đã nêu lên những khó khăn vướng mắc về công tác kêu gọi đầu tư, hợp tác, thủ tục xin visa đối với Hàn Quốc… và những kiến nghị nhằm tăng cường sự phối hợp chặt chẽ từ các bên, thúc đẩy hơn nữa quan hệ hợp tác giữa Việt Nam – Hàn Quốc với các tỉnh, thành khu vực đồng bằng sông Cửu Long và Hàn Quốc trong thời gian tới.\n" +
                         "\n" +
@@ -549,7 +479,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome21.add("L.Đ");
                 break;
             }
-            case 22:{
+            case 22: {
                 //
                 listDetailHome22.add("http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-3/uy%20ban%20an%20toan%20gt2232018_9574.jpg");
                 listDetailHome22.add("Ông Khuất Việt Hùng, Phó Chủ tịch chuyên trách Ủy ban ATGT Quốc gia phát biểu tại buổi làm việc");
@@ -560,7 +490,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome22.add("Nghiệp - Hình");
                 break;
             }
-            case 23:{
+            case 23: {
                 //
                 listDetailHome23.add("http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-5/hoi%20nghi%20chuyen%20de2452018_83311.jpg");
                 listDetailHome23.add("Bí thư Tỉnh ủy Nguyễn Quang Dương phát biểu chỉ đạo Hội nghị");
@@ -571,7 +501,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome23.add("Đức Hình");
                 break;
             }
-            case 24:{
+            case 24: {
                 listDetailHome24.add("http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-4/hoi%20nghi%20trien%20khai%20VBPL1342018_84612.jpg");
                 listDetailHome24.add("Đồng chí Nguyễn Bá Ân, Giám đốc Sở Tư pháp phát biểu khai mạc Hội nghị");
                 listDetailHome24.add("Phát biểu khai mạc Hội nghị, đồng chí Nguyễn Bá Ân, Giám đốc Sở Tư pháp cho biết Hội nghị sẽ triển khai nội dung về hướng dẫn trình tự, thủ tục trong xử lý vi phạm hành chính; một số nội dung cơ bản của Luật Đấu giá tài sản và Nghị định số 62/2017/NĐ-CP ngày 16/5/2014 của Chính phủ quy định chi tiết một số điều và biện pháp thi hành Luật Đấu giá tài sản; nội dung cơ bản của Luật Hộ tịch, công tác chứng thực, lý lịch tư pháp....");
@@ -579,7 +509,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome24.add("Đức Hình");
                 break;
             }
-            case 25:{
+            case 25: {
                 listDetailHome25.add("http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2018-4/hoi%20dong%20nhan%20dan242018_103857.jpg");
                 listDetailHome25.add("Ông Hồ Thanh Thủy, Phó Chủ tịch HĐND tỉnh phát biểu tại buổi làm việc");
                 listDetailHome25.add("Nhìn chung, người dân địa phương khá hài lòng về công tác CCHC của địa phương, đa số các thủ tục được giải quyết kịp thời, đúng thời hạn. Tuy nhiên, vẫn có ý kiến đóng góp về sự chậm trễ ở lĩnh vực đất đai, xác nhận hồ sơ người có công… Để khắc phục sự chậm trễ như đã qua, UBND xã Ninh Hòa kiến nghị với Đoàn một số nội dung như: Có cơ chế hỗ trợ về cơ sở vật chất, trang thiết bị đối với bộ phận một cửa; tổ chức các lớp tập huấn nâng cao nghiệp vụ cho cán bộ, công chức phụ trách Bộ phận tiếp nhận và trả kết quả; hỗ trợ để xã được cập nhật và triển khai các văn bản mới…");
@@ -588,7 +518,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 listDetailHome25.add("Ngọc Hiền");
                 break;
             }
-            case 26:{
+            case 26: {
                 listDetailHome26.add("Thực hiện chủ đề Năm an toàn giao thông 2015 “Siết chặt quản lý kinh doanh vận tải và kiểm soát tải trọng phương tiện” với mục tiêu “Tính mạng con người là trên hết”, Kế hoạch đề ra một số nhiệm vụ trọng tâm như: Tăng cường sự lãnh đạo, chỉ đạo thường xuyên của cấp ủy đảng, chính quyền, các ngành, các tổ chức đoàn thể từ tỉnh đến cơ sở đối với công tác bảo đảm TTATGT, chống ùn tắc giao thông.");
                 listDetailHome26.add("http://baclieu.gov.vn/_layouts/LacVietBIO/fckUpload_BL/SiteChinh/2015-3/NamATGT2632015_16515.jpg");
                 listDetailHome26.add("Lực lượng ĐVTN ra quân hưởng ứng Năm ATGT 2015");
@@ -606,114 +536,111 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
         }
 
 
-
-
-
     }
 
     private void loadData() {
         switch (id) {
-            case 1:{
+            case 1: {
                 loadDataById(listDetailHome1);
                 break;
             }
-            case 2:{
-               loadDataById(listDetailHome2);
+            case 2: {
+                loadDataById(listDetailHome2);
                 break;
             }
-            case 3:{
+            case 3: {
                 loadDataById(listDetailHome3);
                 break;
             }
-            case 4:{
+            case 4: {
                 loadDataById(listDetailHome4);
                 break;
             }
-            case 5:{
+            case 5: {
                 loadDataById(listDetailHome5);
                 break;
             }
-            case 6:{
+            case 6: {
                 loadDataById(listDetailHome6);
                 break;
             }
-            case 7:{
+            case 7: {
                 loadDataById(listDetailHome7);
                 break;
             }
-            case 8:{
+            case 8: {
                 loadDataById(listDetailHome8);
                 break;
             }
-            case 9:{
+            case 9: {
                 loadDataById(listDetailHome9);
                 break;
             }
-            case 10:{
+            case 10: {
                 loadDataById(listDetailHome10);
                 break;
             }
-            case 11:{
+            case 11: {
                 loadDataById(listDetailHome11);
                 break;
             }
-            case 12:{
+            case 12: {
                 loadDataById(listDetailHome12);
                 break;
             }
-            case 13:{
+            case 13: {
                 loadDataById(listDetailHome13);
                 break;
             }
-            case 14:{
+            case 14: {
                 loadDataById(listDetailHome14);
                 break;
             }
-            case 15:{
+            case 15: {
                 loadDataById(listDetailHome15);
                 break;
             }
-            case 16:{
+            case 16: {
                 loadDataById(listDetailHome16);
                 break;
             }
-            case 17:{
+            case 17: {
                 loadDataById(listDetailHome17);
                 break;
             }
-            case 18:{
+            case 18: {
                 loadDataById(listDetailHome18);
                 break;
             }
-            case 19:{
+            case 19: {
                 loadDataById(listDetailHome19);
                 break;
             }
-            case 20:{
+            case 20: {
                 loadDataById(listDetailHome20);
                 break;
             }
-            case 21:{
+            case 21: {
                 loadDataById(listDetailHome21);
                 break;
             }
-            case 22:{
+            case 22: {
                 loadDataById(listDetailHome22);
                 break;
             }
-            case 23:{
+            case 23: {
                 loadDataById(listDetailHome23);
                 break;
             }
-            case 24:{
+            case 24: {
                 loadDataById(listDetailHome24);
                 break;
             }
-            case 25:{
+            case 25: {
                 loadDataById(listDetailHome25);
                 break;
             }
-            case 26:{
+            case 26: {
                 loadDataById(listDetailHome26);
                 break;
             }
@@ -722,45 +649,44 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
         }
 
 
-
-
     }
+
     private void textSize() {
         TypedValue varSizeTitle = new TypedValue();
-        getResources().getValue(R.dimen.textsize_title_default,varSizeTitle,true);
-        sizeTitleDefault=varSizeTitle.getFloat();
-        sizeTitle=varSizeTitle.getFloat();
+        getResources().getValue(R.dimen.textsize_title_default, varSizeTitle, true);
+        sizeTitleDefault = varSizeTitle.getFloat();
+        sizeTitle = varSizeTitle.getFloat();
         //
         TypedValue varSizeContent = new TypedValue();
-        getResources().getValue(R.dimen.textsize_content_default,varSizeContent,true);
-        sizeContentDefault=varSizeContent.getFloat();
-        sizeContent=varSizeContent.getFloat();
+        getResources().getValue(R.dimen.textsize_content_default, varSizeContent, true);
+        sizeContentDefault = varSizeContent.getFloat();
+        sizeContent = varSizeContent.getFloat();
         //
         TypedValue varSizeTime = new TypedValue();
-        getResources().getValue(R.dimen.textsize_time_default,varSizeTime,true);
-        sizeTimeDefault=varSizeTime.getFloat();
-        sizeTime=varSizeTime.getFloat();
+        getResources().getValue(R.dimen.textsize_time_default, varSizeTime, true);
+        sizeTimeDefault = varSizeTime.getFloat();
+        sizeTime = varSizeTime.getFloat();
         //
-        sizecaptionImage=15;
+        sizecaptionImage = 15;
     }
+
     private void loadDataById(ArrayList<String> listDetailHome) {
         //
         tvTitle.setText(title);
         tvTime.setText(time);
         tvSubTitle.setText(subtitle);
         //body
-        for(int i = 0; i<listDetailHome.size()-1;i++)
-        {
+        for (int i = 0; i < listDetailHome.size() - 1; i++) {
             if (listDetailHome.get(i).startsWith("http")) {
                 layoutImage = LayoutInflater.from(DetailHomeActivityTemp.this).inflate(R.layout.item_image, loBody, false);
 
                 textView = layoutImage.findViewById(R.id.tvImageText);
                 ImageView imgView = layoutImage.findViewById(R.id.imvImage);
                 image = listDetailHome.get(i);
-                text = listDetailHome.get(i+1);
+                text = listDetailHome.get(i + 1);
                 //
                 textView.setText(text);
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizecaptionImage);
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizecaptionImage);
                 Picasso.with(DetailHomeActivityTemp.this).load(image).into(imgView);
 
                 loBody.addView(layoutImage);
@@ -772,7 +698,7 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
                 textView = (TextView) layoutText.findViewById(R.id.tvText);
 
                 textView.setText(listDetailHome.get(i));
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeContent);
 
                 loBody.addView(layoutText);
             }
@@ -782,15 +708,16 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
 
         textView = (TextView) layoutAuthor.findViewById(R.id.tvText);
 
-        textView.setText(listDetailHome.get(listDetailHome.size()-1));
+        textView.setText(listDetailHome.get(listDetailHome.size() - 1));
         textView.setTypeface(null, Typeface.ITALIC);
         textView.setGravity(Gravity.END);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeContent);
         loBody.addView(layoutAuthor);
 
         pbDetail.setVisibility(View.GONE);
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_detail, menu);
@@ -801,46 +728,210 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_decrease_size: {
-                sizeContent=sizeContent-1;
-                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,--sizeTitle);
-                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
-                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,--sizeTime);
+                sizeContent = sizeContent - 1;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, --sizeTitle);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeContent);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP, --sizeTime);
                 //
 
-                loBody.removeViews(3,loBody.getChildCount()-3);
+                loBody.removeViews(3, loBody.getChildCount() - 3);
                 loadData();
                 addSamenews();
                 return true;
             }
             case R.id.menu_default_size: {
                 sizeContent = sizeContentDefault;
-                sizeTime=sizeTimeDefault;
-                sizeTitle=sizeTitleDefault;
-                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeTitleDefault);
-                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContentDefault);
-                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeTimeDefault);
+                sizeTime = sizeTimeDefault;
+                sizeTitle = sizeTitleDefault;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeTitleDefault);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeContentDefault);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeTimeDefault);
                 //
-                loBody.removeViews(3,loBody.getChildCount()-3);
+                loBody.removeViews(3, loBody.getChildCount() - 3);
                 loadData();
                 addSamenews();
                 return true;
             }
             case R.id.menu_increase_size: {
-                sizeContent=sizeContent+1;
-                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,++sizeTitle);
-                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
-                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,++sizeTime);
+                sizeContent = sizeContent + 1;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, ++sizeTitle);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeContent);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP, ++sizeTime);
                 //
 
-                loBody.removeViews(3,loBody.getChildCount()-3);
+                loBody.removeViews(3, loBody.getChildCount() - 3);
                 loadData();
                 addSamenews();
+                return true;
+            }
+            case R.id.menu_speak: {
+
+                if (!isClickSpeak) {
+                    textToSpeech = new TextToSpeech(DetailHomeActivityTemp.this, new TextToSpeech.OnInitListener() {
+                        @Override
+                        public void onInit(int status) {
+                            if (status != TextToSpeech.ERROR) {
+                                textToSpeech.setLanguage(new Locale("vi"));
+                                speakData();
+                            }
+                        }
+                    });
+                    //
+                    if (!textToSpeech.isSpeaking()){
+                        isClickSpeak = false;
+                    }
+                    else {
+                        isClickSpeak = true;
+                    }
+                }
+                else {
+                    textToSpeech.stop();
+                    isClickSpeak = false;
+                }
                 return true;
             }
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void speakData() {
+        switch (id) {
+            case 1: {
+                speakById(listDetailHome1);
+                break;
+            }
+            case 2: {
+                speakById(listDetailHome2);
+                break;
+            }
+            case 3: {
+                speakById(listDetailHome3);
+                break;
+            }
+            case 4: {
+                speakById(listDetailHome4);
+                break;
+            }
+            case 5: {
+                speakById(listDetailHome5);
+                break;
+            }
+            case 6: {
+                speakById(listDetailHome6);
+                break;
+            }
+            case 7: {
+                speakById(listDetailHome7);
+                break;
+            }
+            case 8: {
+                speakById(listDetailHome8);
+                break;
+            }
+            case 9: {
+                speakById(listDetailHome9);
+                break;
+            }
+            case 10: {
+                speakById(listDetailHome10);
+                break;
+            }
+            case 11: {
+                speakById(listDetailHome11);
+                break;
+            }
+            case 12: {
+                speakById(listDetailHome12);
+                break;
+            }
+            case 13: {
+                speakById(listDetailHome13);
+                break;
+            }
+            case 14: {
+                speakById(listDetailHome14);
+                break;
+            }
+            case 15: {
+                speakById(listDetailHome15);
+                break;
+            }
+            case 16: {
+                speakById(listDetailHome16);
+                break;
+            }
+            case 17: {
+                speakById(listDetailHome17);
+                break;
+            }
+            case 18: {
+                speakById(listDetailHome18);
+                break;
+            }
+            case 19: {
+                speakById(listDetailHome19);
+                break;
+            }
+            case 20: {
+                speakById(listDetailHome20);
+                break;
+            }
+            case 21: {
+                speakById(listDetailHome21);
+                break;
+            }
+            case 22: {
+                speakById(listDetailHome22);
+                break;
+            }
+            case 23: {
+                speakById(listDetailHome23);
+                break;
+            }
+            case 24: {
+                speakById(listDetailHome24);
+                break;
+            }
+            case 25: {
+                speakById(listDetailHome25);
+                break;
+            }
+            case 26: {
+                speakById(listDetailHome26);
+                break;
+            }
+            default:
+                break;
+        }
+
+
+    }
+    private void speakById(ArrayList<String> listDetailHome) {
+        String stringToSpeech;
+        //
+        stringToSpeech = title + "." + subtitle;
+        //body
+        for (int i = 0; i < listDetailHome.size(); i++) {
+            if (listDetailHome.get(i).startsWith("http")) {
+                i++;
+            } else {
+                stringToSpeech = stringToSpeech+listDetailHome.get(i);
+            }
+        }
+        textToSpeech.speak(stringToSpeech,TextToSpeech.QUEUE_FLUSH,null);
+        isClickSpeak=true;
+
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //shut down speech when close app
+        if(textToSpeech!=null) {
+            textToSpeech.shutdown();
+            isClickSpeak = false;
+        }
+    }
+
 
     private void getDatafromPreviousActivity() {
         Bundle extras = this.getIntent().getExtras();
@@ -878,5 +969,6 @@ public class DetailHomeActivityTemp extends AppCompatActivity {
 
 
     }
+
 
 }
