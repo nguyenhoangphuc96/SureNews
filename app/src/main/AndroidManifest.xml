@@ -51,6 +51,7 @@
         <activity android:name=".DevelopmentMenu.DetailInvestProjectActivity"></activity>
         <activity android:name=".DevelopmentMenu.DetailInvestCollabActivity"></activity>
         <activity android:name=".DevelopmentMenu.DetailPolicyActivity"></activity>
+        <activity android:name=".Chart.ChartActivity"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"

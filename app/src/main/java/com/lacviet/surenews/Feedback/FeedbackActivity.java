@@ -19,12 +19,15 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,6 +38,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jaeger.library.StatusBarUtil;
+import com.lacviet.surenews.Chart.ChartActivity;
+import com.lacviet.surenews.DevelopmentMenu.DetailPolicyActivity;
 import com.lacviet.surenews.R;
 import com.vansuita.pickimage.BuildConfig;
 import com.vansuita.pickimage.bean.PickResult;
@@ -42,6 +47,8 @@ import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
 import com.vansuita.pickimage.listeners.IPickCancel;
 import com.vansuita.pickimage.listeners.IPickResult;
+
+import java.util.Locale;
 
 
 public class FeedbackActivity extends AppCompatActivity implements IPickResult, View.OnClickListener {
@@ -185,5 +192,24 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
                 // TODO Auto-generated method stub
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_feedback, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_chart: {
+                Intent intent = new Intent(FeedbackActivity.this, ChartActivity.class);
+                startActivity(intent);
+
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

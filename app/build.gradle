@@ -61,6 +61,8 @@ dependencies {
     implementation 'com.github.tcking:ijkplayer-armv5:0.8.4' //support armv5
     implementation 'com.github.tcking:ijkplayer-x86:0.8.4' //support x86 // build cho máy ảo bạn dùng complie này là được
     implementation 'com.github.tcking:ijkplayer-x86_64:0.8.4' //support x86_64
+    //
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 
 
 }
