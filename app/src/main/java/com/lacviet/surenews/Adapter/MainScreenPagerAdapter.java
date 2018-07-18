@@ -23,18 +23,25 @@ import com.lacviet.surenews.MainScreenTab.TabNewsFragment;
 import com.lacviet.surenews.HomeMenu.TabVideoFragment;
 import com.lacviet.surenews.StatisticalMenu.TabSocioEconomicFragment;
 import com.lacviet.surenews.StatisticalMenu.TabSpecializeNewsFragment;
+import com.lacviet.surenews.WebAPI.ModelAPI.CategoryModel;
+import com.lacviet.surenews.WebAPI.Remote.ApiService;
+
+import java.util.List;
 
 public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
+    private List<CategoryModel> CategoryList;
 
-    public MainScreenPagerAdapter(FragmentManager fragmentManager, Context context) {
+    public MainScreenPagerAdapter(FragmentManager fragmentManager, Context context, List<CategoryModel> categoryList) {
         super(fragmentManager);
         this.context = context;
+        CategoryList = categoryList;
     }
     @Override
     public Fragment getItem(int position) {
         Fragment frag=null;
         switch (position){
+
             case 0:
                 frag = new TabHotHomeFragment();
                 break;
@@ -62,18 +69,28 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
             case 8:
                 frag = new TabInvestProjectFragment();
                 break;
+            case 9:
+                frag = new TabDepartmentNewsFragment();
+                break;
+            case 10:
+                frag = new TabPolicyFragment();
+                break;
+            case 11:
+                frag = new TabInvestProjectFragment();
+                break;
         }
         return frag;
     }
 
     @Override
     public int getCount() {
-        return 9;
+        return CategoryList.size();
     }
     @Override
     public CharSequence getPageTitle(int position) {
         String title = "";
-        switch (position){
+        title = CategoryList.get(position).getCategoryName();
+       /* switch (position){
             case 0:
                 title = "Tin nổi bật";
                 break;
@@ -81,10 +98,10 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
                 title = "Video";
                 break;
             case 2:
-                title = "Hoạt động lãnh đạo";
+                title = CategoryList.get(2).getCategoryName();
                 break;
             case 3:
-                title = "Thời sự - chính trị";
+                title = CategoryList.get(3).getCategoryName();
                 break;
             case 4:
                 title = "Kinh tế";
@@ -101,9 +118,16 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
             case 8:
                 title = "Cải cách hành chánh";
                 break;
-        }
+        }*/
         return title;
     }
+    public void updateAnswers(List<CategoryModel> items) {
+        CategoryList.clear();
+        CategoryList.addAll(items);
 
+    }
+    public List<CategoryModel> getList() {
+        return CategoryList;
+    }
 
 }

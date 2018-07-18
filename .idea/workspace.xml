@@ -34,68 +34,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="activity_chart.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="34" column="40" lean-forward="false" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view_pie_chart.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_pie_chart.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="61" lean-forward="false" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view_line_chart.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_line_chart.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" column="61" lean-forward="false" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChartActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Chart/ChartActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-660">
-              <caret line="53" column="65" lean-forward="false" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
+            <state relative-caret-position="222">
+              <caret line="86" column="24" lean-forward="false" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#setupPieChart#0;class#ChartActivity#0" expanded="false" />
+                <element signature="method#eventNavigation#0;class#MainActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_detail.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
+      <file leaf-file-name="MainScreenPagerAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/MainScreenPagerAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="39" column="32" lean-forward="false" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="-459">
+              <caret line="78" column="37" lean-forward="false" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+              <folding>
+                <element signature="e#3219#3220#0" expanded="true" />
+                <element signature="e#3261#3262#0" expanded="true" />
+                <element signature="e#4455#4456#0" expanded="true" />
+                <element signature="e#4490#4491#0" expanded="true" />
+              </folding>
             </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
@@ -108,6 +70,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="D:\NHPHUC\VEBRARY\2018\LacVietHPSMuseumManagementApp\app\key.jks" />
+    <option name="KEY_ALIAS" value="key" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
@@ -2125,14 +2092,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/MainScreenPagerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/GovementMenu/GovementPagerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/drawer_view.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/VideoTabRCVAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/shape_transparent_black_background.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Model/VideoModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/VideoPlayerTabRCVAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabVideoFragment.java" />
@@ -2155,15 +2120,22 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_feedback.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Feedback/FeedbackActivity.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Chart/PercentFormatter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/view_chart.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_pie_chart.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_line_chart.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Chart/MyXAxisValueFormatter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Chart/ChartActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_pie_chart.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_line_chart.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/ModelAPI/CategoryModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/ModelAPI/AllCategoryJsonResponse.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/Remote/RetrofitClient.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/Remote/ApiUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/Remote/ApiService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/MainScreenPagerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2187,7 +2159,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -2212,38 +2183,23 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="surenews" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Chart" type="462c0819:PsiDirectoryNode" />
+              <item name="WebAPI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="surenews" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Feedback" type="462c0819:PsiDirectoryNode" />
+              <item name="WebAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="ModelAPI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="surenews" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="HomeMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="WebAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="Remote" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SureNews" type="1abcf292:AndroidViewProjectNode" />
@@ -2253,8 +2209,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2262,9 +2219,15 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../LacVietHPSMuseumManagementApp/app/key.jks" />
     <property name="device.picker.selection" value="Pixel_2_API_26" />
+    <property name="ExportApk.ApkPath" value="D:\NHPHUC\VEBRARY\2018\SureNews\app" />
+    <property name="ExportApk.Flavors" value="" />
+    <property name="ExportApk.BuildType" value="release" />
+    <property name="ExportApk.SignV1" value="true" />
+    <property name="ExportApk.SignV2" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lacviet.surenews.WebAPI.Remote" />
       <recent name="com.lacviet.surenews.Adapter" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -2478,177 +2441,46 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/shape_transparent_black_background.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="60" lean-forward="false" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/border_button_bluelight.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/img_add_photo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_feedback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="168" column="16" lean-forward="false" selection-start-line="168" selection-start-column="16" selection-end-line="169" selection-end-column="65" />
-          <folding>
-            <element signature="e#1287#5860#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_text.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="49" lean-forward="false" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tab_invest_collab.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tab_hot_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="79" column="94" lean-forward="false" selection-start-line="79" selection-start-column="94" selection-end-line="79" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/giraffeplayer2-0.1.12.aar/5ff183a3d88a2e5066e90f20480ffd18/res/layout/giraffe_player_activity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Model/VideoModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="59" column="39" lean-forward="false" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Feedback/SDTConfirmActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="44" column="54" lean-forward="false" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sdt_confirm.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="50" column="54" lean-forward="false" selection-start-line="50" selection-start-column="54" selection-end-line="50" selection-end-column="54" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tab_department_news.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tab_department_news.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="21" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="29" selection-end-column="21" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_rcv_tab_video_player.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#273#298#0" expanded="false" />
-            <element signature="e#1020#1045#0" expanded="false" />
-            <element signature="e#1304#1334#0" expanded="false" />
-          </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabVideoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="95" column="64" lean-forward="false" selection-start-line="95" selection-start-column="64" selection-end-line="95" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4787#4788#0" expanded="false" />
-            <element signature="e#7399#7400#0" expanded="false" />
-            <element signature="e#7430#7431#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2656,10 +2488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="83" column="47" lean-forward="false" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
-          <folding>
-            <element signature="e#4214#4215#0" expanded="false" />
-            <element signature="e#4263#4264#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2667,57 +2495,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
           <caret line="185" column="1" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="185" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_rcv_tab_home.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="18" column="15" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/SamenewsRCVAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1768">
           <caret line="112" column="54" lean-forward="false" selection-start-line="112" selection-start-column="54" selection-end-line="112" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2021#2022#0" expanded="false" />
-            <element signature="e#2063#2064#0" expanded="false" />
-            <element signature="e#2119#2120#0" expanded="false" />
-            <element signature="e#2155#2156#0" expanded="false" />
-            <element signature="e#2468#2469#0" expanded="false" />
-            <element signature="e#2524#2525#0" expanded="false" />
-            <element signature="e#2565#2566#0" expanded="false" />
-            <element signature="e#2600#2601#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_same_news.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabHotHomeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="205" column="4" lean-forward="false" selection-start-line="205" selection-start-column="4" selection-end-line="213" selection-end-column="5" />
-          <folding>
-            <element signature="method#addData#0;class#TabHotHomeFragment#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2725,9 +2536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="696" column="0" lean-forward="false" selection-start-line="696" selection-start-column="0" selection-end-line="696" selection-end-column="0" />
-          <folding>
-            <element signature="e#28825#28826#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2735,26 +2543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="798" column="4" lean-forward="true" selection-start-line="798" selection-start-column="4" selection-end-line="806" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#addData#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-            <element signature="method#showDataToRecyclerView#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-            <element signature="e#19863#20105#0" expanded="false" />
-            <element signature="e#20104#20105#0" expanded="false" />
-            <element signature="method#startDetailActivity#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-            <element signature="method#initData#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-            <element signature="e#64746#64776#0" expanded="false" />
-            <element signature="e#64987#65019#0" expanded="false" />
-            <element signature="e#65237#65266#0" expanded="false" />
-            <element signature="method#loadDataById#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-            <element signature="e#69448#69837#0" expanded="false" />
-            <element signature="e#69836#69837#0" expanded="false" />
-            <element signature="method#speakById#0;class#DetailPoliticalNewsActivity#0" expanded="false" />
-            <element signature="e#73705#73847#0" expanded="false" />
-            <element signature="e#73846#73847#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2762,30 +2550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="932" column="5" lean-forward="false" selection-start-line="932" selection-start-column="5" selection-end-line="932" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#addSamenews#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#addData#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#showDataToRecyclerView#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="e#11361#11606#0" expanded="false" />
-            <element signature="e#11605#11606#0" expanded="false" />
-            <element signature="method#startDetailActivity#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#initData#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="e#79707#79737#0" expanded="false" />
-            <element signature="e#79954#79986#0" expanded="false" />
-            <element signature="e#80210#80239#0" expanded="false" />
-            <element signature="method#loadDataById#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="e#84441#84830#0" expanded="false" />
-            <element signature="e#84829#84830#0" expanded="false" />
-            <element signature="method#speakData#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#speakById#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="method#getDatafromPreviousActivity#0;class#DetailHomeActivityTemp#0" expanded="false" />
-            <element signature="e#89959#90101#0" expanded="false" />
-            <element signature="e#90100#90101#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2793,17 +2557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="580" column="5" lean-forward="false" selection-start-line="580" selection-start-column="5" selection-end-line="580" selection-end-column="5" />
-          <folding>
-            <element signature="method#addSamenews#0;class#DetailEconomyActivity#0" expanded="false" />
-            <element signature="method#addData#0;class#DetailEconomyActivity#0" expanded="false" />
-            <element signature="method#showDataToRecyclerView#0;class#DetailEconomyActivity#0" expanded="false" />
-            <element signature="method#startDetailActivity#0;class#DetailEconomyActivity#0" expanded="false" />
-            <element signature="method#initData#0;class#DetailEconomyActivity#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailEconomyActivity#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailEconomyActivity#0" expanded="false" />
-            <element signature="method#loadDataById#0;class#DetailEconomyActivity#0" expanded="false" />
-            <element signature="method#speakById#0;class#DetailEconomyActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2811,17 +2564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="692" column="5" lean-forward="false" selection-start-line="692" selection-start-column="5" selection-end-line="692" selection-end-column="5" />
-          <folding>
-            <element signature="method#addSamenews#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#addData#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#showDataToRecyclerView#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#startDetailActivity#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#initData#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#loadDataById#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-            <element signature="method#speakById#0;class#DetailDepartmentNewsActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2829,17 +2571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="729" column="5" lean-forward="false" selection-start-line="729" selection-start-column="5" selection-end-line="729" selection-end-column="5" />
-          <folding>
-            <element signature="method#addSamenews#0;class#DetailZoningActivity#0" expanded="false" />
-            <element signature="method#addData#0;class#DetailZoningActivity#0" expanded="false" />
-            <element signature="method#showDataToRecyclerView#0;class#DetailZoningActivity#0" expanded="false" />
-            <element signature="method#startDetailActivity#0;class#DetailZoningActivity#0" expanded="false" />
-            <element signature="method#initData#0;class#DetailZoningActivity#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailZoningActivity#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailZoningActivity#0" expanded="false" />
-            <element signature="method#loadDataById#0;class#DetailZoningActivity#0" expanded="false" />
-            <element signature="method#speakById#0;class#DetailZoningActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2847,16 +2578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
           <caret line="693" column="5" lean-forward="false" selection-start-line="693" selection-start-column="5" selection-end-line="693" selection-end-column="5" />
-          <folding>
-            <element signature="method#addData#0;class#DetailInvestCollabActivity#0" expanded="false" />
-            <element signature="method#showDataToRecyclerView#0;class#DetailInvestCollabActivity#0" expanded="false" />
-            <element signature="method#startDetailActivity#0;class#DetailInvestCollabActivity#0" expanded="false" />
-            <element signature="method#initData#0;class#DetailInvestCollabActivity#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailInvestCollabActivity#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailInvestCollabActivity#0" expanded="false" />
-            <element signature="method#loadDataById#0;class#DetailInvestCollabActivity#0" expanded="false" />
-            <element signature="method#speakById#0;class#DetailInvestCollabActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2864,17 +2585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="693" column="5" lean-forward="false" selection-start-line="693" selection-start-column="5" selection-end-line="693" selection-end-column="5" />
-          <folding>
-            <element signature="method#addSamenews#0;class#DetailInvestProjectActivity#0" expanded="false" />
-            <element signature="method#addData#0;class#DetailInvestProjectActivity#0" expanded="false" />
-            <element signature="method#showDataToRecyclerView#0;class#DetailInvestProjectActivity#0" expanded="false" />
-            <element signature="method#startDetailActivity#0;class#DetailInvestProjectActivity#0" expanded="false" />
-            <element signature="method#initData#0;class#DetailInvestProjectActivity#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailInvestProjectActivity#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailInvestProjectActivity#0" expanded="false" />
-            <element signature="method#loadDataById#0;class#DetailInvestProjectActivity#0" expanded="false" />
-            <element signature="method#speakById#0;class#DetailInvestProjectActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2882,19 +2592,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3886">
           <caret line="62" column="13" lean-forward="false" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
-          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="53" column="54" lean-forward="false" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_statistical.png">
@@ -2903,40 +2601,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_detail.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DevelopmentMenu/DetailPolicyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="628" column="5" lean-forward="false" selection-start-line="553" selection-start-column="4" selection-end-line="628" selection-end-column="5" />
-          <folding>
-            <element signature="method#addSamenews#0;class#DetailPolicyActivity#0" expanded="false" />
-            <element signature="method#addData#0;class#DetailPolicyActivity#0" expanded="false" />
-            <element signature="method#showDataToRecyclerView#0;class#DetailPolicyActivity#0" expanded="false" />
-            <element signature="e#19603#19845#0" expanded="false" />
-            <element signature="e#19844#19845#0" expanded="false" />
-            <element signature="method#startDetailActivity#0;class#DetailPolicyActivity#0" expanded="false" />
-            <element signature="method#initData#0;class#DetailPolicyActivity#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailPolicyActivity#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailPolicyActivity#0" expanded="false" />
-            <element signature="e#53986#54016#0" expanded="false" />
-            <element signature="e#54227#54259#0" expanded="false" />
-            <element signature="e#54477#54506#0" expanded="false" />
-            <element signature="method#loadDataById#0;class#DetailPolicyActivity#0" expanded="false" />
-            <element signature="e#58653#59042#0" expanded="false" />
-            <element signature="e#59041#59042#0" expanded="false" />
-            <element signature="method#speakData#0;class#DetailPolicyActivity#0" expanded="false" />
-            <element signature="e#62596#62738#0" expanded="false" />
-            <element signature="e#62737#62738#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2948,30 +2625,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="64" column="61" lean-forward="false" selection-start-line="64" selection-start-column="61" selection-end-line="64" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_feedback.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Feedback/FeedbackActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="171" column="38" lean-forward="false" selection-start-line="171" selection-start-column="38" selection-end-line="171" selection-end-column="108" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2979,15 +2646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="53" lean-forward="false" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#514#515#0" expanded="false" />
-            <element signature="e#574#575#0" expanded="false" />
-            <element signature="e#707#708#0" expanded="false" />
-            <element signature="e#744#745#0" expanded="false" />
-            <element signature="e#1144#1145#0" expanded="false" />
-            <element signature="e#1168#1169#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2995,11 +2653,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_feedback1.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="220" column="12" lean-forward="false" selection-start-line="220" selection-start-column="12" selection-end-line="229" selection-end-column="27" />
@@ -3010,46 +2670,23 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailActivitiesLeaderActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="520" column="131" lean-forward="false" selection-start-line="520" selection-start-column="16" selection-end-line="520" selection-end-column="131" />
-          <folding>
-            <element signature="method#addData#0;class#DetailActivitiesLeaderActivity#0" expanded="false" />
-            <element signature="method#showDataToRecyclerView#0;class#DetailActivitiesLeaderActivity#0" expanded="false" />
-            <element signature="method#startDetailActivity#0;class#DetailActivitiesLeaderActivity#0" expanded="false" />
-            <element signature="method#initData#0;class#DetailActivitiesLeaderActivity#0" expanded="false" />
-            <element signature="method#loadData#0;class#DetailActivitiesLeaderActivity#0" expanded="false" />
-            <element signature="method#textSize#0;class#DetailActivitiesLeaderActivity#0" expanded="false" />
-            <element signature="method#speakById#0;class#DetailActivitiesLeaderActivity#0" expanded="false" />
-          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" column="40" lean-forward="false" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
+        <state relative-caret-position="663">
           <caret line="39" column="32" lean-forward="false" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
@@ -3060,47 +2697,210 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_pie_chart.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="61" lean-forward="false" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Chart/MyXAxisValueFormatter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#312#313#0" expanded="false" />
-            <element signature="e#349#350#0" expanded="false" />
-          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_line_chart.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="61" lean-forward="false" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Chart/ChartActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660">
-          <caret line="53" column="65" lean-forward="false" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
+        <state relative-caret-position="561">
+          <caret line="59" column="44" lean-forward="false" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#setupPieChart#0;class#ChartActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/header_navigation.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_line_chart.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_pie_chart.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="34" column="40" lean-forward="false" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="54" lean-forward="false" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/ModelAPI/CategoryModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#411#412#0" expanded="false" />
+            <element signature="e#436#437#0" expanded="false" />
+            <element signature="e#472#473#0" expanded="false" />
+            <element signature="e#500#501#0" expanded="false" />
+            <element signature="e#539#540#0" expanded="false" />
+            <element signature="e#574#575#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+            <element signature="e#678#679#0" expanded="false" />
+            <element signature="e#712#713#0" expanded="false" />
+            <element signature="e#742#743#0" expanded="false" />
+            <element signature="e#788#789#0" expanded="false" />
+            <element signature="e#826#827#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/ModelAPI/AllCategoryJsonResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#362#363#0" expanded="false" />
+            <element signature="e#399#400#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/Remote/RetrofitClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/Remote/ApiUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/os/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding>
+            <element signature="e#31128#31129#0" expanded="false" />
+            <element signature="e#31166#31167#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/3564ebef90ac75e61ed65ab9af0f422ce92d4afa/retrofit-2.1.0-sources.jar!/retrofit2/ExecutorCallAdapterFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <element signature="e#2115#2547#0" expanded="false" />
+            <element signature="e#2546#2547#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/Remote/ApiService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-core-ui/27.1.1/266c369a3227be5afec33e11c964472269ff2a7c/support-core-ui-27.1.1-sources.jar!/android/support/v4/view/PagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-77">
+          <caret line="286" column="16" lean-forward="false" selection-start-line="286" selection-start-column="16" selection-end-line="286" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/os/Looper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/Adapter/MainScreenPagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459">
+          <caret line="78" column="37" lean-forward="false" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+          <folding>
+            <element signature="e#3219#3220#0" expanded="true" />
+            <element signature="e#3261#3262#0" expanded="true" />
+            <element signature="e#4455#4456#0" expanded="true" />
+            <element signature="e#4490#4491#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="86" column="24" lean-forward="false" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
+          <folding>
+            <element signature="method#eventNavigation#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

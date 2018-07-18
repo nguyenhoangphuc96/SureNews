@@ -12,17 +12,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.MainScreenPagerAdapter;
 import com.lacviet.surenews.DevelopmentMenu.DevelopmentMenuActivity;
 import com.lacviet.surenews.Feedback.FeedbackActivity;
 import com.lacviet.surenews.GovementMenu.GovementMenuActivity;
 import com.lacviet.surenews.StatisticalMenu.StatisticalMenuActivity;
+import com.lacviet.surenews.WebAPI.ModelAPI.AllCategoryJsonResponse;
+import com.lacviet.surenews.WebAPI.ModelAPI.CategoryModel;
+import com.lacviet.surenews.WebAPI.Remote.ApiService;
+import com.lacviet.surenews.WebAPI.Remote.ApiUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -31,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
     TextView tvTitleToolbar;
     ViewPager pager;
     TabLayout tabLayout;
+    MainScreenPagerAdapter adapter;
+    //api
+    ApiService mService;
+    List<CategoryModel> categoryModelList;
+    Boolean isCategoryLoaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +56,52 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         addControl();
         actionBar();
+
+
         showTabLayout();
+        loadCategoryTabName();
+
+
         eventNavigation();
+        //
+
     }
+
+    private void loadCategoryTabName() {
+            mService.getAllCategorys().enqueue(new Callback<AllCategoryJsonResponse>() {
+                @Override
+                public void onResponse(Call<AllCategoryJsonResponse> call, Response<AllCategoryJsonResponse> response) {
+
+                    if (response.isSuccessful()) {
+
+                        categoryModelList = response.body().getCategoryModels();
+
+                        //adapter.updateAnswers(categoryModelList);
+                        // Set up the ViewPager with the sections adapter.
+                        FragmentManager manager = getSupportFragmentManager();
+                        adapter = new MainScreenPagerAdapter(manager,MainActivity.this,categoryModelList);
+                        pager.setAdapter(adapter);
+                        tabLayout.setupWithViewPager(pager);
+
+                        tabLayout.setTabsFromPagerAdapter(adapter);
+                        
+
+                        Log.d("AnswersPresenter", "posts loaded from API");
+                    } else {
+                        int statusCode = response.code();
+                        Toast.makeText(MainActivity.this, "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<AllCategoryJsonResponse> call, Throwable t) {
+
+                    Log.d("AnswersPresenter", "error loading from API");
+
+                }
+            });
+        }
+
 
     private void eventNavigation() {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -72,9 +133,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showTabLayout() {
+
         // Set up the ViewPager with the sections adapter.
         FragmentManager manager = getSupportFragmentManager();
-        MainScreenPagerAdapter adapter = new MainScreenPagerAdapter(manager,this);
+        adapter = new MainScreenPagerAdapter(manager,MainActivity.this,categoryModelList);
         pager.setAdapter(adapter);
         tabLayout.setupWithViewPager(pager);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -89,6 +151,10 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         pager = findViewById(R.id.container);
         tabLayout = findViewById(R.id.tabLayoutMain);
+        //
+        mService = ApiUtils.getSOService();
+        //
+        categoryModelList  = new ArrayList<>();
     }
 
     private void actionBar() {
