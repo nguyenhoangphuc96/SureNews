@@ -12,7 +12,13 @@ public class CategoryModel {
     private String categoryName;
     @SerializedName("GroupId")
     @Expose
-    private Object groupId;
+    private String groupId;
+
+    public CategoryModel(String id, String categoryName, String groupId) {
+        this.id = id;
+        this.categoryName = categoryName;
+        this.groupId = groupId;
+    }
 
     public String getId() {
         return id;
@@ -30,11 +36,11 @@ public class CategoryModel {
         this.categoryName = categoryName;
     }
 
-    public Object getGroupId() {
+    public String getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Object groupId) {
+    public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
 

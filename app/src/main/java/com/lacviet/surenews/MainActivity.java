@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     MainScreenPagerAdapter adapter;
     //api
     ApiService mService;
-    List<CategoryModel> categoryModelList;
+    List<CategoryModel> categoryModelList = new ArrayList<>();
     Boolean isCategoryLoaded = false;
 
     @Override
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar();
 
 
-        showTabLayout();
+        //showTabLayout();
         loadCategoryTabName();
 
 
@@ -74,16 +74,19 @@ public class MainActivity extends AppCompatActivity {
 
                     if (response.isSuccessful()) {
 
-                        categoryModelList = response.body().getCategoryModels();
+                        categoryModelList = new ArrayList<>();
 
-                        //adapter.updateAnswers(categoryModelList);
-                        // Set up the ViewPager with the sections adapter.
+                        for (CategoryModel md: response.body().getCategoryModels()
+                             ) {
+                            categoryModelList.add(md);
+                        }
                         FragmentManager manager = getSupportFragmentManager();
                         adapter = new MainScreenPagerAdapter(manager,MainActivity.this,categoryModelList);
                         pager.setAdapter(adapter);
                         tabLayout.setupWithViewPager(pager);
-
+                        pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
                         tabLayout.setTabsFromPagerAdapter(adapter);
+                        pager.setOffscreenPageLimit(categoryModelList.size());//no reload when change tab
                         
 
                         Log.d("AnswersPresenter", "posts loaded from API");
@@ -134,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void showTabLayout() {
 
+        categoryModelList.add(new CategoryModel("1","Tabbbb","1"));
+        /*categoryModelList.add(new CategoryModel("2","sas","1"));
+        categoryModelList.add(new CategoryModel("3","ssss","1"));
+        categoryModelList.add(new CategoryModel("4","Tabddbbb","1"));*/
         // Set up the ViewPager with the sections adapter.
         FragmentManager manager = getSupportFragmentManager();
         adapter = new MainScreenPagerAdapter(manager,MainActivity.this,categoryModelList);
@@ -153,8 +160,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayoutMain);
         //
         mService = ApiUtils.getSOService();
-        //
-        categoryModelList  = new ArrayList<>();
+
     }
 
     private void actionBar() {

@@ -36,6 +36,7 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
         super(fragmentManager);
         this.context = context;
         CategoryList = categoryList;
+
     }
     @Override
     public Fragment getItem(int position) {
@@ -78,6 +79,7 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
             case 11:
                 frag = new TabInvestProjectFragment();
                 break;
+
         }
         return frag;
     }
