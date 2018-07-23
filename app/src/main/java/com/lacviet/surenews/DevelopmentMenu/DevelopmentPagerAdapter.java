@@ -17,13 +17,13 @@ public class DevelopmentPagerAdapter extends FragmentStatePagerAdapter {
         Fragment frag=null;
         switch (position){
             case 0:
-                frag = new TabInvestProjectFragment();
+
                 break;
             case 1:
-                frag = new TabInvestCollabFragment();
+
                 break;
             case 2:
-                frag = new TabPolicyFragment();
+
                 break;
         }
         return frag;

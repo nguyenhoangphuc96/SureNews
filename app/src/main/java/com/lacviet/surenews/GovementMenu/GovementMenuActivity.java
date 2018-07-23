@@ -14,6 +14,10 @@ import android.widget.TextView;
 
 import com.lacviet.surenews.Adapter.MainScreenPagerAdapter;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.WebAPI.ModelAPI.CategoryModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GovementMenuActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -21,6 +25,8 @@ public class GovementMenuActivity extends AppCompatActivity {
     TextView tvTitleToolbar;
     ViewPager pager;
     TabLayout tabLayout;
+    //
+    List<CategoryModel> categoryModelList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +38,7 @@ public class GovementMenuActivity extends AppCompatActivity {
     private void showTabLayout() {
         // Set up the ViewPager with the sections adapter.
         FragmentManager manager = getSupportFragmentManager();
-        GovementPagerAdapter adapter = new GovementPagerAdapter(manager,this);
+        MainScreenPagerAdapter adapter = new MainScreenPagerAdapter(manager,this,categoryModelList);
         pager.setAdapter(adapter);
         tabLayout.setupWithViewPager(pager);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

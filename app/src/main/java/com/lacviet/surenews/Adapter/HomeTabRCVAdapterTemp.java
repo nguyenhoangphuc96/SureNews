@@ -9,10 +9,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.lacviet.surenews.Model.NewsModel;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.WebAPI.ModelAPI.NewsModel;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeTabRCVAdapterTemp extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -22,7 +23,7 @@ public class HomeTabRCVAdapterTemp extends RecyclerView.Adapter<RecyclerView.Vie
     private Context mContext;
     private HomeTabRCVAdapterTemp.PostItemListener mItemListener;
 
-    public HomeTabRCVAdapterTemp( Context mContext,List<NewsModel> homeNewsList, HomeTabRCVAdapterTemp.PostItemListener itemListener) {
+    public HomeTabRCVAdapterTemp(Context mContext, List<NewsModel> homeNewsList, HomeTabRCVAdapterTemp.PostItemListener itemListener) {
         HomeNewsList = homeNewsList;
         this.mContext = mContext;
         mItemListener = itemListener;
@@ -55,23 +56,23 @@ public class HomeTabRCVAdapterTemp extends RecyclerView.Adapter<RecyclerView.Vie
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof HomeTabRCVAdapterTemp.VHItem) {
             NewsModel item = HomeNewsList.get(position);
-            ((HomeTabRCVAdapterTemp.VHItem) holder).tvTittle.setText(item.getNewsTittle());
-            ((HomeTabRCVAdapterTemp.VHItem) holder).tvTime.setText(item.getNewsTime());
+            ((HomeTabRCVAdapterTemp.VHItem) holder).tvTittle.setText(item.getTitle());
+            ((HomeTabRCVAdapterTemp.VHItem) holder).tvTime.setText(item.getPublishedDate());
 
-            if (item.getNewsImage() != null) {
-                showImage(item.getNewsImage(), (HomeTabRCVAdapterTemp.VHItem) holder);
+            if (item.getItemImg() != null) {
+                showImage(item.getItemImg(), (HomeTabRCVAdapterTemp.VHItem) holder);
             } else {
                 ((HomeTabRCVAdapterTemp.VHItem) holder).imvAvatar.setImageDrawable(null);
 
             }
         } else if (holder instanceof HomeTabRCVAdapterTemp.VHHeader) {
             NewsModel item = HomeNewsList.get(position);
-            ((HomeTabRCVAdapterTemp.VHHeader) holder).tvTittleHot.setText(item.getNewsTittle());
-            ((HomeTabRCVAdapterTemp.VHHeader) holder).tvSubTitleHot.setText(item.getNewsSubTittle());
-            ((HomeTabRCVAdapterTemp.VHHeader) holder).tvTimeHot.setText(item.getNewsTime());
+            ((HomeTabRCVAdapterTemp.VHHeader) holder).tvTittleHot.setText(item.getTitle());
+            ((HomeTabRCVAdapterTemp.VHHeader) holder).tvSubTitleHot.setText(item.getDescription());
+            ((HomeTabRCVAdapterTemp.VHHeader) holder).tvTimeHot.setText(item.getPublishedDate());
 
-            if (item.getNewsImage() != null) {
-                showHeaderImage(item.getNewsImage(), (HomeTabRCVAdapterTemp.VHHeader) holder);
+            if (item.getItemImg() != null) {
+                showHeaderImage(item.getItemImg(), (HomeTabRCVAdapterTemp.VHHeader) holder);
             } else {
                 ((HomeTabRCVAdapterTemp.VHHeader) holder).imvAvatarHot.setImageDrawable(null);
             }
@@ -153,7 +154,7 @@ public class HomeTabRCVAdapterTemp extends RecyclerView.Adapter<RecyclerView.Vie
         @Override
         public void onClick(View v) {
             NewsModel item = getItem(getAdapterPosition());
-            this.mItemListener.onPostClick(item.getNewsId(),item.getNewsTittle(),item.getNewsTime(),item.getNewsSubTittle());
+            this.mItemListener.onPostClick(item.getId(),item.getTitle(),item.getPublishedDate(),item.getDescription());
 
         }
     }
@@ -176,11 +177,11 @@ public class HomeTabRCVAdapterTemp extends RecyclerView.Adapter<RecyclerView.Vie
         @Override
         public void onClick(View v) {
             NewsModel item = getItem(getAdapterPosition());
-            this.mItemListener.onPostClick(item.getNewsId(),item.getNewsTittle(),item.getNewsTime(),item.getNewsSubTittle());
+            this.mItemListener.onPostClick(item.getId(),item.getTitle(),item.getPublishedDate(),item.getDescription());
         }
     }
 
     public interface PostItemListener {
-        void onPostClick(int id, String title, String time, String subTitle);
+        void onPostClick(String id, String title, String time, String subTitle);
     }
 }

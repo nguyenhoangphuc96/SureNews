@@ -5,17 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.lacviet.surenews.DevelopmentMenu.TabInvestCollabFragment;
-import com.lacviet.surenews.HomeMenu.TabActivitiesLeaderFragment;
-import com.lacviet.surenews.HomeMenu.TabAdministrativeReformFragment;
-import com.lacviet.surenews.HomeMenu.TabEconomyFragment;
-import com.lacviet.surenews.HomeMenu.TabHotHomeFragment;
-import com.lacviet.surenews.HomeMenu.TabLawFragment;
-import com.lacviet.surenews.HomeMenu.TabPoliticalNewsFragment;
-import com.lacviet.surenews.HomeMenu.TabSocioculturalFragment;
-import com.lacviet.surenews.HomeMenu.TabTrafficSafetyFragment;
-import com.lacviet.surenews.HomeMenu.TabVideoFragment;
-
 public class GovementPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
 
@@ -28,16 +17,16 @@ public class GovementPagerAdapter extends FragmentStatePagerAdapter {
         Fragment frag=null;
         switch (position){
             case 0:
-                frag = new TabZoningFragment();
+
                 break;
             case 1:
-                frag = new TabActivitiesLeaderFragment();
+
                 break;
             case 2:
-                frag = new TabDepartmentNewsFragment();
+
                 break;
             case 3:
-                frag = new TabInvestCollabFragment();
+
                 break;
         }
         return frag;

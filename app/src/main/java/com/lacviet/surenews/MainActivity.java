@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,9 +46,10 @@ public class MainActivity extends AppCompatActivity {
     ViewPager pager;
     TabLayout tabLayout;
     MainScreenPagerAdapter adapter;
+    ProgressBar pbMain;
     //api
     ApiService mService;
-    List<CategoryModel> categoryModelList = new ArrayList<>();
+    List<CategoryModel> categoryModelList;
     Boolean isCategoryLoaded = false;
 
     @Override
@@ -56,12 +58,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         addControl();
         actionBar();
-
-
-        //showTabLayout();
         loadCategoryTabName();
-
-
         eventNavigation();
         //
 
@@ -80,13 +77,9 @@ public class MainActivity extends AppCompatActivity {
                              ) {
                             categoryModelList.add(md);
                         }
-                        FragmentManager manager = getSupportFragmentManager();
-                        adapter = new MainScreenPagerAdapter(manager,MainActivity.this,categoryModelList);
-                        pager.setAdapter(adapter);
-                        tabLayout.setupWithViewPager(pager);
-                        pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-                        tabLayout.setTabsFromPagerAdapter(adapter);
-                        pager.setOffscreenPageLimit(categoryModelList.size());//no reload when change tab
+                        showTabLayout();
+                        //
+                        pbMain.setVisibility(View.GONE);
                         
 
                         Log.d("AnswersPresenter", "posts loaded from API");
@@ -98,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<AllCategoryJsonResponse> call, Throwable t) {
-
+                    Toast.makeText(MainActivity.this, "Error loading posts", Toast.LENGTH_SHORT).show();
                     Log.d("AnswersPresenter", "error loading from API");
 
                 }
@@ -136,11 +129,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showTabLayout() {
-
-        categoryModelList.add(new CategoryModel("1","Tabbbb","1"));
-        /*categoryModelList.add(new CategoryModel("2","sas","1"));
-        categoryModelList.add(new CategoryModel("3","ssss","1"));
-        categoryModelList.add(new CategoryModel("4","Tabddbbb","1"));*/
         // Set up the ViewPager with the sections adapter.
         FragmentManager manager = getSupportFragmentManager();
         adapter = new MainScreenPagerAdapter(manager,MainActivity.this,categoryModelList);
@@ -148,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(pager);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setTabsFromPagerAdapter(adapter);
-        pager.setOffscreenPageLimit(9);//no reload when change tab
+        pager.setOffscreenPageLimit(categoryModelList.size());//no reload when change tab
     }
 
     private void addControl() {
@@ -158,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         pager = findViewById(R.id.container);
         tabLayout = findViewById(R.id.tabLayoutMain);
+        pbMain = findViewById(R.id.pbmain);
         //
         mService = ApiUtils.getSOService();
 

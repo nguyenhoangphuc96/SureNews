@@ -43,15 +43,9 @@
         <activity android:name=".DevelopmentMenu.DevelopmentMenuActivity"></activity>
         <activity android:name=".StatisticalMenu.StatisticalMenuActivity"></activity>
 
-        <activity android:name=".HomeMenu.DetailActivitiesLeaderActivity"></activity>
-        <activity android:name=".HomeMenu.DetailPoliticalNewsActivity"></activity>
         <activity android:name=".HomeMenu.DetailEconomyActivity"></activity>
-        <activity android:name=".GovementMenu.DetailDepartmentNewsActivity"></activity>
-        <activity android:name=".GovementMenu.DetailZoningActivity"></activity>
-        <activity android:name=".DevelopmentMenu.DetailInvestProjectActivity"></activity>
-        <activity android:name=".DevelopmentMenu.DetailInvestCollabActivity"></activity>
-        <activity android:name=".DevelopmentMenu.DetailPolicyActivity"></activity>
         <activity android:name=".Chart.ChartActivity"></activity>
+        <activity android:name=".DetailScreen.DetailActivityNew"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"

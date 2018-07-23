@@ -1,6 +1,8 @@
 package com.lacviet.surenews.WebAPI.Remote;
 
 import com.lacviet.surenews.WebAPI.ModelAPI.AllCategoryJsonResponse;
+import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
+import com.lacviet.surenews.WebAPI.ModelAPI.DetailJsonResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -12,7 +14,10 @@ public interface ApiService {
 
     @GET("EventCategory/getall")
     Call<AllCategoryJsonResponse> getAllCategorys();
-
+    @GET("News/GetAll")
+    Call<AllNewsJsonResponse> getAllNews(@Query("categoryid") String categoryid);
+    @GET("News/GetById")
+    Call<DetailJsonResponse> getDetailbyId(@Query("id") String id);
 
 
 }

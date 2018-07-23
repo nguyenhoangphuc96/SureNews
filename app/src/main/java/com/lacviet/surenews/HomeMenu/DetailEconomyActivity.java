@@ -23,7 +23,6 @@ import android.widget.TextView;
 
 import com.lacviet.surenews.Adapter.SamenewsRCVAdapter;
 import com.lacviet.surenews.DetailScreen.DetailHomeActivityTemp;
-import com.lacviet.surenews.DevelopmentMenu.DetailInvestProjectActivity;
 import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.Model.NewsModel;
 import com.lacviet.surenews.R;
