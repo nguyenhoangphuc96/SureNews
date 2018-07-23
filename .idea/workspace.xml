@@ -44,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TabHomeMenuFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TabHomeMenuFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabHomeMenuFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+            <state relative-caret-position="408">
+              <caret line="85" column="11" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="85" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1760#1761#0" expanded="true" />
@@ -60,16 +60,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetailActivityNew.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DetailActivityNew.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DetailScreen/DetailActivityNew.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="68" column="43" lean-forward="false" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
+            <state relative-caret-position="310">
+              <caret line="167" column="59" lean-forward="false" selection-start-line="167" selection-start-column="59" selection-end-line="167" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4175#4205#0" expanded="true" />
-                <element signature="e#4416#4448#0" expanded="true" />
-                <element signature="e#4666#4695#0" expanded="true" />
+                <element signature="e#3127#3372#0" expanded="true" />
+                <element signature="e#3371#3372#0" expanded="true" />
+                <element signature="method#startDetailActivity#0;class#DetailActivityNew#0" expanded="false" />
+                <element signature="method#textSize#0;class#DetailActivityNew#0" expanded="false" />
+                <element signature="e#4394#4424#0" expanded="true" />
+                <element signature="e#4641#4673#0" expanded="true" />
+                <element signature="e#4897#4926#0" expanded="true" />
+                <element signature="e#9883#10283#0" expanded="true" />
+                <element signature="e#10282#10283#0" expanded="true" />
+                <element signature="method#getDatafromPreviousActivity#0;class#DetailActivityNew#0" expanded="false" />
+                <element signature="method#actionBar#0;class#DetailActivityNew#0" expanded="false" />
+                <element signature="e#12445#12587#0" expanded="true" />
+                <element signature="e#12586#12587#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,8 +88,8 @@
       <file leaf-file-name="DetailEconomyActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailEconomyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="617" column="1" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="617" selection-end-column="1" />
+            <state relative-caret-position="413">
+              <caret line="427" column="13" lean-forward="false" selection-start-line="418" selection-start-column="14" selection-end-line="427" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -2186,12 +2196,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DetailScreen/DetailActivityNew.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/ModelAPI/ContentModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/ModelAPI/DetailJsonResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/Remote/ApiService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabHomeMenuFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DetailScreen/DetailActivityNew.java" />
       </list>
     </option>
   </component>
@@ -2314,7 +2324,7 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../LacVietHPSMuseumManagementApp/app/key.jks" />
-    <property name="device.picker.selection" value="Pixel_2_API_26" />
+    <property name="device.picker.selection" value="F7AZFG06C950" />
     <property name="ExportApk.ApkPath" value="D:\NHPHUC\VEBRARY\2018\SureNews\app" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
@@ -2522,7 +2532,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39844617" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3970588" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2542,7 +2552,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="35" />
+      <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2876,107 +2886,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailEconomyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="617" column="1" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="617" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DetailScreen/DetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="83" column="49" lean-forward="true" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/ModelAPI/ContentModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#402#403#0" expanded="false" />
-            <element signature="e#429#430#0" expanded="false" />
-            <element signature="e#470#471#0" expanded="false" />
-            <element signature="e#502#503#0" expanded="false" />
-            <element signature="e#534#535#0" expanded="false" />
-            <element signature="e#562#563#0" expanded="false" />
-            <element signature="e#604#605#0" expanded="false" />
-            <element signature="e#638#639#0" expanded="false" />
-            <element signature="e#671#672#0" expanded="false" />
-            <element signature="e#699#700#0" expanded="false" />
-            <element signature="e#742#743#0" expanded="false" />
-            <element signature="e#776#777#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/Remote/ApiService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="67" lean-forward="false" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/ModelAPI/DetailJsonResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1666">
-          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1126#1127#0" expanded="false" />
-            <element signature="e#1151#1152#0" expanded="false" />
-            <element signature="e#1187#1188#0" expanded="false" />
-            <element signature="e#1215#1216#0" expanded="false" />
-            <element signature="e#1247#1248#0" expanded="false" />
-            <element signature="e#1275#1276#0" expanded="false" />
-            <element signature="e#1317#1318#0" expanded="false" />
-            <element signature="e#1351#1352#0" expanded="false" />
-            <element signature="e#1384#1385#0" expanded="false" />
-            <element signature="e#1413#1414#0" expanded="false" />
-            <element signature="e#1457#1458#0" expanded="false" />
-            <element signature="e#1493#1494#0" expanded="false" />
-            <element signature="e#1532#1533#0" expanded="false" />
-            <element signature="e#1567#1568#0" expanded="false" />
-            <element signature="e#1623#1624#0" expanded="false" />
-            <element signature="e#1671#1672#0" expanded="false" />
-            <element signature="e#1709#1710#0" expanded="false" />
-            <element signature="e#1743#1744#0" expanded="false" />
-            <element signature="e#1797#1798#0" expanded="false" />
-            <element signature="e#1843#1844#0" expanded="false" />
-            <element signature="e#1883#1884#0" expanded="false" />
-            <element signature="e#1919#1920#0" expanded="false" />
-            <element signature="e#1977#1978#0" expanded="false" />
-            <element signature="e#2027#2028#0" expanded="false" />
-            <element signature="e#2058#2059#0" expanded="false" />
-            <element signature="e#2085#2086#0" expanded="false" />
-            <element signature="e#2125#2126#0" expanded="false" />
-            <element signature="e#2157#2158#0" expanded="false" />
-            <element signature="e#2191#2192#0" expanded="false" />
-            <element signature="e#2221#2222#0" expanded="false" />
-            <element signature="e#2267#2268#0" expanded="false" />
-            <element signature="e#2305#2306#0" expanded="false" />
-            <element signature="e#2344#2345#0" expanded="false" />
-            <element signature="e#2378#2379#0" expanded="false" />
-            <element signature="e#2433#2434#0" expanded="false" />
-            <element signature="e#2479#2480#0" expanded="false" />
-            <element signature="e#2516#2517#0" expanded="false" />
-            <element signature="e#2549#2550#0" expanded="false" />
-            <element signature="e#2601#2602#0" expanded="false" />
-            <element signature="e#2645#2646#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="false" />
-            <element signature="e#2713#2714#0" expanded="false" />
-            <element signature="e#2763#2764#0" expanded="false" />
-            <element signature="e#2805#2806#0" expanded="false" />
-            <element signature="e#2851#2852#0" expanded="false" />
-            <element signature="e#2881#2882#0" expanded="false" />
-            <element signature="e#2939#2940#0" expanded="false" />
-            <element signature="e#2977#2978#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3007,19 +2921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DetailScreen/DetailActivityNew.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="68" column="43" lean-forward="false" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4175#4205#0" expanded="true" />
-            <element signature="e#4416#4448#0" expanded="true" />
-            <element signature="e#4666#4695#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest">
         <state />
@@ -3031,16 +2932,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/Remote/ApiService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="67" lean-forward="false" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/TabHomeMenuFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+        <state relative-caret-position="408">
+          <caret line="85" column="11" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="85" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1760#1761#0" expanded="true" />
             <element signature="e#1804#1805#0" expanded="true" />
             <element signature="e#3479#3707#0" expanded="true" />
             <element signature="e#3706#3707#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/ModelAPI/DetailJsonResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="44" column="22" lean-forward="true" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/WebAPI/ModelAPI/ContentModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/HomeMenu/DetailEconomyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="427" column="13" lean-forward="false" selection-start-line="418" selection-start-column="14" selection-end-line="427" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lacviet/surenews/DetailScreen/DetailActivityNew.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="167" column="59" lean-forward="false" selection-start-line="167" selection-start-column="59" selection-end-line="167" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3127#3372#0" expanded="true" />
+            <element signature="e#3371#3372#0" expanded="true" />
+            <element signature="method#startDetailActivity#0;class#DetailActivityNew#0" expanded="false" />
+            <element signature="method#textSize#0;class#DetailActivityNew#0" expanded="false" />
+            <element signature="e#4394#4424#0" expanded="true" />
+            <element signature="e#4641#4673#0" expanded="true" />
+            <element signature="e#4897#4926#0" expanded="true" />
+            <element signature="e#9883#10283#0" expanded="true" />
+            <element signature="e#10282#10283#0" expanded="true" />
+            <element signature="method#getDatafromPreviousActivity#0;class#DetailActivityNew#0" expanded="false" />
+            <element signature="method#actionBar#0;class#DetailActivityNew#0" expanded="false" />
+            <element signature="e#12445#12587#0" expanded="true" />
+            <element signature="e#12586#12587#0" expanded="true" />
           </folding>
         </state>
       </provider>

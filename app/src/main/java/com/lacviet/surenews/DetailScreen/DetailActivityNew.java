@@ -10,6 +10,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -20,48 +21,56 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.SamenewsRCVAdapter;
 import com.lacviet.surenews.HomeMenu.DetailEconomyActivity;
 import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.Model.NewsModel;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.WebAPI.ModelAPI.ContentModel;
+import com.lacviet.surenews.WebAPI.ModelAPI.DetailJsonResponse;
+import com.lacviet.surenews.WebAPI.Remote.ApiService;
+import com.lacviet.surenews.WebAPI.Remote.ApiUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DetailActivityNew extends AppCompatActivity {
     Toolbar toolbar;
     ProgressBar pbDetail;
     LinearLayout loBody;
-    TextView tvTitle, tvTime, tvSubTitle,textView;
-    ArrayList<String> listDetail = new ArrayList<>();
+    TextView tvTitle, tvTime, tvSubTitle, textView;
+
     //
-    String baseSrcUrl = "http://baclieu.gov.vn";
-    String baseUrlSoNgoaiVu = "http://songoaivu.baclieu.gov.vn";
-    String baseSrcUrlNew = "http://congthongtin.bioportal.vn";
-    //
-    int id;
+    String id;
     String title = "";
     String time = "";
     String subtitle = "";
     String image = "";
     String text = "";
     //change size
-    float sizeTitleDefault,sizeContentDefault,sizeTimeDefault,sizeTitle,sizeContent,sizeTime,sizecaptionImage;
+    float sizeTitleDefault, sizeContentDefault, sizeTimeDefault, sizeTitle, sizeContent, sizeTime, sizecaptionImage;
 
     //
-    View layoutImage,layoutText,layoutAuthor;
+    View layoutImage, layoutText, layoutAuthor;
     //same news
     View layoutSameNews;
     SamenewsRCVAdapter mAdapter;
     RecyclerView recyclerView;
     ProgressBar pbSameNew;
-    ArrayList<NewsModel> listSameNews = new ArrayList<>();
     //
     TextToSpeech textToSpeech;
     Boolean isClickSpeak = false;
+    //api
+    ApiService mService;
+    public List<ContentModel> listContent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,10 +80,12 @@ public class DetailActivityNew extends AppCompatActivity {
         actionBar();
         textSize();
         getDatafromPreviousActivity();
-        addSamenews();
+        loadListContentById(id);
+        //addSamenews();
 
 
     }
+
     private void addSamenews() {
         layoutSameNews = LayoutInflater.from(DetailActivityNew.this).inflate(R.layout.view_same_news, loBody, false);
         recyclerView = layoutSameNews.findViewById(R.id.rcvSameNews);
@@ -84,12 +95,13 @@ public class DetailActivityNew extends AppCompatActivity {
 
 
     }
+
     private void showDataToRecyclerView() {
         mAdapter = new SamenewsRCVAdapter(this, new ArrayList<NewsModel>(0), new SamenewsRCVAdapter.PostItemListener() {
 
             @Override
             public void onPostClick(int id, String title, String time, String subTitle) {
-                startDetailActivity(id,title,time,subTitle);
+                startDetailActivity(id, title, time, subTitle);
             }
 
         });
@@ -102,55 +114,84 @@ public class DetailActivityNew extends AppCompatActivity {
         recyclerView.addItemDecoration(dividerItemDecoration);
 
     }
+
     private void startDetailActivity(int id, String title, String time, String subTitle) {
         Intent intent = new Intent(this, DetailHomeActivityTemp.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
-        intent.putExtra(key.TITLE,title);
-        intent.putExtra(key.SUB_TITLE,subTitle);
-        intent.putExtra(key.TIME,time);
+        intent.putExtra(key.TITLE, title);
+        intent.putExtra(key.SUB_TITLE, subTitle);
+        intent.putExtra(key.TIME, time);
         startActivity(intent);
     }
 
 
-
-
     private void textSize() {
         TypedValue varSizeTitle = new TypedValue();
-        getResources().getValue(R.dimen.textsize_title_default,varSizeTitle,true);
-        sizeTitleDefault=varSizeTitle.getFloat();
-        sizeTitle=varSizeTitle.getFloat();
+        getResources().getValue(R.dimen.textsize_title_default, varSizeTitle, true);
+        sizeTitleDefault = varSizeTitle.getFloat();
+        sizeTitle = varSizeTitle.getFloat();
         //
         TypedValue varSizeContent = new TypedValue();
-        getResources().getValue(R.dimen.textsize_content_default,varSizeContent,true);
-        sizeContentDefault=varSizeContent.getFloat();
-        sizeContent=varSizeContent.getFloat();
+        getResources().getValue(R.dimen.textsize_content_default, varSizeContent, true);
+        sizeContentDefault = varSizeContent.getFloat();
+        sizeContent = varSizeContent.getFloat();
         //
         TypedValue varSizeTime = new TypedValue();
-        getResources().getValue(R.dimen.textsize_time_default,varSizeTime,true);
-        sizeTimeDefault=varSizeTime.getFloat();
-        sizeTime=varSizeTime.getFloat();
+        getResources().getValue(R.dimen.textsize_time_default, varSizeTime, true);
+        sizeTimeDefault = varSizeTime.getFloat();
+        sizeTime = varSizeTime.getFloat();
         //
-        sizecaptionImage=15;
+        sizecaptionImage = 15;
     }
-    private void loadDataById(ArrayList<String> listDetailHome) {
-        //
-        tvTitle.setText(title);
-        tvTime.setText(time);
-        tvSubTitle.setText(subtitle);
+
+    private void loadListContentById(String id) {
+        mService.getDetailbyId(id).enqueue(new Callback<DetailJsonResponse>() {
+            @Override
+            public void onResponse(Call<DetailJsonResponse> call, Response<DetailJsonResponse> response) {
+
+                if (response.isSuccessful()) {
+                    //
+                    title = response.body().getTitle();
+                    time = response.body().getPublishedDate();
+                    subtitle = response.body().getDescription();
+                    tvTitle.setText(title);
+                    tvTime.setText(time);
+                    tvSubTitle.setText(subtitle);
+                    //
+                    listContent = new ArrayList<>();
+                    listContent = response.body().getContent();
+                    loadContent(listContent);
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(DetailActivityNew.this, "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DetailJsonResponse> call, Throwable t) {
+
+                Log.d("AnswersPresenter", "error loading from API");
+
+            }
+        });
+
+    }
+
+    private void loadContent(List<ContentModel> list) {
         //body
-        for(int i = 0; i<listDetailHome.size()-1;i++)
-        {
-            if (listDetailHome.get(i).startsWith("http")) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getType() == 2) {
                 layoutImage = LayoutInflater.from(DetailActivityNew.this).inflate(R.layout.item_image, loBody, false);
 
                 textView = layoutImage.findViewById(R.id.tvImageText);
                 ImageView imgView = layoutImage.findViewById(R.id.imvImage);
-                image = listDetailHome.get(i);
-                text = listDetailHome.get(i+1);
+                image = list.get(i).getValue();
+                text = list.get(i + 1).getValue();
                 //
                 textView.setText(text);
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizecaptionImage);
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizecaptionImage);
                 Picasso.with(DetailActivityNew.this).load(image).into(imgView);
 
                 loBody.addView(layoutImage);
@@ -161,26 +202,18 @@ public class DetailActivityNew extends AppCompatActivity {
 
                 textView = (TextView) layoutText.findViewById(R.id.tvText);
 
-                textView.setText(listDetailHome.get(i));
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
+                textView.setText(list.get(i).getValue());
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeContent);
 
                 loBody.addView(layoutText);
             }
         }
-        //author
-        layoutAuthor = LayoutInflater.from(DetailActivityNew.this).inflate(R.layout.item_text, loBody, false);
 
-        textView = (TextView) layoutAuthor.findViewById(R.id.tvText);
-
-        textView.setText(listDetailHome.get(listDetailHome.size()-1));
-        textView.setTypeface(null, Typeface.ITALIC);
-        textView.setGravity(Gravity.END);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
-        loBody.addView(layoutAuthor);
 
         pbDetail.setVisibility(View.GONE);
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_detail, menu);
@@ -191,40 +224,40 @@ public class DetailActivityNew extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_decrease_size: {
-                sizeContent=sizeContent-1;
-                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,--sizeTitle);
-                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
-                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,--sizeTime);
+                sizeContent = sizeContent - 1;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, --sizeTitle);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeContent);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP, --sizeTime);
                 //
 
-                loBody.removeViews(3,loBody.getChildCount()-3);
-                //loadData();
-                addSamenews();
+                loBody.removeViews(3, loBody.getChildCount() - 3);
+                loadListContentById(id);
+                //addSamenews();
                 return true;
             }
             case R.id.menu_default_size: {
                 sizeContent = sizeContentDefault;
-                sizeTime=sizeTimeDefault;
-                sizeTitle=sizeTitleDefault;
-                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeTitleDefault);
-                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContentDefault);
-                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeTimeDefault);
+                sizeTime = sizeTimeDefault;
+                sizeTitle = sizeTitleDefault;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeTitleDefault);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeContentDefault);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeTimeDefault);
                 //
-                loBody.removeViews(3,loBody.getChildCount()-3);
-                //loadData();
-                addSamenews();
+                loBody.removeViews(3, loBody.getChildCount() - 3);
+                loadListContentById(id);
+                //addSamenews();
                 return true;
             }
             case R.id.menu_increase_size: {
-                sizeContent=sizeContent+1;
-                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,++sizeTitle);
-                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeContent);
-                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,++sizeTime);
+                sizeContent = sizeContent + 1;
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, ++sizeTitle);
+                tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeContent);
+                tvTime.setTextSize(TypedValue.COMPLEX_UNIT_SP, ++sizeTime);
                 //
 
-                loBody.removeViews(3,loBody.getChildCount()-3);
-                //loadData();
-                addSamenews();
+                loBody.removeViews(3, loBody.getChildCount() - 3);
+                loadListContentById(id);
+                //addSamenews();
                 return true;
             }
             case R.id.menu_speak: {
@@ -235,19 +268,17 @@ public class DetailActivityNew extends AppCompatActivity {
                         public void onInit(int status) {
                             if (status != TextToSpeech.ERROR) {
                                 textToSpeech.setLanguage(new Locale("vi"));
-                                speakData();
+                                speakData(listContent);
                             }
                         }
                     });
                     //
-                    if (!textToSpeech.isSpeaking()){
+                    if (!textToSpeech.isSpeaking()) {
                         isClickSpeak = false;
-                    }
-                    else {
+                    } else {
                         isClickSpeak = true;
                     }
-                }
-                else {
+                } else {
                     textToSpeech.stop();
                     isClickSpeak = false;
                 }
@@ -257,39 +288,30 @@ public class DetailActivityNew extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    private void speakData() {
-        switch (id) {
-            case 1: {
-                speakById(listDetail);
-                break;
-            }
-            default:
-                break;
-        }
 
 
-    }
-    private void speakById(ArrayList<String> listDetailHome) {
+    private void speakData(List<ContentModel> list) {
         String stringToSpeech;
         //
         stringToSpeech = title + "." + subtitle;
         //body
-        for (int i = 0; i < listDetailHome.size(); i++) {
-            if (listDetailHome.get(i).startsWith("http")) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getType()==2) {
                 i++;
             } else {
-                stringToSpeech = stringToSpeech+listDetailHome.get(i);
+                stringToSpeech = stringToSpeech + list.get(i).getValue();
             }
         }
-        textToSpeech.speak(stringToSpeech,TextToSpeech.QUEUE_FLUSH,null);
-        isClickSpeak=true;
+        textToSpeech.speak(stringToSpeech, TextToSpeech.QUEUE_FLUSH, null);
+        isClickSpeak = true;
 
     }
+
     @Override
     protected void onPause() {
         super.onPause();
         //shut down speech when close app
-        if(textToSpeech!=null) {
+        if (textToSpeech != null) {
             textToSpeech.shutdown();
             isClickSpeak = false;
         }
@@ -298,7 +320,7 @@ public class DetailActivityNew extends AppCompatActivity {
     private void getDatafromPreviousActivity() {
         Bundle extras = this.getIntent().getExtras();
         KeyString key = new KeyString();
-        id = extras.getInt(key.ID);
+        id = extras.getString(key.ID);
 
 
     }
@@ -311,6 +333,8 @@ public class DetailActivityNew extends AppCompatActivity {
         tvTitle = findViewById(R.id.tvTitle);
         tvTime = findViewById(R.id.tvTime);
         tvSubTitle = findViewById(R.id.tvSubTitle);
+        //
+        mService = ApiUtils.getSOService();
     }
 
     private void actionBar() {
