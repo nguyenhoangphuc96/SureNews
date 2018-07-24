@@ -37,9 +37,6 @@ public class TabHomeMenuFragment extends Fragment {
     private HomeTabRCVAdapterTemp mAdapter;
     private List<NewsModel> listNews = new ArrayList<>();
     ProgressBar pbTabhome;
-    String baseSrcUrl = "http://baclieu.gov.vn";
-    String baseSrcUrlNew = "http://congthongtin.bioportal.vn";
-    String baseUrlSoNgoaiVu = "http://songoaivu.baclieu.gov.vn";
     //api
     ApiService mService;
     String categoryId;

@@ -42,6 +42,11 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/colorBlackGrayContentText</item>
     </style>
+    <style name="TextDetailSubtitle" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorBlackGrayContentText</item>
+        <item name="android:textStyle">italic</item>
+    </style>
     <style name="TextDetailCaptionImage" parent="TextAppearance.Design.Counter">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/colorGrayforText</item>

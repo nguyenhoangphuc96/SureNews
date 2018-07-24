@@ -38,12 +38,10 @@
         <activity android:name=".Feedback.FeedbackActivity"></activity>
         <activity android:name=".Feedback.SDTConfirmActivity"></activity>
         <activity android:name=".DetailScreen.DetailHomeActivityTemp"></activity>
-        <activity android:name=".DetailScreen.DetailCountryActivityTemp"></activity>
         <activity android:name=".GovementMenu.GovementMenuActivity"></activity>
         <activity android:name=".DevelopmentMenu.DevelopmentMenuActivity"></activity>
         <activity android:name=".StatisticalMenu.StatisticalMenuActivity"></activity>
 
-        <activity android:name=".HomeMenu.DetailEconomyActivity"></activity>
         <activity android:name=".Chart.ChartActivity"></activity>
         <activity android:name=".DetailScreen.DetailActivityNew"></activity>
         <provider

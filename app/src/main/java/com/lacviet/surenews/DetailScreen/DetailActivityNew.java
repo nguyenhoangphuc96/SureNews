@@ -24,7 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.SamenewsRCVAdapter;
-import com.lacviet.surenews.HomeMenu.DetailEconomyActivity;
 import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.Model.NewsModel;
 import com.lacviet.surenews.R;
@@ -55,6 +54,7 @@ public class DetailActivityNew extends AppCompatActivity {
     String subtitle = "";
     String image = "";
     String text = "";
+    String author = "";
     //change size
     float sizeTitleDefault, sizeContentDefault, sizeTimeDefault, sizeTitle, sizeContent, sizeTime, sizecaptionImage;
 
@@ -116,7 +116,7 @@ public class DetailActivityNew extends AppCompatActivity {
     }
 
     private void startDetailActivity(int id, String title, String time, String subTitle) {
-        Intent intent = new Intent(this, DetailHomeActivityTemp.class);
+        Intent intent = new Intent(this, DetailActivityNew.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
         intent.putExtra(key.TITLE, title);
@@ -155,13 +155,16 @@ public class DetailActivityNew extends AppCompatActivity {
                     title = response.body().getTitle();
                     time = response.body().getPublishedDate();
                     subtitle = response.body().getDescription();
+                    author = response.body().getAuthor();
                     tvTitle.setText(title);
                     tvTime.setText(time);
                     tvSubTitle.setText(subtitle);
                     //
                     listContent = new ArrayList<>();
                     listContent = response.body().getContent();
-                    loadContent(listContent);
+                    if (listContent != null) {
+                        loadContent(listContent);
+                    }
                     Log.d("AnswersPresenter", "posts loaded from API");
                 } else {
                     int statusCode = response.code();
@@ -188,9 +191,13 @@ public class DetailActivityNew extends AppCompatActivity {
                 textView = layoutImage.findViewById(R.id.tvImageText);
                 ImageView imgView = layoutImage.findViewById(R.id.imvImage);
                 image = list.get(i).getValue();
+
+
                 text = list.get(i + 1).getValue();
-                //
                 textView.setText(text);
+
+                //
+
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizecaptionImage);
                 Picasso.with(DetailActivityNew.this).load(image).into(imgView);
 
@@ -208,8 +215,16 @@ public class DetailActivityNew extends AppCompatActivity {
                 loBody.addView(layoutText);
             }
         }
+        //author
+        layoutAuthor = LayoutInflater.from(DetailActivityNew.this).inflate(R.layout.item_text, loBody, false);
 
+        textView = (TextView) layoutAuthor.findViewById(R.id.tvText);
 
+        textView.setText(author);
+        textView.setTypeface(null, Typeface.ITALIC);
+        textView.setGravity(Gravity.END);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizeContent);
+        loBody.addView(layoutAuthor);
         pbDetail.setVisibility(View.GONE);
 
     }
@@ -296,7 +311,7 @@ public class DetailActivityNew extends AppCompatActivity {
         stringToSpeech = title + "." + subtitle;
         //body
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getType()==2) {
+            if (list.get(i).getType() == 2) {
                 i++;
             } else {
                 stringToSpeech = stringToSpeech + list.get(i).getValue();

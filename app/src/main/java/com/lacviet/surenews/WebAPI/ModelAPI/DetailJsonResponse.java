@@ -15,7 +15,7 @@ public class DetailJsonResponse {
     private String title;
     @SerializedName("Author")
     @Expose
-    private Object author;
+    private String author;
     @SerializedName("FriendlyName")
     @Expose
     private String friendlyName;
@@ -60,11 +60,11 @@ public class DetailJsonResponse {
         this.title = title;
     }
 
-    public Object getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(Object author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
