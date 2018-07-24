@@ -25,7 +25,7 @@ public class NewsModel {
     private String publishedDate;
     @SerializedName("Body")
     @Expose
-    private Object body;
+    private String body;
     @SerializedName("ItemImg")
     @Expose
     private String itemImg;
@@ -91,11 +91,11 @@ public class NewsModel {
         this.publishedDate = publishedDate;
     }
 
-    public Object getBody() {
+    public String getBody() {
         return body;
     }
 
-    public void setBody(Object body) {
+    public void setBody(String body) {
         this.body = body;
     }
 

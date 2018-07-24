@@ -1,5 +1,6 @@
 package com.lacviet.surenews.HomeMenu;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,25 +12,45 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.lacviet.surenews.Adapter.HomeTabRCVAdapterTemp;
 import com.lacviet.surenews.Adapter.VideoPlayerTabRCVAdapter;
 import com.lacviet.surenews.Adapter.VideoPlayerTabRCVAdapter;
 import com.lacviet.surenews.Model.HomeNewsModel;
 import com.lacviet.surenews.Model.VideoModel;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
+import com.lacviet.surenews.WebAPI.ModelAPI.NewsModel;
+import com.lacviet.surenews.WebAPI.Remote.ApiService;
+import com.lacviet.surenews.WebAPI.Remote.ApiUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import tcking.github.com.giraffeplayer2.VideoView;
 import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
 
 public class TabVideoFragment extends Fragment {
     private RecyclerView recyclerView;
     private VideoPlayerTabRCVAdapter mAdapter;
+    private List<NewsModel> listNewsModel;
     private List<VideoModel> listVideo;
-    VideoPlayerTabRCVAdapter.VHItem vhItem;
+    ProgressBar pbVideo;
+    //api
+    ApiService mService;
+    String categoryId;
+
     public TabVideoFragment() {
+        // Required empty public constructor
+    }
+    @SuppressLint("ValidFragment")
+    public TabVideoFragment(String categoryId) {
+        this.categoryId = categoryId;
         // Required empty public constructor
     }
     @Override
@@ -37,47 +58,53 @@ public class TabVideoFragment extends Fragment {
         View view =inflater.inflate(R.layout.fragment_tab_video,container,false);
         addControl(view);
         showDataToRecyclerView();
-        addData();
+        loadData();
         return view;
     }
+    private void loadData() {
+        mService.getAllNewsByPage(categoryId,1,10).enqueue(new Callback<AllNewsJsonResponse>() {
+            @Override
+            public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
 
-    private void addData() {
-        listVideo = new ArrayList<>();
-        listVideo.add(new VideoModel(1,"Nông dân Bạc Liêu trúng mùa giữa cơn đại hạn",
-                "",
-                "http://video.baobaclieu.vn/uploads/video/2017/05/11/N%C3%B4ng%20d%C3%A2n%20B%E1%BA%A1c%20Li%C3%AAu%20tr%C3%BAng%20m%C3%B9a%20gi%E1%BB%AFa%20c%C6%A1n%20%C4%91%E1%BA%A1i%20h%E1%BA%A1n%20-%20VTC.mp4",
-                "Thứ Sáu, 29/06/2018, 08:20",
-                "http://video.baobaclieu.vn/uploads/thumbnail/2017/05/11/MOI.jpg"));
-        listVideo.add(new VideoModel(2,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
-                "Bạc Liêu hôm nay",
-                "",
-                "http://video.baobaclieu.vn/uploads/video/2017/08/01/bac%20lieu%20hom%20nay%20(moi).mp4",
-                "Thứ Tư, 27/06/2018, 13:25",
-                "http://video.baobaclieu.vn/uploads/thumbnail/2017/08/01/43.jpg"));
-        listVideo.add(new VideoModel(3,"BẠC LIÊU ĐẤT & NGƯỜI\n" +
-                "Bạc Liêu quê hương tôi",
-                "",
-                "http://video.baobaclieu.vn/uploads/video/2017/05/11/bac-lieu-que-toi.mp4",
-                "Thứ Ba, 15/05/2018, 15:50",
-                "http://video.baobaclieu.vn/uploads/video/2017/05/11/bac-lieu-que-toi.jpg"));
-        listVideo.add(new VideoModel(4,"Cá sấu Bạc Liêu rớt giá thê thảm",
-                "",
-                "http://video.baobaclieu.vn/uploads/video/2017/05/11/ca-sau-bac-lieu.mp4",
-                "30/06/2018",
-                "http://video.baobaclieu.vn/uploads/thumbnail/2017/05/11/ca-sau.jpg"));
-        listVideo.add(new VideoModel(5,"Nuôi tôm siêu thâm canh công nghệ cao trong nhà kín",
-                "",
-                "http://video.baobaclieu.vn/uploads/video/2017/05/18/nuoi%20tom%20trong%20nha%20kinh.mp4",
-                "5 ngày trước",
-                "http://video.baobaclieu.vn/uploads/thumbnail/2017/05/18/xa%20vinh%20thinh%201.jpg"));
-        mAdapter.updateAnswers(listVideo);
+                if (response.isSuccessful()) {
+                    listNewsModel = new ArrayList<>();
+                    listVideo = new ArrayList<>();
+
+                    listNewsModel = response.body().getNewsModels();
+                    //
+                    for (NewsModel newsModel: listNewsModel) {
+                        listVideo.add(new VideoModel(newsModel.getId(),newsModel.getTitle(),
+                                newsModel.getDescription(),newsModel.getBody(),newsModel.getPublishedDate(),newsModel.getItemImg()));
+
+                    }
+                    mAdapter.updateAnswers(listVideo);
+
+                    pbVideo.setVisibility(View.GONE);
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(getActivity(), "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
+
+                Log.d("AnswersPresenter", "error loading from API");
+
+            }
+        });
     }
 
     private void addControl(View view) {
         recyclerView = view.findViewById(R.id.rcvTabVideo);
+        pbVideo = view.findViewById(R.id.pbTabVideo);
+        //
+        mService = ApiUtils.getSOService();
     }
     private void showDataToRecyclerView() {
         mAdapter = new VideoPlayerTabRCVAdapter(getContext(), new ArrayList<VideoModel>(0), new VideoPlayerTabRCVAdapter.PostItemListener() {
+
 
             @Override
             public void onPostClick(long id) {

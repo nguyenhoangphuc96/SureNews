@@ -61,7 +61,7 @@ public class TabHomeMenuFragment extends Fragment {
     }
 
     private void loadData() {
-        mService.getAllNews(categoryId).enqueue(new Callback<AllNewsJsonResponse>() {
+        mService.getAllNewsByPage(categoryId,1,10).enqueue(new Callback<AllNewsJsonResponse>() {
             @Override
             public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
 

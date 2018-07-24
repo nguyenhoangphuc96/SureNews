@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.lacviet.surenews.HomeMenu.TabHomeMenuFragment;
 
 
+import com.lacviet.surenews.HomeMenu.TabVideoFragment;
 import com.lacviet.surenews.WebAPI.ModelAPI.CategoryModel;
 import com.lacviet.surenews.WebAPI.Remote.ApiService;
 
@@ -28,7 +29,16 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
     }
     @Override
     public Fragment getItem(int position) {
-        return new TabHomeMenuFragment(CategoryList.get(position).getId());
+        Fragment fragment = null;
+        if(CategoryList.get(position).getId().equals("02"))
+        {
+            fragment = new TabVideoFragment(CategoryList.get(position).getId());
+        }
+        else
+        {
+            fragment = new TabHomeMenuFragment(CategoryList.get(position).getId());
+        }
+        return fragment;
     }
 
     @Override

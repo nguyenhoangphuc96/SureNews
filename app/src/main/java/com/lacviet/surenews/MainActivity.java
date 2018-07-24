@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadCategoryTabName() {
-            mService.getAllCategorys().enqueue(new Callback<AllCategoryJsonResponse>() {
+            mService.getAllCategorys(true).enqueue(new Callback<AllCategoryJsonResponse>() {
                 @Override
                 public void onResponse(Call<AllCategoryJsonResponse> call, Response<AllCategoryJsonResponse> response) {
 
@@ -73,8 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
                         categoryModelList = new ArrayList<>();
 
-                        for (CategoryModel md: response.body().getCategoryModels()
-                             ) {
+                        for (CategoryModel md: response.body().getCategoryModels()) {
                             categoryModelList.add(md);
                         }
                         showTabLayout();

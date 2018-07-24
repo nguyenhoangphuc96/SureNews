@@ -1,14 +1,14 @@
 package com.lacviet.surenews.Model;
 
 public class VideoModel {
-    private Integer videoId;
+    private String videoId;
     private String videoTittle;
     private String videoSubTittle;
     private String videoUrl;
     private String videoTime;
     private String videoCoverView;
 
-    public VideoModel(Integer videoId, String videoTittle, String videoSubTittle, String videoUrl, String videoTime, String videoCoverView) {
+    public VideoModel(String videoId, String videoTittle, String videoSubTittle, String videoUrl, String videoTime, String videoCoverView) {
         this.videoId = videoId;
         this.videoTittle = videoTittle;
         this.videoSubTittle = videoSubTittle;
@@ -17,11 +17,11 @@ public class VideoModel {
         this.videoCoverView = videoCoverView;
     }
 
-    public Integer getVideoId() {
+    public String getVideoId() {
         return videoId;
     }
 
-    public void setVideoId(Integer videoId) {
+    public void setVideoId(String videoId) {
         this.videoId = videoId;
     }
 
