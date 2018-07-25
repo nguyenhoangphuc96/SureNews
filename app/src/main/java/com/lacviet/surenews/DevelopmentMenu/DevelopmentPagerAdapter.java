@@ -24,7 +24,7 @@ public class DevelopmentPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
-        fragment = new TabHomeMenuFragment(CategoryList.get(position).getId());
+        fragment = new TabDevelopmentMenuFragment(CategoryList.get(position).getId());
         return fragment;
     }
 

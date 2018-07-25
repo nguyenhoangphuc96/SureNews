@@ -25,7 +25,7 @@ public class GovementPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
-        fragment = new TabHomeMenuFragment(CategoryList.get(position).getId());
+        fragment = new TabGovermentMenuFragment(CategoryList.get(position).getId());
         return fragment;
     }
 

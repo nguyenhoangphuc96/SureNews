@@ -22,8 +22,16 @@ public interface ApiService {
     Call<DetailJsonResponse> getDetailbyId(@Query("id") String id);
     @GET("Government/GetCategory")
     Call<AllCategoryJsonResponse> getAllCategorysGoverment();
+    @GET("Government/GetNewsPaging")
+    Call<AllNewsJsonResponse> getAllGovermentNewsByPage(@Query("categoryid") String categoryid,
+                                               @Query("pageindex") int pageindex,
+                                               @Query("pagesize") int pagesize);
     @GET("Investment/GetCategory")
     Call<AllCategoryJsonResponse> getAllCategorysDevelopment();
+    @GET("Investment/GetNewsPaging")
+    Call<AllNewsJsonResponse> getAllInvestmentNewsByPage(@Query("categoryid") String categoryid,
+                                                        @Query("pageindex") int pageindex,
+                                                        @Query("pagesize") int pagesize);
 
 
 
