@@ -9,8 +9,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.lacviet.surenews.Model.NewsModel;
+
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.WebAPI.ModelAPI.NewsModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -42,16 +43,16 @@ public class SamenewsRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-            NewsModel item = HomeNewsList.get(position);
-            ((SamenewsRCVAdapter.VHItem) holder).tvTittle.setText(item.getNewsTittle());
-            ((SamenewsRCVAdapter.VHItem) holder).tvTime.setText(item.getNewsTime());
+        NewsModel item = HomeNewsList.get(position);
+        ((SamenewsRCVAdapter.VHItem) holder).tvTittle.setText(item.getTitle());
+        ((SamenewsRCVAdapter.VHItem) holder).tvTime.setText(item.getPublishedDate());
 
-            if (item.getNewsImage() != null) {
-                showImage(item.getNewsImage(), (SamenewsRCVAdapter.VHItem) holder);
-            } else {
-                ((SamenewsRCVAdapter.VHItem) holder).imvAvatar.setImageDrawable(null);
+        if (item.getItemImg() != null) {
+            showImage(item.getItemImg(), (SamenewsRCVAdapter.VHItem) holder);
+        } else {
+            ((SamenewsRCVAdapter.VHItem) holder).imvAvatar.setImageDrawable(null);
 
-            }
+        }
 
     }
 
@@ -89,8 +90,7 @@ public class SamenewsRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     private void showImage(String imageString, SamenewsRCVAdapter.VHItem holder) {
         try {
-            /*Bitmap bmp = Util.StringToBitMap(imageString);
-            holder.imvAvatar.setImageBitmap(bmp);*/
+
             Picasso.with(mContext).load(imageString).into(holder.imvAvatar);
         } catch (Exception ex) {
             ex.getMessage();
@@ -118,7 +118,7 @@ public class SamenewsRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         @Override
         public void onClick(View v) {
             NewsModel item = getItem(getAdapterPosition());
-            this.mItemListener.onPostClick(item.getNewsId(),item.getNewsTittle(),item.getNewsTime(),item.getNewsSubTittle());
+            this.mItemListener.onPostClick(item.getId(),item.getTitle(),item.getPublishedDate(),item.getDescription());
 
         }
     }
@@ -126,6 +126,6 @@ public class SamenewsRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
 
     public interface PostItemListener {
-        void onPostClick(int id, String title, String time, String subTitle);
+        void onPostClick(String id, String title, String time, String subTitle);
     }
 }

@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.lacviet.surenews.Adapter.HomeTabRCVAdapterTemp;
 import com.lacviet.surenews.Adapter.VideoPlayerTabRCVAdapter;
 import com.lacviet.surenews.Adapter.VideoPlayerTabRCVAdapter;
+import com.lacviet.surenews.MainActivity;
 import com.lacviet.surenews.Model.HomeNewsModel;
 import com.lacviet.surenews.Model.VideoModel;
 import com.lacviet.surenews.R;
@@ -89,7 +90,7 @@ public class TabVideoFragment extends Fragment {
 
             @Override
             public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
-
+                Toast.makeText(getActivity(), "Vui lòng kiểm tra kết nối", Toast.LENGTH_SHORT).show();
                 Log.d("AnswersPresenter", "error loading from API");
 
             }

@@ -25,10 +25,11 @@ import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.SamenewsRCVAdapter;
 import com.lacviet.surenews.KeyString;
-import com.lacviet.surenews.Model.NewsModel;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.ContentModel;
 import com.lacviet.surenews.WebAPI.ModelAPI.DetailJsonResponse;
+import com.lacviet.surenews.WebAPI.ModelAPI.NewsModel;
 import com.lacviet.surenews.WebAPI.Remote.ApiService;
 import com.lacviet.surenews.WebAPI.Remote.ApiUtils;
 import com.squareup.picasso.Picasso;
@@ -55,6 +56,8 @@ public class DetailActivityNew extends AppCompatActivity {
     String image = "";
     String text = "";
     String author = "";
+    String categoryId = "";
+    String subCategoryId = "";
     //change size
     float sizeTitleDefault, sizeContentDefault, sizeTimeDefault, sizeTitle, sizeContent, sizeTime, sizecaptionImage;
 
@@ -70,7 +73,8 @@ public class DetailActivityNew extends AppCompatActivity {
     Boolean isClickSpeak = false;
     //api
     ApiService mService;
-    public List<ContentModel> listContent;
+    List<ContentModel> listContent;
+    List<NewsModel> listSameNews;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -81,7 +85,7 @@ public class DetailActivityNew extends AppCompatActivity {
         textSize();
         getDatafromPreviousActivity();
         loadListContentById(id);
-        //addSamenews();
+
 
 
     }
@@ -91,19 +95,47 @@ public class DetailActivityNew extends AppCompatActivity {
         recyclerView = layoutSameNews.findViewById(R.id.rcvSameNews);
         pbSameNew = layoutSameNews.findViewById(R.id.pbSameNews);
         showDataToRecyclerView();
+
         loBody.addView(layoutSameNews);
 
+
+    }
+
+    private void getListSameNews(String categoryId) {
+        mService.getAllNewsByPage(categoryId,1,10).enqueue(new Callback<AllNewsJsonResponse>() {
+            @Override
+            public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
+
+                if (response.isSuccessful()) {
+
+                    listSameNews = response.body().getNewsModels();
+                    mAdapter.updateAnswers(listSameNews);
+                    pbSameNew.setVisibility(View.GONE);
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(DetailActivityNew.this, "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
+                Toast.makeText(DetailActivityNew.this, "Vui lòng kiểm tra kết nối!", Toast.LENGTH_SHORT).show();
+                Log.d("AnswersPresenter", "error loading from API");
+
+            }
+        });
 
     }
 
     private void showDataToRecyclerView() {
         mAdapter = new SamenewsRCVAdapter(this, new ArrayList<NewsModel>(0), new SamenewsRCVAdapter.PostItemListener() {
 
+
             @Override
-            public void onPostClick(int id, String title, String time, String subTitle) {
+            public void onPostClick(String id, String title, String time, String subTitle) {
                 startDetailActivity(id, title, time, subTitle);
             }
-
         });
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -115,7 +147,7 @@ public class DetailActivityNew extends AppCompatActivity {
 
     }
 
-    private void startDetailActivity(int id, String title, String time, String subTitle) {
+    private void startDetailActivity(String id, String title, String time, String subTitle) {
         Intent intent = new Intent(this, DetailActivityNew.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
@@ -156,6 +188,8 @@ public class DetailActivityNew extends AppCompatActivity {
                     time = response.body().getPublishedDate();
                     subtitle = response.body().getDescription();
                     author = response.body().getAuthor();
+
+                    //
                     tvTitle.setText(title);
                     tvTime.setText(time);
                     tvSubTitle.setText(subtitle);
@@ -164,7 +198,14 @@ public class DetailActivityNew extends AppCompatActivity {
                     listContent = response.body().getContent();
                     if (listContent != null) {
                         loadContent(listContent);
+                        addSamenews();
                     }
+                    //same news
+                    categoryId = response.body().getCategoryId();
+                    String temp = categoryId.substring(categoryId.indexOf(";"));
+                    subCategoryId = categoryId.replace(temp,"");
+                    subCategoryId.trim();
+                    getListSameNews(subCategoryId);
                     Log.d("AnswersPresenter", "posts loaded from API");
                 } else {
                     int statusCode = response.code();
@@ -174,7 +215,7 @@ public class DetailActivityNew extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<DetailJsonResponse> call, Throwable t) {
-
+                Toast.makeText(DetailActivityNew.this, "Vui lòng kiểm tra kết nối", Toast.LENGTH_SHORT).show();
                 Log.d("AnswersPresenter", "error loading from API");
 
             }

@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<AllCategoryJsonResponse> call, Throwable t) {
-                    Toast.makeText(MainActivity.this, "Error loading posts", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Vui lòng kiểm tra kết nối", Toast.LENGTH_SHORT).show();
                     Log.d("AnswersPresenter", "error loading from API");
 
                 }

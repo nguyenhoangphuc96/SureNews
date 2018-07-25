@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.HomeTabRCVAdapterTemp;
 import com.lacviet.surenews.DetailScreen.DetailActivityNew;
-import com.lacviet.surenews.DetailScreen.DetailHomeActivityTemp;
 import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.R;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
@@ -76,7 +75,7 @@ public class TabHomeMenuFragment extends Fragment {
 
             @Override
             public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
-
+                Toast.makeText(getActivity(), "Vui lòng kiểm tra kết nối!", Toast.LENGTH_SHORT).show();
                 Log.d("AnswersPresenter", "error loading from API");
 
             }
