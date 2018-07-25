@@ -20,6 +20,10 @@ public interface ApiService {
                                          @Query("pagesize") int pagesize);
     @GET("News/GetById")
     Call<DetailJsonResponse> getDetailbyId(@Query("id") String id);
+    @GET("Government/GetCategory")
+    Call<AllCategoryJsonResponse> getAllCategorysGoverment();
+    @GET("Investment/GetCategory")
+    Call<AllCategoryJsonResponse> getAllCategorysDevelopment();
 
 
 

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     //api
     ApiService mService;
     List<CategoryModel> categoryModelList;
-    Boolean isCategoryLoaded = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

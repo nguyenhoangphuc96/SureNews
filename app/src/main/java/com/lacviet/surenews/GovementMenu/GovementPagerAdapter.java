@@ -5,56 +5,50 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.lacviet.surenews.HomeMenu.TabHomeMenuFragment;
+import com.lacviet.surenews.HomeMenu.TabVideoFragment;
+import com.lacviet.surenews.WebAPI.ModelAPI.CategoryModel;
+
+import java.util.List;
+
 public class GovementPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
+    private List<CategoryModel> CategoryList;
 
-    public GovementPagerAdapter(FragmentManager fragmentManager, Context context) {
+    public GovementPagerAdapter(FragmentManager fragmentManager, Context context, List<CategoryModel> categoryList) {
         super(fragmentManager);
         this.context = context;
+        CategoryList = categoryList;
+
     }
+
     @Override
     public Fragment getItem(int position) {
-        Fragment frag=null;
-        switch (position){
-            case 0:
-
-                break;
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-        }
-        return frag;
+        Fragment fragment = null;
+        fragment = new TabHomeMenuFragment(CategoryList.get(position).getId());
+        return fragment;
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return CategoryList.size();
     }
+
     @Override
     public CharSequence getPageTitle(int position) {
         String title = "";
-        switch (position){
-            case 0:
-                title = "Quy hoạch phát triển";
-                break;
-            case 1:
-                title = "Hoạt động lãnh đạo";
-                break;
-            case 2:
-                title = "Tin hoạt động sở ngành";
-                break;
-            case 3:
-                title = "Tin thành phố";
-                break;
-
-        }
+        title = CategoryList.get(position).getCategoryName();
         return title;
+    }
+
+    public void updateAnswers(List<CategoryModel> items) {
+        CategoryList.clear();
+        CategoryList.addAll(items);
+
+    }
+
+    public List<CategoryModel> getList() {
+        return CategoryList;
     }
 
 

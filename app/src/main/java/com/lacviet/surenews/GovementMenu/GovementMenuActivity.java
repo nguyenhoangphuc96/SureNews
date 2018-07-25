@@ -9,15 +9,26 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.MainScreenPagerAdapter;
+import com.lacviet.surenews.MainActivity;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.WebAPI.ModelAPI.AllCategoryJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.CategoryModel;
+import com.lacviet.surenews.WebAPI.Remote.ApiService;
+import com.lacviet.surenews.WebAPI.Remote.ApiUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class GovementMenuActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -26,24 +37,61 @@ public class GovementMenuActivity extends AppCompatActivity {
     ViewPager pager;
     TabLayout tabLayout;
     //
-    List<CategoryModel> categoryModelList = new ArrayList<>();
+    GovementPagerAdapter adapter;
+    ProgressBar pbGoverment;
+    //api
+    ApiService mService;
+    List<CategoryModel> categoryModelList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_govement);
         addControl();
         actionBar();
-        showTabLayout();
+        loadCategoryTabName();
+    }
+    private void loadCategoryTabName() {
+        mService.getAllCategorysGoverment().enqueue(new Callback<AllCategoryJsonResponse>() {
+            @Override
+            public void onResponse(Call<AllCategoryJsonResponse> call, Response<AllCategoryJsonResponse> response) {
+
+                if (response.isSuccessful()) {
+
+                    categoryModelList = new ArrayList<>();
+
+                    for (CategoryModel md: response.body().getCategoryModels()) {
+                        categoryModelList.add(md);
+                    }
+                    showTabLayout();
+                    //
+                    pbGoverment.setVisibility(View.GONE);
+
+
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(GovementMenuActivity.this, "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllCategoryJsonResponse> call, Throwable t) {
+                Toast.makeText(GovementMenuActivity.this, "Vui lòng kiểm tra kết nối", Toast.LENGTH_SHORT).show();
+                Log.d("AnswersPresenter", "error loading from API");
+
+            }
+        });
     }
     private void showTabLayout() {
         // Set up the ViewPager with the sections adapter.
         FragmentManager manager = getSupportFragmentManager();
-        MainScreenPagerAdapter adapter = new MainScreenPagerAdapter(manager,this,categoryModelList);
+        adapter = new GovementPagerAdapter(manager,this,categoryModelList);
         pager.setAdapter(adapter);
         tabLayout.setupWithViewPager(pager);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setTabsFromPagerAdapter(adapter);
-        pager.setOffscreenPageLimit(4);//no reload when change tab
+        pager.setOffscreenPageLimit(categoryModelList.size());//no reload when change tab
     }
 
     private void addControl() {
@@ -52,6 +100,9 @@ public class GovementMenuActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         pager = findViewById(R.id.container);
         tabLayout = findViewById(R.id.tabLayoutGovement);
+        pbGoverment = findViewById(R.id.pbGoverment);
+        //
+        mService = ApiUtils.getSOService();
     }
 
     private void actionBar() {
