@@ -95,9 +95,10 @@ public class TabGovermentMenuFragment extends Fragment {
 
 
             @Override
-            public void onPostClick(String id, String title, String time, String subTitle) {
-                startDetailActivity(id);
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
+                startDetailActivity(id,categoryId);
             }
+
         });
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -109,10 +110,11 @@ public class TabGovermentMenuFragment extends Fragment {
 
     }
 
-    private void startDetailActivity(String id) {
-        Intent intent = new Intent(getContext(), DetailActivityNew.class);
+    private void startDetailActivity(String id, String categoryId) {
+        Intent intent = new Intent(getContext(), DetailGovernmentActivity.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
+        intent.putExtra(key.CATEGORY_ID,categoryId);
         startActivity(intent);
     }
 }

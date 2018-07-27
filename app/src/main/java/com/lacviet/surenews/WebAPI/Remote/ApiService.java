@@ -26,12 +26,19 @@ public interface ApiService {
     Call<AllNewsJsonResponse> getAllGovermentNewsByPage(@Query("categoryid") String categoryid,
                                                @Query("pageindex") int pageindex,
                                                @Query("pagesize") int pagesize);
+    @GET("Government/GetNewsById")
+    Call<DetailJsonResponse> getDetailGovernment(@Query("id") String id,
+                                                 @Query("categoryid") String categoryid);
+
     @GET("Investment/GetCategory")
     Call<AllCategoryJsonResponse> getAllCategorysDevelopment();
     @GET("Investment/GetNewsPaging")
     Call<AllNewsJsonResponse> getAllInvestmentNewsByPage(@Query("categoryid") String categoryid,
                                                         @Query("pageindex") int pageindex,
                                                         @Query("pagesize") int pagesize);
+    @GET("Investment/GetNewsById")
+    Call<DetailJsonResponse> getDetailInvestMent(@Query("id") String id,
+                                                 @Query("categoryid") String categoryid);
 
 
 

@@ -95,9 +95,10 @@ public class TabHomeMenuFragment extends Fragment {
 
 
             @Override
-            public void onPostClick(String id, String title, String time, String subTitle) {
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
                 startDetailActivity(id);
             }
+
         });
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);

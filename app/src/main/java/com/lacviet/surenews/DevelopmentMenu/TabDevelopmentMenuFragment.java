@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.HomeTabRCVAdapterTemp;
 import com.lacviet.surenews.DetailScreen.DetailActivityNew;
+import com.lacviet.surenews.GovementMenu.DetailGovernmentActivity;
 import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.R;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
@@ -95,9 +96,10 @@ public class TabDevelopmentMenuFragment extends Fragment {
 
 
             @Override
-            public void onPostClick(String id, String title, String time, String subTitle) {
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
                 startDetailActivity(id);
             }
+
         });
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -110,9 +112,10 @@ public class TabDevelopmentMenuFragment extends Fragment {
     }
 
     private void startDetailActivity(String id) {
-        Intent intent = new Intent(getContext(), DetailActivityNew.class);
+        Intent intent = new Intent(getContext(), DetailDevelopmentActivity.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
+        intent.putExtra(key.CATEGORY_ID,categoryId);
         startActivity(intent);
     }
 }

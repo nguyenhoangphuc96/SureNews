@@ -39,10 +39,11 @@
         <activity android:name=".Feedback.SDTConfirmActivity"></activity>
         <activity android:name=".GovementMenu.GovementMenuActivity"></activity>
         <activity android:name=".DevelopmentMenu.DevelopmentMenuActivity"></activity>
-        <activity android:name=".StatisticalMenu.StatisticalMenuActivity"></activity>
 
         <activity android:name=".Chart.ChartActivity"></activity>
         <activity android:name=".DetailScreen.DetailActivityNew"></activity>
+        <activity android:name=".GovementMenu.DetailGovernmentActivity"></activity>
+        <activity android:name=".DevelopmentMenu.DetailDevelopmentActivity"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"
