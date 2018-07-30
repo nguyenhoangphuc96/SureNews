@@ -118,7 +118,7 @@ public class SamenewsRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         @Override
         public void onClick(View v) {
             NewsModel item = getItem(getAdapterPosition());
-            this.mItemListener.onPostClick(item.getId(),item.getTitle(),item.getPublishedDate(),item.getDescription());
+            this.mItemListener.onPostClick(item.getId(),item.getTitle(),item.getPublishedDate(),item.getDescription(),item.getCategoryId());
 
         }
     }
@@ -126,6 +126,6 @@ public class SamenewsRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
 
     public interface PostItemListener {
-        void onPostClick(String id, String title, String time, String subTitle);
+        void onPostClick(String id, String title, String time, String subTitle, String categoryId);
     }
 }

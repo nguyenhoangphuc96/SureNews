@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.lacviet.surenews.Adapter.SamenewsRCVAdapter;
 import com.lacviet.surenews.DetailScreen.DetailActivityNew;
 import com.lacviet.surenews.DevelopmentMenu.DetailDevelopmentActivity;
+import com.lacviet.surenews.GovementMenu.DetailGovernmentActivity;
 import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.R;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
@@ -136,9 +137,10 @@ public class DetailDevelopmentActivity extends AppCompatActivity {
 
 
             @Override
-            public void onPostClick(String id, String title, String time, String subTitle) {
-                startDetailActivity(id, title, time, subTitle);
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
+                startDetailActivity(id, categoryId);
             }
+
         });
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -150,13 +152,11 @@ public class DetailDevelopmentActivity extends AppCompatActivity {
 
     }
 
-    private void startDetailActivity(String id, String title, String time, String subTitle) {
-        Intent intent = new Intent(this, DetailActivityNew.class);
+    private void startDetailActivity(String id, String categoryId) {
+        Intent intent = new Intent(DetailDevelopmentActivity.this, DetailDevelopmentActivity.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
-        intent.putExtra(key.TITLE, title);
-        intent.putExtra(key.SUB_TITLE, subTitle);
-        intent.putExtra(key.TIME, time);
+        intent.putExtra(key.CATEGORY_ID,categoryId);
         startActivity(intent);
     }
 

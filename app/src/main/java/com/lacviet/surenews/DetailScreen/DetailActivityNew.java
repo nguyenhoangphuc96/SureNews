@@ -133,9 +133,11 @@ public class DetailActivityNew extends AppCompatActivity {
 
 
             @Override
-            public void onPostClick(String id, String title, String time, String subTitle) {
-                startDetailActivity(id, title, time, subTitle);
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
+                startDetailActivity(id);
             }
+
+
         });
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -147,13 +149,10 @@ public class DetailActivityNew extends AppCompatActivity {
 
     }
 
-    private void startDetailActivity(String id, String title, String time, String subTitle) {
-        Intent intent = new Intent(this, DetailActivityNew.class);
+    private void startDetailActivity(String id) {
+        Intent intent = new Intent(DetailActivityNew.this, DetailActivityNew.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
-        intent.putExtra(key.TITLE, title);
-        intent.putExtra(key.SUB_TITLE, subTitle);
-        intent.putExtra(key.TIME, time);
         startActivity(intent);
     }
 
