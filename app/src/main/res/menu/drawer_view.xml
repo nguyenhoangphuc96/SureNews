@@ -12,5 +12,9 @@
             android:id="@+id/nav_development"
             android:icon="@drawable/ic_development"
             android:title="Đầu tư - phát triển" />
+        <item
+            android:id="@+id/nav_travel"
+            android:icon="@drawable/ic_travel"
+            android:title="Du lịch" />
 
 </menu>

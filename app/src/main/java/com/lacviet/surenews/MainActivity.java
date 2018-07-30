@@ -25,6 +25,7 @@ import com.lacviet.surenews.Adapter.MainScreenPagerAdapter;
 import com.lacviet.surenews.DevelopmentMenu.DevelopmentMenuActivity;
 import com.lacviet.surenews.Feedback.FeedbackActivity;
 import com.lacviet.surenews.GovementMenu.GovementMenuActivity;
+import com.lacviet.surenews.TravelMenu.TravelMenuActivity;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllCategoryJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.CategoryModel;
 import com.lacviet.surenews.WebAPI.Remote.ApiService;
@@ -115,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                     case R.id.nav_development:{
                         Intent intent = new Intent(MainActivity.this, DevelopmentMenuActivity.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                    case R.id.nav_travel:{
+                        Intent intent = new Intent(MainActivity.this, TravelMenuActivity.class);
                         startActivity(intent);
                         return true;
                     }

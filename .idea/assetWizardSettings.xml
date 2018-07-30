@@ -19,8 +19,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\nhphuc\Downloads\icons8-voice-100.png" />
-                                      <entry key="outputName" value="ic_speak" />
+                                      <entry key="imageAsset" value="C:\Users\nhphuc\Downloads\icons8-beach-100.png" />
+                                      <entry key="outputName" value="ic_travel" />
                                       <entry key="theme" value="CUSTOM" />
                                       <entry key="themeColor" value="ffffff" />
                                     </map>

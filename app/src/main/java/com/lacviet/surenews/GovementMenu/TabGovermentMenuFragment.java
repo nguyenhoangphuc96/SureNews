@@ -76,6 +76,7 @@ public class TabGovermentMenuFragment extends Fragment {
             @Override
             public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), "Vui lòng kiểm tra kết nối!", Toast.LENGTH_SHORT).show();
+                pbTabhome.setVisibility(View.GONE);
                 Log.d("AnswersPresenter", "error loading from API");
 
             }

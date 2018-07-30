@@ -97,7 +97,7 @@ public class TabDevelopmentMenuFragment extends Fragment {
 
             @Override
             public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
-                startDetailActivity(id);
+                startDetailActivity(id,categoryId);
             }
 
         });
@@ -111,11 +111,11 @@ public class TabDevelopmentMenuFragment extends Fragment {
 
     }
 
-    private void startDetailActivity(String id) {
+    private void startDetailActivity(String id, String categoryId) {
         Intent intent = new Intent(getContext(), DetailDevelopmentActivity.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
-        intent.putExtra(key.CATEGORY_ID,categoryId);
+        intent.putExtra(key.CATEGORY_ID, categoryId);
         startActivity(intent);
     }
 }
