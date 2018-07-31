@@ -40,7 +40,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="18"
+            android:layout_weight="15"
             android:orientation="vertical">
 
             <LinearLayout
@@ -63,7 +63,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/feedback_imageview_margin"
+                    android:layout_marginVertical="@dimen/feedback_imageview_margin_vertical"
+                    android:layout_marginHorizontal="@dimen/feedback_imageview_margin_hori"
                     android:layout_weight="33.5"
 
                     >
@@ -99,8 +100,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/feedback_imageview_margin"
-                    android:layout_weight="33"
+                    android:layout_marginVertical="@dimen/feedback_imageview_margin_vertical"
+                    android:layout_marginHorizontal="@dimen/feedback_imageview_margin_hori"
+                    android:layout_weight="33.5"
 
                     >
 
@@ -135,7 +137,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/feedback_imageview_margin"
+                    android:layout_marginVertical="@dimen/feedback_imageview_margin_vertical"
+                    android:layout_marginHorizontal="@dimen/feedback_imageview_margin_hori"
                     android:layout_weight="33.5"
 
                     >
@@ -184,7 +187,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="22">
+            android:layout_weight="17.5">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -192,7 +195,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chuyên mục"
+                    android:text="Lĩnh vực"
                     style="@style/TextEditTextFeedback"/>
             </LinearLayout>
             <LinearLayout
@@ -211,11 +214,49 @@
                     />
             </LinearLayout>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="17.5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tiêu đề"
+                    style="@style/TextEditTextFeedback"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/edtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/edittext_padding_left"
+                    android:layout_marginVertical="@dimen/edittext_margin_vertical"
+                    android:background="@drawable/shape_transparent_black_background"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:paddingLeft="@dimen/edittext_padding_left"
+                    android:textAppearance="@style/TextEditTextFeedback"
+                    android:textColor="@color/colorBlack" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="16"
+            android:layout_weight="15"
             android:orientation="vertical">
 
             <LinearLayout
@@ -258,7 +299,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="22"
+            android:layout_weight="17.5"
             android:orientation="vertical">
 
             <LinearLayout
@@ -268,7 +309,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Họ tên"
+                    android:text="Người gửi"
                     style="@style/TextEditTextFeedback"/>
             </LinearLayout>
 
@@ -297,7 +338,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="22"
+            android:layout_weight="17.5"
             android:orientation="vertical">
 
             <LinearLayout

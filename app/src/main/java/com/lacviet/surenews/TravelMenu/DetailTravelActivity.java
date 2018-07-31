@@ -232,9 +232,18 @@ public class DetailTravelActivity extends AppCompatActivity {
                 ImageView imgView = layoutImage.findViewById(R.id.imvImage);
                 image = list.get(i).getValue();
 
-
-                text = list.get(i + 1).getValue();
-                textView.setText(text);
+                if(i<list.size()-1) {
+                    if(list.get(i+1).getType()==3) {
+                        text = list.get(i + 1).getValue();
+                        textView.setText(text);
+                    }
+                    else {
+                        textView.setText("");
+                    }
+                }
+                else {
+                    textView.setText("");
+                }
 
                 //
 

@@ -233,8 +233,13 @@ public class DetailActivityNew extends AppCompatActivity {
                 image = list.get(i).getValue();
 
 
-                text = list.get(i + 1).getValue();
-                textView.setText(text);
+                if(i<list.size()-1) {
+                    text = list.get(i + 1).getValue();
+                    textView.setText(text);
+                }
+                else {
+                    textView.setText("");
+                }
 
                 //
 

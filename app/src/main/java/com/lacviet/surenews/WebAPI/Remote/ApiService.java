@@ -3,6 +3,8 @@ package com.lacviet.surenews.WebAPI.Remote;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllCategoryJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.DetailJsonResponse;
+import com.lacviet.surenews.WebAPI.ModelAPI.FieldModel;
+import com.lacviet.surenews.WebAPI.ModelAPI.FieldModelJsonRespone;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -50,6 +52,9 @@ public interface ApiService {
     @GET("Travel/GetNewsById")
     Call<DetailJsonResponse> getDetailTravel(@Query("id") String id,
                                                  @Query("categoryid") String categoryid);
+    //feedback
+    @GET("Government/GetField")
+    Call<FieldModelJsonRespone> getAllField();
 
 
 
