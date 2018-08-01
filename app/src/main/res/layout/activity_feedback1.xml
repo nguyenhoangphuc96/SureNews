@@ -227,7 +227,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tiêu đề"
+                    android:text="Tiêu đề(*)"
                     style="@style/TextEditTextFeedback"/>
             </LinearLayout>
 
@@ -309,7 +309,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Người gửi"
+                    android:text="Người gửi(*)"
                     style="@style/TextEditTextFeedback"/>
             </LinearLayout>
 
@@ -348,7 +348,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Số điện thoại"
+                    android:text="Số điện thoại(*)"
                     style="@style/TextEditTextFeedback"/>
             </LinearLayout>
 

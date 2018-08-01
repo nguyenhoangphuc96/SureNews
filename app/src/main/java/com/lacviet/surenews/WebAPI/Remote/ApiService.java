@@ -3,11 +3,16 @@ package com.lacviet.surenews.WebAPI.Remote;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllCategoryJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.DetailJsonResponse;
+import com.lacviet.surenews.WebAPI.ModelAPI.FeedbackModel;
 import com.lacviet.surenews.WebAPI.ModelAPI.FieldModel;
 import com.lacviet.surenews.WebAPI.ModelAPI.FieldModelJsonRespone;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 
@@ -55,6 +60,18 @@ public interface ApiService {
     //feedback
     @GET("Government/GetField")
     Call<FieldModelJsonRespone> getAllField();
+    @FormUrlEncoded
+    @POST("Government/Feedback")
+    Call<String> postFeedback(@Field("FieldId") String FieldId,
+                                 @Field("Title") String Title,
+                                 @Field("Content") String Content,
+                                 @Field("CreateBy") String CreateBy,
+                                 @Field("Phone") String Phone,
+                                 @Field("Attachments") String Attachments);
+
+    @POST("Government/Feedback")
+
+    Call<String> postFeedbackModel(@Body FeedbackModel feedbackModel);
 
 
 
