@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -71,6 +72,7 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
     String phone = "";
     String attachments = "";
     FeedbackModel feedbackModel;
+    ProgressBar pbFeedback;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -130,7 +132,7 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
         listFieldId = new ArrayList<>();
         listFieldName = new ArrayList<>();
         //
-
+        pbFeedback = findViewById(R.id.pbFeedback);
 
     }
 
@@ -156,6 +158,7 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
                 break;
             }
             case R.id.tvSend: {
+
                 title = edtTitle.getText().toString().trim();
                 content = edtContent.getText().toString().trim();
                 createby = edtCreateby.getText().toString().trim();
@@ -181,6 +184,7 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
                             edtPhone.setError("Số điện thoại không được để trống!");
                         }
                         else {
+                            pbFeedback.setVisibility(View.VISIBLE);
                             title = edtTitle.getText().toString().trim();
                             content = edtContent.getText().toString().trim();
                             createby = edtCreateby.getText().toString().trim();
@@ -214,6 +218,7 @@ public class FeedbackActivity extends AppCompatActivity implements IPickResult, 
             public void onResponse(Call<String> call, Response<String> response) {
 
                 if(response.isSuccessful()) {
+                    pbFeedback.setVisibility(View.GONE);
                     showDialogSuccess();
                     Log.d("AnswersPresenter","post submitted to API." + response.body().toString());
                 }

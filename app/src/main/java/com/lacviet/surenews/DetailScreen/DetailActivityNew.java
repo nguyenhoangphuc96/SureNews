@@ -1,5 +1,6 @@
 package com.lacviet.surenews.DetailScreen;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -85,9 +86,16 @@ public class DetailActivityNew extends AppCompatActivity {
         textSize();
         getDatafromPreviousActivity();
         loadListContentById(id);
+        //showTTSSetting();
 
 
+    }
 
+    private void showTTSSetting() {
+        Intent intent = new Intent();
+        intent.setAction("com.android.settings.TTS_SETTINGS");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(intent);
     }
 
     private void addSamenews() {
@@ -102,7 +110,7 @@ public class DetailActivityNew extends AppCompatActivity {
     }
 
     private void getListSameNews(String categoryId) {
-        mService.getAllNewsByPage(categoryId,1,10).enqueue(new Callback<AllNewsJsonResponse>() {
+        mService.getAllNewsByPage(categoryId, 1, 10).enqueue(new Callback<AllNewsJsonResponse>() {
             @Override
             public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
 
@@ -202,7 +210,7 @@ public class DetailActivityNew extends AppCompatActivity {
                     //same news
                     categoryId = response.body().getCategoryId();
                     String temp = categoryId.substring(categoryId.indexOf(";"));
-                    subCategoryId = categoryId.replace(temp,"");
+                    subCategoryId = categoryId.replace(temp, "");
                     subCategoryId.trim();
                     getListSameNews(subCategoryId);
                     Log.d("AnswersPresenter", "posts loaded from API");
@@ -233,11 +241,10 @@ public class DetailActivityNew extends AppCompatActivity {
                 image = list.get(i).getValue();
 
 
-                if(i<list.size()-1) {
+                if (i < list.size() - 1) {
                     text = list.get(i + 1).getValue();
                     textView.setText(text);
-                }
-                else {
+                } else {
                     textView.setText("");
                 }
 
@@ -323,21 +330,11 @@ public class DetailActivityNew extends AppCompatActivity {
             case R.id.menu_speak: {
 
                 if (!isClickSpeak) {
-                    textToSpeech = new TextToSpeech(DetailActivityNew.this, new TextToSpeech.OnInitListener() {
-                        @Override
-                        public void onInit(int status) {
-                            if (status != TextToSpeech.ERROR) {
-                                textToSpeech.setLanguage(new Locale("vi"));
-                                speakData(listContent);
-                            }
-                        }
-                    });
-                    //
-                    if (!textToSpeech.isSpeaking()) {
-                        isClickSpeak = false;
-                    } else {
-                        isClickSpeak = true;
-                    }
+
+                    Intent ttsIntent = new Intent();
+                    ttsIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+                    startActivityForResult(ttsIntent, 0);
+
                 } else {
                     textToSpeech.stop();
                     isClickSpeak = false;
@@ -349,6 +346,49 @@ public class DetailActivityNew extends AppCompatActivity {
         }
     }
 
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == 0) {
+            if (resultCode ==
+                    TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
+                // Data exists, so we instantiate the TTS engine
+                textToSpeech = new TextToSpeech(DetailActivityNew.this, new TextToSpeech.OnInitListener() {
+                    @Override
+                    public void onInit(int status) {
+                        if (status == TextToSpeech.SUCCESS) {
+                            if (textToSpeech != null) {
+                                int result = textToSpeech.setLanguage(new Locale("vi"));
+                                if (result == TextToSpeech.LANG_MISSING_DATA || result ==
+                                        TextToSpeech.LANG_NOT_SUPPORTED) {
+                                    Toast.makeText(DetailActivityNew.this, "TTS language is not supported",
+                                            Toast.LENGTH_LONG).show();
+                                } else {
+                                    speakData(listContent);
+                                }
+                            }
+                        } else {
+                            Toast.makeText(DetailActivityNew.this, "TTS initialization failed",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                //
+                if (!textToSpeech.isSpeaking()) {
+                    isClickSpeak = false;
+                } else {
+                    isClickSpeak = true;
+                }
+
+            } else {
+                // Data is missing, so we start the TTS installation
+                // process
+                Intent installIntent = new Intent();
+                installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                startActivity(installIntent);
+                Toast.makeText(getApplicationContext(), "Installed Now", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 
     private void speakData(List<ContentModel> list) {
         String stringToSpeech;
