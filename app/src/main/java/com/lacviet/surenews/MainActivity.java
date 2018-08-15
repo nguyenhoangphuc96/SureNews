@@ -1,6 +1,8 @@
 package com.lacviet.surenews;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -50,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
     //api
     ApiService mService;
     List<CategoryModel> categoryModelList;
+    //
+    //
+    SharedPreferences mySharedPreferences;
 
 
     @Override
@@ -61,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         loadCategoryTabName();
         eventNavigation();
         //
+        initSharedPre();
 
     }
 
@@ -124,12 +130,27 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         return true;
                     }
-
+                    case R.id.nav_config:{
+                        clearSavedURL();
+                        Intent intent = new Intent(MainActivity.this, ConfigActivity.class);
+                        startActivity(intent);
+                        finish();
+                        return true;
+                    }
 
                 }
                 return true;
             }
         });
+    }
+    private void initSharedPre() {
+        mySharedPreferences = getSharedPreferences("MY_SETTING_CACHE", Activity.MODE_PRIVATE);
+    }
+    private void clearSavedURL() {
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+        // Store new primitive types in the shared preferences object.
+        editor.putString("baseURL", "");
+        editor.commit();
     }
 
     private void showTabLayout() {

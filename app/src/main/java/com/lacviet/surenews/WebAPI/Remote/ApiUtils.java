@@ -1,6 +1,7 @@
 package com.lacviet.surenews.WebAPI.Remote;
 
 
+import com.lacviet.surenews.ConfigActivity;
 
 public class ApiUtils {
 
@@ -8,7 +9,7 @@ public class ApiUtils {
     private ApiUtils() {
     }
 
-    public static final String BASE_URL = "http://congthongtin.bioportal.vn/API/";
+    public static final String BASE_URL = "http://"+ ConfigActivity.configUrl + "/api/";
 
     public static ApiService getSOService() {
 

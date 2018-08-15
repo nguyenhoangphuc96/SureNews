@@ -8,6 +8,7 @@ public class KeyString {
     public final String ID = "id";
     public final String KEY_YOUTUBE_API = "AIzaSyBiTfMNeFzyNegnCY1zDxxTtXIv3iiS1J8";
     public final String CATEGORY_ID = "categoryID";
+    public final String CONFIG_URL="ConfigURL";
 
 
 

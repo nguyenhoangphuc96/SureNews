@@ -16,5 +16,9 @@
             android:id="@+id/nav_travel"
             android:icon="@drawable/ic_travel"
             android:title="Du lịch" />
+        <item
+            android:id="@+id/nav_config"
+            android:icon="@drawable/ic_config1"
+            android:title="Cấu hình CSDL" />
 
 </menu>
