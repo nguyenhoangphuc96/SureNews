@@ -33,6 +33,7 @@ public class CommentHomeActivity extends AppCompatActivity{
     ArrayList<CommentModel> ListCmt;
     //
     LinearLayout loWrite;
+    //
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +79,7 @@ public class CommentHomeActivity extends AppCompatActivity{
         ListCmt.add(new CommentModel("1","Yound Buffalo","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
         mAdapter.updateAnswers(ListCmt);
         pbCmt.setVisibility(View.GONE);
+
     }
 
     private void showDataToRecyclerView() {

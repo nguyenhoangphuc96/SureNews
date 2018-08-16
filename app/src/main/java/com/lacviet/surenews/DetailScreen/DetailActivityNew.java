@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
@@ -46,6 +47,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class DetailActivityNew extends AppCompatActivity {
     Toolbar toolbar;
     ProgressBar pbDetail;
@@ -79,6 +81,9 @@ public class DetailActivityNew extends AppCompatActivity {
     ApiService mService;
     List<ContentModel> listContent;
     List<NewsModel> listSameNews;
+    //
+    TextView textCartItemCount;
+    int countComment = 11;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -287,7 +292,37 @@ public class DetailActivityNew extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_detail, menu);
-        return super.onCreateOptionsMenu(menu);
+        final MenuItem menuItem = menu.findItem(R.id.menu_comment);
+
+        View actionView = MenuItemCompat.getActionView(menuItem);
+        textCartItemCount = actionView.findViewById(R.id.cart_badge);
+
+        setupBadge();
+
+        actionView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onOptionsItemSelected(menuItem);
+            }
+        });
+
+        return true;
+        //return super.onCreateOptionsMenu(menu);
+    }
+
+    private void setupBadge() {
+        if (textCartItemCount != null) {
+            if (countComment == 0) {
+                if (textCartItemCount.getVisibility() != View.GONE) {
+                    textCartItemCount.setVisibility(View.GONE);
+                }
+            } else {
+                textCartItemCount.setText(String.valueOf(Math.min(countComment, 99)));
+                if (textCartItemCount.getVisibility() != View.VISIBLE) {
+                    textCartItemCount.setVisibility(View.VISIBLE);
+                }
+            }
+        }
     }
 
     @Override
