@@ -25,7 +25,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.SamenewsRCVAdapter;
+import com.lacviet.surenews.Comment.CommentHomeActivity;
+import com.lacviet.surenews.Feedback.FeedbackActivity;
 import com.lacviet.surenews.KeyString;
+import com.lacviet.surenews.MainActivity;
 import com.lacviet.surenews.R;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.ContentModel;
@@ -341,9 +344,20 @@ public class DetailActivityNew extends AppCompatActivity {
                 }
                 return true;
             }
+            case R.id.menu_comment:{
+                startCommentActivity();
+                return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void startCommentActivity() {
+        Intent intent = new Intent(DetailActivityNew.this, CommentHomeActivity.class);
+        KeyString key = new KeyString();
+        intent.putExtra(key.TITLE, title);
+        startActivity(intent);
     }
 
     protected void onActivityResult(int requestCode, int resultCode,
@@ -421,8 +435,6 @@ public class DetailActivityNew extends AppCompatActivity {
         Bundle extras = this.getIntent().getExtras();
         KeyString key = new KeyString();
         id = extras.getString(key.ID);
-
-
     }
 
 

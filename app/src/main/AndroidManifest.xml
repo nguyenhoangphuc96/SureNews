@@ -47,6 +47,7 @@
         <activity android:name=".TravelMenu.TravelMenuActivity"></activity>
         <activity android:name=".TravelMenu.DetailTravelActivity"></activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Comment.CommentHomeActivity"></activity>
                <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"

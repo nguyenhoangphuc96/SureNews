@@ -73,5 +73,14 @@
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textStyle">italic</item>
     </style>
+    <style name="TextContentCmt" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/colorGrayBlack</item>
+    </style>
+    <style name="TextNameCmt" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/colorGrayBlack</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 </resources>

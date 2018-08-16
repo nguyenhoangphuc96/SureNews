@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBackgroundToolbarBlue"
+            app:title="Bình luận">
+
+            <TextView
+                android:id="@+id/tvTitleToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textAppearance="@style/TextTitleGlobalWhite"
+                android:ellipsize="end"
+                android:maxLines="1"/>
+
+        </android.support.v7.widget.Toolbar>
+    </LinearLayout>
+    <LinearLayout
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcvComment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                >
+
+            </android.support.v7.widget.RecyclerView>
+
+            <ProgressBar
+                android:id="@+id/pbComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:elevation="2dp"
+                android:indeterminateTint="@color/colorBlueLight"
+                android:indeterminateTintMode="src_in"
+                android:visibility="visible" />
+            <LinearLayout
+                android:id="@+id/loWriteCmt"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:weightSum="10"
+                >
+                <LinearLayout
+                    android:layout_weight="8.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:layout_marginStart="@dimen/rcv_item_padding"
+                        android:layout_marginVertical="@dimen/edittext_margin_vertical"
+                        android:padding="@dimen/edittext_padding_left"
+                        android:id="@+id/edtCmt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/shape_transparent_black_background"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:paddingLeft="@dimen/edittext_padding_left"
+                        android:textAppearance="@style/TextEditTextFeedback"
+                        android:textColor="@color/colorBlack"
+                        android:hint="Viết bình luận..."/>
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_weight="1.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_send"
+                    />
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
