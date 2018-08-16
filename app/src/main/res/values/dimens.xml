@@ -18,4 +18,5 @@
     <dimen name="edittext_margin_vertical">5dp</dimen>
     <dimen name="margin_edittext_config_screen">10dp</dimen>
     <dimen name="paddingverhicle_border_button_bluelight">5dp</dimen>
+    <dimen name="paddingend_comment_like">30dp</dimen>
 </resources>

@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/rcv_item_padding">
+    android:padding="@dimen/rcv_item_padding"
+    android:orientation="vertical">
 
     <LinearLayout
-
+        android:padding="@dimen/rcv_item_padding"
+        android:background="@drawable/shape_transparent_background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:weightSum="10">
 
@@ -17,30 +19,36 @@
             android:layout_height="wrap_content"
             android:text="Nội dung bài viết rất bổ ích, nhiều vấn đề được đề cập một cách cụ thể"
             style="@style/TextContentCmt"/>
+        <TextView
+            android:id="@+id/tvNameCmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Users"
+            style="@style/TextNameCmt"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tvNameCmt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Users"
-                style="@style/TextNameCmt"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" - "/>
-            <TextView
-                android:id="@+id/tvTimeCmt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10 phút trước"
-                style="@style/TextTimeNews"/>
-
-        </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:padding="@dimen/rcv_item_padding"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginEnd="@dimen/paddingend_comment_like"
+            android:id="@+id/tvTimeCmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 phút trước"
+            style="@style/TextTimeNews"/>
+        <TextView
+            android:id="@+id/tvLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thích"
+            style="@style/TextNameCmt"
+            android:textColor="@color/colorGrayforText"/>
+
+    </LinearLayout>
+
 
 
 </LinearLayout>

@@ -95,9 +95,7 @@ public class CommentHomeActivity extends AppCompatActivity{
         rcvCmt.setLayoutManager(layoutManager);
         rcvCmt.setAdapter(mAdapter);
         rcvCmt.setHasFixedSize(true);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rcvCmt.getContext(),
-                layoutManager.getOrientation());
-        rcvCmt.addItemDecoration(dividerItemDecoration);
+
 
     }
     private void getDatafromPreviousActivity() {
