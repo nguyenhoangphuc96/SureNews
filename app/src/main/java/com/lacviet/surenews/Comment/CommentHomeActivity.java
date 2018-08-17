@@ -73,10 +73,6 @@ public class CommentHomeActivity extends AppCompatActivity{
         ListCmt.add(new CommentModel("1","Kevin Cọt","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
         ListCmt.add(new CommentModel("1","Young Buffalo","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
         ListCmt.add(new CommentModel("1","Viettel","28/1/2018","Trưởng đoàn đã có buổi làm việc với tỉnh Bạc Liêu về việc kiểm tra, đôn đốc công tác bảo đảm trật tự ATGT trên địa bàn tỉnh."));
-        ListCmt.add(new CommentModel("1","Young Buffalo","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
-        ListCmt.add(new CommentModel("1","Young Buffalo","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
-        ListCmt.add(new CommentModel("1","Young Buffalo","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
-        ListCmt.add(new CommentModel("1","Young Buffalo","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
         mAdapter.updateAnswers(ListCmt);
         pbCmt.setVisibility(View.GONE);
 

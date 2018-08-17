@@ -27,9 +27,11 @@ import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.SamenewsRCVAdapter;
 import com.lacviet.surenews.Comment.CommentHomeActivity;
+import com.lacviet.surenews.Comment.CommentRCVAdapter;
 import com.lacviet.surenews.Feedback.FeedbackActivity;
 import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.MainActivity;
+import com.lacviet.surenews.Model.CommentModel;
 import com.lacviet.surenews.R;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.ContentModel;
@@ -83,7 +85,13 @@ public class DetailActivityNew extends AppCompatActivity {
     List<NewsModel> listSameNews;
     //
     TextView textCartItemCount;
-    int countComment = 11;
+    int countComment = 7;
+    //
+    View layoutComment;
+    CommentRCVAdapter commentRCVAdapter;
+    RecyclerView rcvComment;
+    ProgressBar pbComment;
+    ArrayList<CommentModel> ListCmt;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -164,6 +172,19 @@ public class DetailActivityNew extends AppCompatActivity {
         recyclerView.addItemDecoration(dividerItemDecoration);
 
     }
+    private void showDataToRecyclerViewComment() {
+        commentRCVAdapter = new CommentRCVAdapter(this, new ArrayList<CommentModel>(0), new CommentRCVAdapter.PostItemListener() {
+            @Override
+            public void onPostClick() {
+
+            }
+        });
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        rcvComment.setLayoutManager(layoutManager);
+        rcvComment.setAdapter(commentRCVAdapter);
+        rcvComment.setHasFixedSize(true);
+
+    }
 
     private void startDetailActivity(String id) {
         Intent intent = new Intent(DetailActivityNew.this, DetailActivityNew.class);
@@ -213,6 +234,7 @@ public class DetailActivityNew extends AppCompatActivity {
                     listContent = response.body().getContent();
                     if (listContent != null) {
                         loadContent(listContent);
+                        addComment();
                         addSamenews();
                     }
                     //same news
@@ -221,6 +243,8 @@ public class DetailActivityNew extends AppCompatActivity {
                     subCategoryId = categoryId.replace(temp, "");
                     subCategoryId.trim();
                     getListSameNews(subCategoryId);
+                    //Comment
+                    getListComment();
                     Log.d("AnswersPresenter", "posts loaded from API");
                 } else {
                     int statusCode = response.code();
@@ -235,6 +259,28 @@ public class DetailActivityNew extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    private void getListComment() {
+        ListCmt = new ArrayList<>();
+        ListCmt.add(new CommentModel("1","Alan","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
+        ListCmt.add(new CommentModel("1","Sir. Alex","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
+        ListCmt.add(new CommentModel("1","Young Buffalo","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
+        ListCmt.add(new CommentModel("1","David Alaxander","28/1/2018","Tiếp và làm việc với Đoàn có đồng chí Phan Như Nguyện, Phó Chủ tịch UBND tỉnh; Ngô Hữu Dũng, Giám đốc Sở Giao thông vận tải"));
+        ListCmt.add(new CommentModel("1","Kevin Cọt","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
+        ListCmt.add(new CommentModel("1","Young Buffalo","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
+        ListCmt.add(new CommentModel("1","Viettel","28/1/2018","Trưởng đoàn đã có buổi làm việc với tỉnh Bạc Liêu về việc kiểm tra, đôn đốc công tác bảo đảm trật tự ATGT trên địa bàn tỉnh."));
+        commentRCVAdapter.updateAnswers(ListCmt);
+        pbComment.setVisibility(View.GONE);
+    }
+
+    private void addComment() {
+        layoutComment = LayoutInflater.from(DetailActivityNew.this).inflate(R.layout.view_comment, loBody, false);
+        rcvComment = layoutComment.findViewById(R.id.rcvComment);
+        pbComment = layoutComment.findViewById(R.id.pbComment);
+        showDataToRecyclerViewComment();
+        loBody.addView(layoutComment);
 
     }
 
