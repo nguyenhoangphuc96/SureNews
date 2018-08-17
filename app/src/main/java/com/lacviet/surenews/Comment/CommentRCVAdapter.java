@@ -21,7 +21,7 @@ public class CommentRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private Context mContext;
     private CommentRCVAdapter.PostItemListener mItemListener;
 
-    public CommentRCVAdapter( Context mContext,List<CommentModel> homeNewsList, CommentRCVAdapter.PostItemListener itemListener) {
+    public CommentRCVAdapter(Context mContext, List<CommentModel> homeNewsList, CommentRCVAdapter.PostItemListener itemListener) {
         cmtList = homeNewsList;
         this.mContext = mContext;
         mItemListener = itemListener;
@@ -35,7 +35,7 @@ public class CommentRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         View postView = inflater.inflate(R.layout.item_rcv_comment, parent, false);
 
-        CommentRCVAdapter.VHItem viewHolder = new CommentRCVAdapter.VHItem(postView,this.mItemListener);
+        CommentRCVAdapter.VHItem viewHolder = new CommentRCVAdapter.VHItem(postView, this.mItemListener);
         return viewHolder;
 
     }
@@ -55,7 +55,6 @@ public class CommentRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public int getItemCount() {
         return cmtList.size();
     }
-
 
 
     private boolean isPositionHeader(int position) {
@@ -83,17 +82,33 @@ public class CommentRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
 
-
-
     class VHItem extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView tvContent, tvTime, tvName;
+        public TextView tvContent, tvTime, tvName, tvLike;
         CommentRCVAdapter.PostItemListener mItemListener;
+        Boolean isLiked = false;
 
         public VHItem(View itemView, CommentRCVAdapter.PostItemListener mItemListener) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvNameCmt);
             tvTime = itemView.findViewById(R.id.tvTimeCmt);
             tvContent = itemView.findViewById(R.id.tvContentCmt);
+            tvLike = itemView.findViewById(R.id.tvLike);
+            tvLike.setOnClickListener(new View.OnClickListener() {
+                                          @Override
+                                          public void onClick(View v) {
+                                              if(!isLiked)
+                                              {
+                                                  tvLike.setTextColor(mContext.getResources().getColor(R.color.colorBlueLight));
+                                                  isLiked = true;
+                                              }
+                                              else {
+                                                  tvLike.setTextColor(mContext.getResources().getColor(R.color.colorGrayforText));
+                                                  isLiked = false;
+                                              }
+
+                                          }
+                                      }
+            );
             this.mItemListener = mItemListener;
             itemView.setOnClickListener(this);
         }
@@ -104,7 +119,6 @@ public class CommentRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         }
     }
-
 
 
     public interface PostItemListener {
