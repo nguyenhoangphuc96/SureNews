@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
@@ -165,11 +167,13 @@ public class DetailActivityNew extends AppCompatActivity {
         });
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setNestedScrollingEnabled(false);//smooth
         recyclerView.setAdapter(mAdapter);
         recyclerView.setHasFixedSize(true);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
+
 
     }
     private void showDataToRecyclerViewComment() {
@@ -180,7 +184,9 @@ public class DetailActivityNew extends AppCompatActivity {
             }
         });
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rcvComment.setLayoutManager(layoutManager);
+        rcvComment.setNestedScrollingEnabled(false);//smooth
         rcvComment.setAdapter(commentRCVAdapter);
         rcvComment.setHasFixedSize(true);
 
