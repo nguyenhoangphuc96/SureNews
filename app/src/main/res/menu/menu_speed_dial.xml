@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home"
+        android:title="Trang chủ" />
+    <item android:id="@+id/menu_save"
+        android:icon="@drawable/ic_saved_news"
+        android:title="Lưu bài viết" />
+    <item android:id="@+id/menu_share"
+        android:icon="@drawable/ic_share"
+        android:title="Chia sẻ bài viết" />
+</menu>

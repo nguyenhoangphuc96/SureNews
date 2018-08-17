@@ -2,4 +2,7 @@
 <resources>
     <item name="imgNews" type="id" />
     <item name="imgHotNews" type="id" />
+    <item name="fab_home" type="id" />
+    <item name="fab_save" type="id" />
+    <item name="fab_share" type="id" />
 </resources>

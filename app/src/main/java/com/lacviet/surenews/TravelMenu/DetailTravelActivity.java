@@ -1,10 +1,12 @@
 package com.lacviet.surenews.TravelMenu;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
@@ -17,9 +19,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +31,7 @@ import com.lacviet.surenews.Adapter.SamenewsRCVAdapter;
 import com.lacviet.surenews.DetailScreen.DetailActivityNew;
 import com.lacviet.surenews.GovementMenu.DetailGovernmentActivity;
 import com.lacviet.surenews.KeyString;
+import com.lacviet.surenews.MainActivity;
 import com.lacviet.surenews.R;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.ContentModel;
@@ -34,6 +39,8 @@ import com.lacviet.surenews.WebAPI.ModelAPI.DetailJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.NewsModel;
 import com.lacviet.surenews.WebAPI.Remote.ApiService;
 import com.lacviet.surenews.WebAPI.Remote.ApiUtils;
+import com.leinardi.android.speeddial.SpeedDialActionItem;
+import com.leinardi.android.speeddial.SpeedDialView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -78,6 +85,9 @@ public class DetailTravelActivity extends AppCompatActivity {
     ApiService mService;
     List<ContentModel> listContent;
     List<NewsModel> listSameNews;
+    //
+    SpeedDialView speedDialView;
+    ScrollView scrollView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -88,11 +98,89 @@ public class DetailTravelActivity extends AppCompatActivity {
         textSize();
         getDatafromPreviousActivity();
         loadListContentById(id,categoryId);
+        initSpeedDialView();
+        //
+        scrollViewEvent();
 
 
 
     }
+    private void scrollViewEvent() {
+        scrollView = findViewById(R.id.scrollViewDetail);
+        scrollView.getViewTreeObserver()
+                .addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+                    @Override
+                    public void onScrollChanged() {
+                        if (scrollView.getChildAt(0).getBottom()
+                                <= (scrollView.getHeight() + scrollView.getScrollY())) {
+                            //scroll view is at bottom
+                            speedDialView.setVisibility(View.INVISIBLE);
+                        } else {
+                            //scroll view is not at bottom
+                            speedDialView.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
+    }
 
+    private void initSpeedDialView() {
+        speedDialView = findViewById(R.id.speedDial);
+        //speedDialView.inflate(R.menu.menu_speed_dial);
+        speedDialView.addActionItem(
+                new SpeedDialActionItem.Builder(R.id.fab_home, R.drawable.ic_home)
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
+                        .setLabel("Trang chủ")
+                        .setLabelColor(Color.WHITE)
+                        .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparent, getTheme()))
+                        .setLabelClickable(true)
+                        .create()
+        );
+        speedDialView.addActionItem(
+                new SpeedDialActionItem.Builder(R.id.fab_save, R.drawable.ic_saved_news)
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
+                        .setLabel("Lưu bài viết")
+                        .setLabelColor(Color.WHITE)
+                        .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparent, getTheme()))
+                        .setLabelClickable(true)
+                        .create()
+        );
+        speedDialView.addActionItem(
+                new SpeedDialActionItem.Builder(R.id.fab_share, R.drawable.ic_share)
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
+                        .setLabel("Chia sẻ bài viết")
+                        .setLabelColor(Color.WHITE)
+                        .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparent, getTheme()))
+                        .setLabelClickable(true)
+                        .create()
+        );
+        //
+        speedDialView.setOnActionSelectedListener(new SpeedDialView.OnActionSelectedListener() {
+            @Override
+            public boolean onActionSelected(SpeedDialActionItem speedDialActionItem) {
+                switch (speedDialActionItem.getId()) {
+                    case R.id.fab_home: {
+                        startMainActivity();
+                        return false; // true to keep the Speed Dial open
+                    }
+                    case R.id.fab_save: {
+                        Toast.makeText(DetailTravelActivity.this,"Chức năng đang phát triển!",Toast.LENGTH_LONG).show();
+                        return false; // true to keep the Speed Dial open
+                    }
+                    case R.id.fab_share: {
+                        Toast.makeText(DetailTravelActivity.this,"Chức năng đang phát triển!",Toast.LENGTH_LONG).show();
+                        return false; // true to keep the Speed Dial open
+                    }
+                    default:
+                        return false;
+                }
+            }
+        });
+    }
+
+    private void startMainActivity() {
+        Intent intent = new Intent(DetailTravelActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
     private void addSamenews() {
         layoutSameNews = LayoutInflater.from(DetailTravelActivity.this).inflate(R.layout.view_same_news, loBody, false);
         recyclerView = layoutSameNews.findViewById(R.id.rcvSameNews);
