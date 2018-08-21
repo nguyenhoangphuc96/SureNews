@@ -1,6 +1,7 @@
 package com.lacviet.surenews.Adapter;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -68,11 +69,12 @@ public class VideoPlayerTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.
             Picasso.with(mContext).load(item.getVideoCoverView()).into(((VHItem) holder).videoView.getCoverView());
         }
 
-
-        ((VHItem) holder).videoView.setVideoPath(url).setFingerprint(position);
-        ((VHItem) holder).videoView.getVideoInfo().setBgColor(Color.BLACK);//config player
+        ((VHItem) holder).videoView.getVideoInfo().setBgColor(Color.BLACK).setAspectRatio(VideoInfo.AR_ASPECT_FIT_PARENT);
+        ((VHItem) holder).videoView.setVideoPath(url).setFingerprint(item.hashCode());
         ((VHItem) holder).videoView.getVideoInfo().setFullScreenAnimation(true);
         ((VHItem) holder).videoView.getVideoInfo().setPortraitWhenFullScreen(false);
+
+
     }
 
 
@@ -113,6 +115,7 @@ public class VideoPlayerTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.
             videoView = itemView.findViewById(R.id.video_view);
             if (videoView != null) {
                 videoView.setPlayerListener(playerListener);
+
             }
             this.mItemListener = mItemListener;
             itemView.setOnClickListener(this);
@@ -129,6 +132,7 @@ public class VideoPlayerTabRCVAdapter extends RecyclerView.Adapter<RecyclerView.
 
     public interface PostItemListener {
         void onPostClick(long id);
+
     }
 
 }

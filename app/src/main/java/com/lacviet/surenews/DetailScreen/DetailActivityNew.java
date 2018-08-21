@@ -200,12 +200,7 @@ public class DetailActivityNew extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void showTTSSetting() {
-        Intent intent = new Intent();
-        intent.setAction("com.android.settings.TTS_SETTINGS");
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        this.startActivity(intent);
-    }
+
 
     private void addSamenews() {
         layoutSameNews = LayoutInflater.from(DetailActivityNew.this).inflate(R.layout.view_same_news, loBody, false);
@@ -538,7 +533,12 @@ public class DetailActivityNew extends AppCompatActivity {
         intent.putExtra(key.TITLE, title);
         startActivity(intent);
     }
-
+    private void showTTSSetting() {
+        Intent intent = new Intent();
+        intent.setAction("com.android.settings.TTS_SETTINGS");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(intent);
+    }
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
         if (requestCode == 0) {
@@ -553,15 +553,17 @@ public class DetailActivityNew extends AppCompatActivity {
                                 int result = textToSpeech.setLanguage(new Locale("vi"));
                                 if (result == TextToSpeech.LANG_MISSING_DATA || result ==
                                         TextToSpeech.LANG_NOT_SUPPORTED) {
-                                    Toast.makeText(DetailActivityNew.this, "TTS language is not supported",
+                                    Toast.makeText(DetailActivityNew.this, "Ngôn ngữ TTS chưa được hỗ trợ!",
                                             Toast.LENGTH_LONG).show();
+                                    showTTSSetting();
                                 } else {
                                     speakData(listContent);
                                 }
                             }
                         } else {
-                            Toast.makeText(DetailActivityNew.this, "TTS initialization failed",
+                            Toast.makeText(DetailActivityNew.this, "Vui lòng bật tính năng TTS trong phần cài đặt của thiết bị!",
                                     Toast.LENGTH_LONG).show();
+                            showTTSSetting();
                         }
                     }
                 });

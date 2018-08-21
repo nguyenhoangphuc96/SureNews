@@ -93,6 +93,7 @@
         android:layout_margin="2dp"
         app:sdExpansionMode="top"
         app:sdMainFabClosedSrc="@drawable/ic_add_image"
-        app:sdOverlayLayout="@id/overlay" />
+        app:sdOverlayLayout="@id/overlay"
+        />
 
 </android.support.design.widget.CoordinatorLayout>

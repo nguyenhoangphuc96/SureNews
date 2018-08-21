@@ -46,7 +46,9 @@
         <activity android:name=".DevelopmentMenu.DetailDevelopmentActivity"></activity>
         <activity android:name=".TravelMenu.TravelMenuActivity"></activity>
         <activity android:name=".TravelMenu.DetailTravelActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".Comment.CommentHomeActivity"></activity>
                <provider
             android:name="android.support.v4.content.FileProvider"

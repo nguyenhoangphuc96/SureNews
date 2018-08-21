@@ -1,6 +1,7 @@
 package com.lacviet.surenews.HomeMenu;
 
 import android.annotation.SuppressLint;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,6 +34,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import tcking.github.com.giraffeplayer2.PlayerManager;
 import tcking.github.com.giraffeplayer2.VideoView;
 import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
 
@@ -62,6 +64,7 @@ public class TabVideoFragment extends Fragment {
         loadData();
         return view;
     }
+
     private void loadData() {
         mService.getAllNewsByPage(categoryId,1,10).enqueue(new Callback<AllNewsJsonResponse>() {
             @Override
@@ -75,9 +78,10 @@ public class TabVideoFragment extends Fragment {
                     //
                     for (NewsModel newsModel: listNewsModel) {
                         listVideo.add(new VideoModel(newsModel.getId(),newsModel.getTitle(),
-                                newsModel.getDescription(),newsModel.getBody(),newsModel.getPublishedDate(),newsModel.getItemImg()));
+                                newsModel.getDescription(),newsModel.getBody().replaceAll(" ","%20"),newsModel.getPublishedDate(),newsModel.getItemImg()));
 
                     }
+
                     mAdapter.updateAnswers(listVideo);
 
                     pbVideo.setVisibility(View.GONE);
@@ -96,6 +100,8 @@ public class TabVideoFragment extends Fragment {
             }
         });
     }
+
+
 
     private void addControl(View view) {
         recyclerView = view.findViewById(R.id.rcvTabVideo);
