@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.lacviet.surenews.Tags.TagsRCVAdapter;
 import com.lacviet.surenews.Model.CommentModel;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.WebAPI.ModelAPI.NewsModel;
 
 import java.util.List;
 
@@ -89,13 +90,13 @@ public class TagsRCVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         @Override
         public void onClick(View v) {
-
-
+            String item = getItem(getAdapterPosition());
+            this.mItemListener.onPostClick(item);
         }
     }
 
 
     public interface PostItemListener {
-        void onPostClick();
+        void onPostClick(String tag);
     }
 }

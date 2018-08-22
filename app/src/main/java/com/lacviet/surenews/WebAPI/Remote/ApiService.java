@@ -72,6 +72,12 @@ public interface ApiService {
     @POST("Government/Feedback")
 
     Call<String> postFeedbackModel(@Body FeedbackModel feedbackModel);
+    //
+    @GET("News/GetByTagPaging")
+    Call<AllNewsJsonResponse> getAllNewsByTag(@Query("categoryid") String categoryid,
+                                               @Query("tag") String tag,
+                                               @Query("pageindex") int pageindex,
+                                               @Query("pagesize") int pagesize);
 
 
 

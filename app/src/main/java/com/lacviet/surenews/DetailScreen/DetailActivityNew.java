@@ -289,7 +289,9 @@ public class DetailActivityNew extends AppCompatActivity {
     private void showDataToRecyclerViewTags() {
         tagsRCVAdapter = new TagsRCVAdapter(this, new ArrayList<String>(0), new TagsRCVAdapter.PostItemListener() {
             @Override
-            public void onPostClick() {
+            public void onPostClick(String tag) {
+                startListNewsActivity(tag,subCategoryId);
+
             }
         });
         //StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL);
@@ -308,10 +310,11 @@ public class DetailActivityNew extends AppCompatActivity {
         intent.putExtra(key.ID, id);
         startActivity(intent);
     }
-    private void startListNewsActivity() {
+    private void startListNewsActivity(String tag, String subCategoryId) {
         Intent intent = new Intent(DetailActivityNew.this, ListNewsActivity.class);
-        /*KeyString key = new KeyString();
-        intent.putExtra(key.ID, id);*/
+        KeyString key = new KeyString();
+        intent.putExtra(key.TAG, tag);
+        intent.putExtra(key.CATEGORY_ID,subCategoryId);
         startActivity(intent);
     }
 

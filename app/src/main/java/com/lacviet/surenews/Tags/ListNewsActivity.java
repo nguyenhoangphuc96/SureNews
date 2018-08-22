@@ -1,21 +1,36 @@
 package com.lacviet.surenews.Tags;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.HomeTabRCVAdapterTemp;
 import com.lacviet.surenews.Comment.CommentRCVAdapter;
+import com.lacviet.surenews.DetailScreen.DetailActivityNew;
+import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.Model.CommentModel;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.NewsModel;
+import com.lacviet.surenews.WebAPI.Remote.ApiService;
+import com.lacviet.surenews.WebAPI.Remote.ApiUtils;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ListNewsActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -24,7 +39,11 @@ public class ListNewsActivity extends AppCompatActivity {
     ProgressBar pbListNews;
     //
     HomeTabRCVAdapterTemp mAdapter;
-    ArrayList<NewsModel> ListNews;
+    List<NewsModel> listNews;
+    //api
+    ApiService mService;
+    String categoryId = "";
+    String tag = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,8 +51,70 @@ public class ListNewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_news);
         addControl();
         actionBar();
+        getDatafromPreviousActivity();
+        showDataToRecyclerView();
+        loadData();
+
     }
 
+    private void loadData() {
+        mService = ApiUtils.getSOService();
+        mService.getAllNewsByTag(categoryId,tag,1,10).enqueue(new Callback<AllNewsJsonResponse>() {
+            @Override
+            public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
+
+                if (response.isSuccessful()) {
+                    listNews = new ArrayList<>();
+                    listNews = response.body().getNewsModels();
+                    mAdapter.updateAnswers(listNews);
+                    pbListNews.setVisibility(View.GONE);
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(ListNewsActivity.this, "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
+                Toast.makeText(ListNewsActivity.this, "Vui lòng kiểm tra kết nối!", Toast.LENGTH_SHORT).show();
+                Log.d("AnswersPresenter", "error loading from API");
+
+            }
+        });
+    }
+
+    private void startDetailActivity(String id) {
+        Intent intent = new Intent(ListNewsActivity.this, DetailActivityNew.class);
+        KeyString key = new KeyString();
+        intent.putExtra(key.ID, id);
+        startActivity(intent);
+    }
+    private void showDataToRecyclerView() {
+        mAdapter = new HomeTabRCVAdapterTemp(this, new ArrayList<NewsModel>(0), new HomeTabRCVAdapterTemp.PostItemListener() {
+
+
+            @Override
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
+                startDetailActivity(id);
+            }
+
+        });
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(mAdapter);
+        recyclerView.setHasFixedSize(true);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                layoutManager.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
+
+    }
+    private void getDatafromPreviousActivity() {
+        Bundle extras = this.getIntent().getExtras();
+        KeyString key = new KeyString();
+        categoryId = extras.getString(key.CATEGORY_ID);
+        tag = extras.getString(key.TAG);
+    }
     private void addControl() {
         toolbar = findViewById(R.id.toolbar);
         tvTitleToolbar = findViewById(R.id.tvTitleToolbar);
