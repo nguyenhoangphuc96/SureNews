@@ -40,6 +40,7 @@ import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.MainActivity;
 import com.lacviet.surenews.Model.CommentModel;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.Tags.TagsRCVAdapter;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.ContentModel;
 import com.lacviet.surenews.WebAPI.ModelAPI.DetailJsonResponse;
@@ -105,6 +106,12 @@ public class DetailActivityNew extends AppCompatActivity {
     //
     SpeedDialView speedDialView;
     ScrollView scrollView;
+    //tags
+    View layoutTags;
+    TagsRCVAdapter tagsRCVAdapter;
+    RecyclerView rcvTags;
+    ProgressBar pbTags;
+    ArrayList<String> ListTags;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -278,6 +285,22 @@ public class DetailActivityNew extends AppCompatActivity {
         rcvComment.setHasFixedSize(true);
 
     }
+    private void showDataToRecyclerViewTags() {
+        tagsRCVAdapter = new TagsRCVAdapter(this, new ArrayList<String>(0), new TagsRCVAdapter.PostItemListener() {
+            @Override
+            public void onPostClick() {
+
+            }
+        });
+        //StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL);
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        rcvTags.setLayoutManager(layoutManager);
+        rcvTags.setNestedScrollingEnabled(false);//smooth
+        rcvTags.setAdapter(tagsRCVAdapter);
+        rcvTags.setHasFixedSize(true);
+
+    }
 
     private void startDetailActivity(String id) {
         Intent intent = new Intent(DetailActivityNew.this, DetailActivityNew.class);
@@ -328,6 +351,7 @@ public class DetailActivityNew extends AppCompatActivity {
                     if (listContent != null) {
                         loadContent(listContent);
                         addComment();
+                        addTags();
                         addSamenews();
                     }
                     //same news
@@ -338,6 +362,8 @@ public class DetailActivityNew extends AppCompatActivity {
                     getListSameNews(subCategoryId);
                     //Comment
                     getListComment();
+                    //tags
+                    getListTags();
                     Log.d("AnswersPresenter", "posts loaded from API");
                 } else {
                     int statusCode = response.code();
@@ -354,7 +380,24 @@ public class DetailActivityNew extends AppCompatActivity {
         });
 
     }
+    private void getListTags() {
+        ListTags = new ArrayList<>();
+        ListTags.add("Bạc Liêu");
+        ListTags.add("Thời vụ");
+        ListTags.add("Bạc Liêu phát triển");
+        ListTags.add("Dự án");
+        tagsRCVAdapter.updateAnswers(ListTags);
+        pbTags.setVisibility(View.GONE);
+    }
 
+    private void addTags() {
+        layoutTags = LayoutInflater.from(DetailActivityNew.this).inflate(R.layout.view_tags, loBody, false);
+        rcvTags = layoutTags.findViewById(R.id.rcvTags);
+        pbTags = layoutTags.findViewById(R.id.pbTags);
+        showDataToRecyclerViewTags();
+        loBody.addView(layoutTags);
+
+    }
     private void getListComment() {
         ListCmt = new ArrayList<>();
         ListCmt.add(new CommentModel("1", "Alan", "28/1/2018", "Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));

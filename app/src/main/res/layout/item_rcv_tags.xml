@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    >
+    <LinearLayout
+
+        android:padding="@dimen/rcv_item_padding"
+        android:background="@drawable/shape_transparent_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/paddingverhicle_border_button_bluelight">
+
+        <TextView
+            android:id="@+id/tvTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tags"
+            style="@style/TextContentCmt"/>
+    </LinearLayout>
+
+</LinearLayout>
