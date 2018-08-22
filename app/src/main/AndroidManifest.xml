@@ -50,6 +50,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Comment.CommentHomeActivity"></activity>
+        <activity android:name=".Tags.ListNewsActivity"></activity>
                <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"

@@ -40,6 +40,7 @@ import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.MainActivity;
 import com.lacviet.surenews.Model.CommentModel;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.Tags.ListNewsActivity;
 import com.lacviet.surenews.Tags.TagsRCVAdapter;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.ContentModel;
@@ -289,7 +290,6 @@ public class DetailActivityNew extends AppCompatActivity {
         tagsRCVAdapter = new TagsRCVAdapter(this, new ArrayList<String>(0), new TagsRCVAdapter.PostItemListener() {
             @Override
             public void onPostClick() {
-
             }
         });
         //StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL);
@@ -306,6 +306,12 @@ public class DetailActivityNew extends AppCompatActivity {
         Intent intent = new Intent(DetailActivityNew.this, DetailActivityNew.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ID, id);
+        startActivity(intent);
+    }
+    private void startListNewsActivity() {
+        Intent intent = new Intent(DetailActivityNew.this, ListNewsActivity.class);
+        /*KeyString key = new KeyString();
+        intent.putExtra(key.ID, id);*/
         startActivity(intent);
     }
 
@@ -351,7 +357,9 @@ public class DetailActivityNew extends AppCompatActivity {
                     if (listContent != null) {
                         loadContent(listContent);
                         addComment();
-                        addTags();
+                        if(response.body().getTags()!=null) {
+                            addTags();
+                        }
                         addSamenews();
                     }
                     //same news
@@ -363,7 +371,9 @@ public class DetailActivityNew extends AppCompatActivity {
                     //Comment
                     getListComment();
                     //tags
-                    getListTags();
+                    if(response.body().getTags()!=null) {
+                        getListTags(response.body().getTags());
+                    }
                     Log.d("AnswersPresenter", "posts loaded from API");
                 } else {
                     int statusCode = response.code();
@@ -380,12 +390,9 @@ public class DetailActivityNew extends AppCompatActivity {
         });
 
     }
-    private void getListTags() {
+    private void getListTags(List<String> tags) {
         ListTags = new ArrayList<>();
-        ListTags.add("Bạc Liêu");
-        ListTags.add("Thời vụ");
-        ListTags.add("Bạc Liêu phát triển");
-        ListTags.add("Dự án");
+        ListTags.addAll(tags);
         tagsRCVAdapter.updateAnswers(ListTags);
         pbTags.setVisibility(View.GONE);
     }

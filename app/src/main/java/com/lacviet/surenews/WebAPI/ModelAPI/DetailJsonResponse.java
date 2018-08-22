@@ -43,6 +43,9 @@ public class DetailJsonResponse {
     @SerializedName("Content")
     @Expose
     private List<ContentModel> content = null;
+    @SerializedName("Tags")
+    @Expose
+    private List<String> tags = null;
 
     public String getId() {
         return id;
@@ -140,4 +143,11 @@ public class DetailJsonResponse {
         this.content = content;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
 }

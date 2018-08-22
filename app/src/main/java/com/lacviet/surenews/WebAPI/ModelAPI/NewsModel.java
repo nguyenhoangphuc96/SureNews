@@ -3,6 +3,8 @@ package com.lacviet.surenews.WebAPI.ModelAPI;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class NewsModel {
 
     @SerializedName("Id")
@@ -41,6 +43,9 @@ public class NewsModel {
     @SerializedName("Content")
     @Expose
     private Object content;
+    @SerializedName("Tags")
+    @Expose
+    private List<String> tags = null;
 
 
     public String getId() {
@@ -139,4 +144,11 @@ public class NewsModel {
         this.content = content;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
 }
