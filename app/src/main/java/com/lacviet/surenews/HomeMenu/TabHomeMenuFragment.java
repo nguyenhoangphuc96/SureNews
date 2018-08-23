@@ -12,13 +12,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.lacviet.surenews.Adapter.HomeTabRCVAdapterTemp;
+import com.lacviet.surenews.Adapter.VideoJiaoZiTabRCVAdapter;
 import com.lacviet.surenews.DetailScreen.DetailActivityNew;
+import com.lacviet.surenews.GovementMenu.DetailGovernmentActivity;
 import com.lacviet.surenews.KeyString;
+import com.lacviet.surenews.Model.VideoModel;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.Tags.TagsRCVAdapter;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.NewsModel;
 import com.lacviet.surenews.WebAPI.Remote.ApiService;
@@ -31,6 +36,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class TabHomeMenuFragment extends Fragment {
     private RecyclerView recyclerView;
     private HomeTabRCVAdapterTemp mAdapter;
@@ -39,6 +45,13 @@ public class TabHomeMenuFragment extends Fragment {
     //api
     ApiService mService;
     String categoryId;
+    //video
+    LinearLayout loBody;
+    View layoutVideo;
+    VideoJiaoZiTabRCVAdapter videoJiaoZiTabRCVAdapter;
+    RecyclerView rcvVideo;
+    ProgressBar pbVideo;
+
     public TabHomeMenuFragment(){
 
     }
@@ -55,7 +68,6 @@ public class TabHomeMenuFragment extends Fragment {
         loadData();
         return view;
     }
-
     private void loadData() {
         mService.getAllNewsByPage(categoryId,1,10).enqueue(new Callback<AllNewsJsonResponse>() {
             @Override
@@ -88,6 +100,8 @@ public class TabHomeMenuFragment extends Fragment {
         pbTabhome =view.findViewById(R.id.pbTabHotHome);
         //
         mService = ApiUtils.getSOService();
+        //
+        loBody = view.findViewById(R.id.loBody);
     }
 
     private void showDataToRecyclerView() {

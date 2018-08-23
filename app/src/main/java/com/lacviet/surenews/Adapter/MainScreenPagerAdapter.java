@@ -6,8 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 
-
-
+import com.lacviet.surenews.HomeMenu.TabHomeFragment;
 import com.lacviet.surenews.HomeMenu.TabHomeMenuFragment;
 
 
@@ -28,17 +27,20 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
         CategoryList = categoryList;
 
     }
+
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
-        if(CategoryList.get(position).getId().equals("02"))
-        {
+        if (CategoryList.get(position).getId().equals("02")) {
             fragment = new TabVideoJiaoZiFragment(CategoryList.get(position).getId());
+        } else {
+            if (CategoryList.get(position).getId().equals("01"))
+                fragment = new TabHomeFragment(CategoryList.get(position).getId());
+            else {
+                fragment = new TabHomeMenuFragment(CategoryList.get(position).getId());
+            }
         }
-        else
-        {
-            fragment = new TabHomeMenuFragment(CategoryList.get(position).getId());
-        }
+
         return fragment;
     }
 
@@ -46,17 +48,20 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return CategoryList.size();
     }
+
     @Override
     public CharSequence getPageTitle(int position) {
         String title = "";
         title = CategoryList.get(position).getCategoryName();
         return title;
     }
+
     public void updateAnswers(List<CategoryModel> items) {
         CategoryList.clear();
         CategoryList.addAll(items);
 
     }
+
     public List<CategoryModel> getList() {
         return CategoryList;
     }
