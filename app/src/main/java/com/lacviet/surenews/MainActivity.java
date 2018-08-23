@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setTabsFromPagerAdapter(adapter);
         pager.setOffscreenPageLimit(categoryModelList.size());//no reload when change tab
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_bluelight);
     }
 
     private void addControl() {

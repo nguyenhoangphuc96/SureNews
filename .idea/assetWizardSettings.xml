@@ -19,10 +19,10 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\nhphuc\Downloads\icons8-tags-filled-100.png" />
-                                      <entry key="outputName" value="ic_tag" />
+                                      <entry key="imageAsset" value="C:\Users\nhphuc\Downloads\icons8-home-filled-100.png" />
+                                      <entry key="outputName" value="ic_home_bluelight" />
                                       <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="000000" />
+                                      <entry key="themeColor" value="01dad7" />
                                     </map>
                                   </option>
                                 </PersistentState>

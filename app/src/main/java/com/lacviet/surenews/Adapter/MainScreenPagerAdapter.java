@@ -53,6 +53,10 @@ public class MainScreenPagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         String title = "";
         title = CategoryList.get(position).getCategoryName();
+        if(position==0)
+        {
+            title = "";
+        }
         return title;
     }
 

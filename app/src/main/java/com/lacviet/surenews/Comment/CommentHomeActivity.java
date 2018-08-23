@@ -66,13 +66,10 @@ public class CommentHomeActivity extends AppCompatActivity{
 
     private void showData() {
         ListCmt = new ArrayList<>();
-        ListCmt.add(new CommentModel("1","Alan","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
-        ListCmt.add(new CommentModel("1","Sir. Alex","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
-        ListCmt.add(new CommentModel("1","Young Buffalo","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
-        ListCmt.add(new CommentModel("1","David Alaxander","28/1/2018","Tiếp và làm việc với Đoàn có đồng chí Phan Như Nguyện, Phó Chủ tịch UBND tỉnh; Ngô Hữu Dũng, Giám đốc Sở Giao thông vận tải"));
-        ListCmt.add(new CommentModel("1","Kevin Cọt","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
-        ListCmt.add(new CommentModel("1","Young Buffalo","28/1/2018","Bài viết hết sức bổ ích, đáng khen cho đội ngũ thực hiện ứng dụng này!"));
-        ListCmt.add(new CommentModel("1","Viettel","28/1/2018","Trưởng đoàn đã có buổi làm việc với tỉnh Bạc Liêu về việc kiểm tra, đôn đốc công tác bảo đảm trật tự ATGT trên địa bàn tỉnh."));
+        ListCmt.add(new CommentModel("1","Kevin Cọt","28/1/2018","Bài viết hết sức bổ ích!"));
+        ListCmt.add(new CommentModel("1","Sir. Alex","28/1/2018","Quả là một bài viết bổ ích, cảm ơn tác giả rất nhiều."));
+        ListCmt.add(new CommentModel("1","Young Buffalo","28/1/2018","Thông tin chính xác, nhanh chóng. Ứng dụng thật sự rất hữu ích!"));
+        ListCmt.add(new CommentModel("1","David Alaxander","28/1/2018","Rất đồng tình với ý kiến của bài viết (y)"));
         mAdapter.updateAnswers(ListCmt);
         pbCmt.setVisibility(View.GONE);
 
