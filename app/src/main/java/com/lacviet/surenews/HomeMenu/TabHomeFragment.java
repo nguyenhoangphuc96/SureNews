@@ -52,6 +52,32 @@ public class TabHomeFragment extends Fragment {
     ProgressBar pbVideo;
     List<NewsModel> listNewsModel;
     List<VideoModel> listVideo;
+    //traffic safety
+    View layoutTraffic;
+    RecyclerView rcvTraffic;
+    ProgressBar pbTraffic;
+    List<NewsModel> listTraffic;
+    //political
+    View layoutPolitical;
+    RecyclerView rcvPolitical;
+    ProgressBar pbPolitical;
+    List<NewsModel> listPolitical;
+    //sociocultural
+    View layoutSociocultural;
+    RecyclerView rcvSociocultural;
+    ProgressBar pbSociocultural;
+    List<NewsModel> listSociocultural;
+    //administrative
+    View layoutAdministrative;
+    RecyclerView rcvAdministrative;
+    ProgressBar pbAdministrative;
+    List<NewsModel> listAdministrative;
+    //leader
+    View layoutLeader;
+    RecyclerView rcvLeader;
+    ProgressBar pbLeader;
+    List<NewsModel> listLeader;
+
     public TabHomeFragment(){
 
     }
@@ -66,11 +92,287 @@ public class TabHomeFragment extends Fragment {
         addControl(view);
         addHotHome();
         loadDataHot();
-        addVideoView();
-        loadDataVideoView();
+
         return view;
     }
+    //Leader
+    private void loadDataLeader() {
+        mService.getAllNewsByPage("10",1,4).enqueue(new Callback<AllNewsJsonResponse>() {
+            @Override
+            public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
 
+                if (response.isSuccessful()) {
+
+                    listLeader = response.body().getNewsModels();
+                    mAdapter.updateAnswers(listLeader);
+                    pbLeader.setVisibility(View.GONE);
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(getActivity(), "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Vui lòng kiểm tra kết nối!", Toast.LENGTH_SHORT).show();
+                Log.d("AnswersPresenter", "error loading from API");
+
+            }
+        });
+    }
+    private void addLeader() {
+        layoutLeader = LayoutInflater.from(getActivity()).inflate(R.layout.view_leader, loBody, false);
+        rcvLeader = layoutLeader.findViewById(R.id.rcvLeader);
+        pbLeader = layoutLeader.findViewById(R.id.pbLeader);
+        showDataToRecyclerViewLeader();
+        loBody.addView(layoutLeader);
+    }
+
+    private void showDataToRecyclerViewLeader() {
+        mAdapter = new HomeTabRCVAdapterTemp(getContext(), new ArrayList<NewsModel>(0), new HomeTabRCVAdapterTemp.PostItemListener() {
+
+
+            @Override
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
+                startDetailActivity(id);
+            }
+
+        });
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        rcvLeader.setLayoutManager(layoutManager);
+        rcvLeader.setAdapter(mAdapter);
+        rcvLeader.setHasFixedSize(true);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rcvLeader.getContext(),
+                layoutManager.getOrientation());
+        rcvLeader.addItemDecoration(dividerItemDecoration);
+        rcvLeader.setNestedScrollingEnabled(false);
+    }
+    //administrative
+    private void loadDataAdministrative() {
+        mService.getAllNewsByPage("10",1,4).enqueue(new Callback<AllNewsJsonResponse>() {
+            @Override
+            public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
+
+                if (response.isSuccessful()) {
+
+                    listAdministrative = response.body().getNewsModels();
+                    mAdapter.updateAnswers(listAdministrative);
+                    pbAdministrative.setVisibility(View.GONE);
+                    //
+                    addLeader();
+                    loadDataLeader();
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(getActivity(), "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Vui lòng kiểm tra kết nối!", Toast.LENGTH_SHORT).show();
+                Log.d("AnswersPresenter", "error loading from API");
+
+            }
+        });
+    }
+    private void addAdministrative() {
+        layoutAdministrative = LayoutInflater.from(getActivity()).inflate(R.layout.view_administrative, loBody, false);
+        rcvAdministrative = layoutAdministrative.findViewById(R.id.rcvAdministrative);
+        pbAdministrative = layoutAdministrative.findViewById(R.id.pbAdministrative);
+        showDataToRecyclerViewAdministrative();
+        loBody.addView(layoutAdministrative);
+    }
+
+    private void showDataToRecyclerViewAdministrative() {
+        mAdapter = new HomeTabRCVAdapterTemp(getContext(), new ArrayList<NewsModel>(0), new HomeTabRCVAdapterTemp.PostItemListener() {
+
+
+            @Override
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
+                startDetailActivity(id);
+            }
+
+        });
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        rcvAdministrative.setLayoutManager(layoutManager);
+        rcvAdministrative.setAdapter(mAdapter);
+        rcvAdministrative.setHasFixedSize(true);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rcvAdministrative.getContext(),
+                layoutManager.getOrientation());
+        rcvAdministrative.addItemDecoration(dividerItemDecoration);
+        rcvAdministrative.setNestedScrollingEnabled(false);
+    }
+    //Sociocultural
+    private void loadDataSociocultural() {
+        mService.getAllNewsByPage("2",1,4).enqueue(new Callback<AllNewsJsonResponse>() {
+            @Override
+            public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
+
+                if (response.isSuccessful()) {
+
+                    listSociocultural = response.body().getNewsModels();
+                    mAdapter.updateAnswers(listSociocultural);
+                    pbSociocultural.setVisibility(View.GONE);
+                    //
+                    addAdministrative();
+                    loadDataAdministrative();
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(getActivity(), "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Vui lòng kiểm tra kết nối!", Toast.LENGTH_SHORT).show();
+                Log.d("AnswersPresenter", "error loading from API");
+
+            }
+        });
+    }
+    private void addSociocultural() {
+        layoutSociocultural = LayoutInflater.from(getActivity()).inflate(R.layout.view_sociocultural, loBody, false);
+        rcvSociocultural = layoutSociocultural.findViewById(R.id.rcvSociocultural);
+        pbSociocultural = layoutSociocultural.findViewById(R.id.pbSociocultural);
+        showDataToRecyclerViewSociocultural();
+        loBody.addView(layoutSociocultural);
+    }
+
+    private void showDataToRecyclerViewSociocultural() {
+        mAdapter = new HomeTabRCVAdapterTemp(getContext(), new ArrayList<NewsModel>(0), new HomeTabRCVAdapterTemp.PostItemListener() {
+
+
+            @Override
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
+                startDetailActivity(id);
+            }
+
+        });
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        rcvSociocultural.setLayoutManager(layoutManager);
+        rcvSociocultural.setAdapter(mAdapter);
+        rcvSociocultural.setHasFixedSize(true);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rcvSociocultural.getContext(),
+                layoutManager.getOrientation());
+        rcvSociocultural.addItemDecoration(dividerItemDecoration);
+        rcvSociocultural.setNestedScrollingEnabled(false);
+    }
+    //Political
+    private void loadDataPolitical() {
+        mService.getAllNewsByPage("8",1,4).enqueue(new Callback<AllNewsJsonResponse>() {
+            @Override
+            public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
+
+                if (response.isSuccessful()) {
+
+                    listPolitical = response.body().getNewsModels();
+                    mAdapter.updateAnswers(listPolitical);
+                    pbPolitical.setVisibility(View.GONE);
+                    //
+                    addSociocultural();
+                    loadDataSociocultural();
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(getActivity(), "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Vui lòng kiểm tra kết nối!", Toast.LENGTH_SHORT).show();
+                Log.d("AnswersPresenter", "error loading from API");
+
+            }
+        });
+    }
+    private void addPolitical() {
+        layoutPolitical = LayoutInflater.from(getActivity()).inflate(R.layout.view_political, loBody, false);
+        rcvPolitical = layoutPolitical.findViewById(R.id.rcvPolitical);
+        pbPolitical = layoutPolitical.findViewById(R.id.pbPolitical);
+        showDataToRecyclerViewPolitical();
+        loBody.addView(layoutPolitical);
+    }
+
+    private void showDataToRecyclerViewPolitical() {
+        mAdapter = new HomeTabRCVAdapterTemp(getContext(), new ArrayList<NewsModel>(0), new HomeTabRCVAdapterTemp.PostItemListener() {
+
+
+            @Override
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
+                startDetailActivity(id);
+            }
+
+        });
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        rcvPolitical.setLayoutManager(layoutManager);
+        rcvPolitical.setAdapter(mAdapter);
+        rcvPolitical.setHasFixedSize(true);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rcvPolitical.getContext(),
+                layoutManager.getOrientation());
+        rcvPolitical.addItemDecoration(dividerItemDecoration);
+        rcvPolitical.setNestedScrollingEnabled(false);
+    }
+    //Traffic
+    private void loadDataTraffic() {
+        mService.getAllNewsByPage("8",1,4).enqueue(new Callback<AllNewsJsonResponse>() {
+            @Override
+            public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
+
+                if (response.isSuccessful()) {
+
+                    listTraffic = response.body().getNewsModels();
+                    mAdapter.updateAnswers(listTraffic);
+                    pbTraffic.setVisibility(View.GONE);
+                    //
+                    addPolitical();
+                    loadDataPolitical();
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(getActivity(), "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AllNewsJsonResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Vui lòng kiểm tra kết nối!", Toast.LENGTH_SHORT).show();
+                Log.d("AnswersPresenter", "error loading from API");
+
+            }
+        });
+    }
+    private void addTrafficSafety() {
+        layoutTraffic = LayoutInflater.from(getActivity()).inflate(R.layout.view_traffic_safety, loBody, false);
+        rcvTraffic = layoutTraffic.findViewById(R.id.rcvTraffic);
+        pbTraffic = layoutTraffic.findViewById(R.id.pbTraffic);
+        showDataToRecyclerViewTraffic();
+        loBody.addView(layoutTraffic);
+    }
+
+    private void showDataToRecyclerViewTraffic() {
+        mAdapter = new HomeTabRCVAdapterTemp(getContext(), new ArrayList<NewsModel>(0), new HomeTabRCVAdapterTemp.PostItemListener() {
+
+
+            @Override
+            public void onPostClick(String id, String title, String time, String subTitle, String categoryId) {
+                startDetailActivity(id);
+            }
+
+        });
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+        rcvTraffic.setLayoutManager(layoutManager);
+        rcvTraffic.setAdapter(mAdapter);
+        rcvTraffic.setHasFixedSize(true);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rcvTraffic.getContext(),
+                layoutManager.getOrientation());
+        rcvTraffic.addItemDecoration(dividerItemDecoration);
+        rcvTraffic.setNestedScrollingEnabled(false);
+    }
+    //Hot home
     private void addHotHome() {
         layoutHotHome = LayoutInflater.from(getActivity()).inflate(R.layout.view_hot_home, loBody, false);
         recyclerView = layoutHotHome.findViewById(R.id.rcvTabHotHome);
@@ -78,7 +380,7 @@ public class TabHomeFragment extends Fragment {
         showDataToRecyclerView();
         loBody.addView(layoutHotHome);
     }
-
+    //Video
     private void loadDataVideoView() {
         mService.getAllNewsByPage("02",1,3).enqueue(new Callback<AllNewsJsonResponse>() {
             @Override
@@ -99,6 +401,9 @@ public class TabHomeFragment extends Fragment {
                     videoJiaoZiTabRCVAdapter.updateAnswers(listVideo);
 
                     pbVideo.setVisibility(View.GONE);
+                    //
+                    addTrafficSafety();
+                    loadDataTraffic();
                     Log.d("AnswersPresenter", "posts loaded from API");
                 } else {
                     int statusCode = response.code();
@@ -162,6 +467,9 @@ public class TabHomeFragment extends Fragment {
                     listNews = response.body().getNewsModels();
                     mAdapter.updateAnswers(listNews);
                     pbTabhome.setVisibility(View.GONE);
+                    //
+                    addVideoView();
+                    loadDataVideoView();
                     Log.d("AnswersPresenter", "posts loaded from API");
                 } else {
                     int statusCode = response.code();

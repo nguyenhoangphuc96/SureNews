@@ -6,15 +6,17 @@
     android:layout_height="match_parent"
     >
     <LinearLayout
+        android:background="@drawable/shape_background_gradient_blue"
         android:padding="@dimen/rcv_item_padding"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/rcv_item_padding">
+        >
 
         <TextView
+            android:textColor="@color/colorWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Video: "
+            android:text="Video "
             style="@style/TextSameNews"/>
     </LinearLayout>
     <RelativeLayout
