@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
@@ -33,6 +34,9 @@ import com.lacviet.surenews.GovementMenu.DetailGovernmentActivity;
 import com.lacviet.surenews.KeyString;
 import com.lacviet.surenews.MainActivity;
 import com.lacviet.surenews.R;
+import com.lacviet.surenews.Tags.ListNewsGovermentActivity;
+import com.lacviet.surenews.Tags.ListNewsTravelActivity;
+import com.lacviet.surenews.Tags.TagsRCVAdapter;
 import com.lacviet.surenews.WebAPI.ModelAPI.AllNewsJsonResponse;
 import com.lacviet.surenews.WebAPI.ModelAPI.ContentModel;
 import com.lacviet.surenews.WebAPI.ModelAPI.DetailJsonResponse;
@@ -88,6 +92,12 @@ public class DetailTravelActivity extends AppCompatActivity {
     //
     SpeedDialView speedDialView;
     ScrollView scrollView;
+    //tags
+    View layoutTags;
+    TagsRCVAdapter tagsRCVAdapter;
+    RecyclerView rcvTags;
+    ProgressBar pbTags;
+    ArrayList<String> ListTags;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -104,6 +114,45 @@ public class DetailTravelActivity extends AppCompatActivity {
 
 
 
+    }
+    private void getListTags(List<String> tags) {
+        ListTags = new ArrayList<>();
+        ListTags.addAll(tags);
+        tagsRCVAdapter.updateAnswers(ListTags);
+        pbTags.setVisibility(View.GONE);
+    }
+
+    private void addTags() {
+        layoutTags = LayoutInflater.from(DetailTravelActivity.this).inflate(R.layout.view_tags, loBody, false);
+        rcvTags = layoutTags.findViewById(R.id.rcvTags);
+        pbTags = layoutTags.findViewById(R.id.pbTags);
+        showDataToRecyclerViewTags();
+        loBody.addView(layoutTags);
+
+    }
+    private void showDataToRecyclerViewTags() {
+        tagsRCVAdapter = new TagsRCVAdapter(this, new ArrayList<String>(0), new TagsRCVAdapter.PostItemListener() {
+            @Override
+            public void onPostClick(String tag) {
+                startListNewsActivity(tag,categoryId);
+
+            }
+        });
+        //StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL);
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        rcvTags.setLayoutManager(layoutManager);
+        rcvTags.setNestedScrollingEnabled(false);//smooth
+        rcvTags.setAdapter(tagsRCVAdapter);
+        rcvTags.setHasFixedSize(true);
+
+    }
+    private void startListNewsActivity(String tag, String subCategoryId) {
+        Intent intent = new Intent(DetailTravelActivity.this, ListNewsTravelActivity.class);
+        KeyString key = new KeyString();
+        intent.putExtra(key.TAG, tag);
+        intent.putExtra(key.CATEGORY_ID,subCategoryId);
+        startActivity(intent);
     }
     private void scrollViewEvent() {
         scrollView = findViewById(R.id.scrollViewDetail);
@@ -290,10 +339,17 @@ public class DetailTravelActivity extends AppCompatActivity {
                     listContent = response.body().getContent();
                     if (listContent != null) {
                         loadContent(listContent);
+                        if(response.body().getTags()!=null) {
+                            addTags();
+                        }
                         addSamenews();
                     }
                     //same news
                     getListSameNews(categoryId);
+                    //tags
+                    if(response.body().getTags()!=null) {
+                        getListTags(response.body().getTags());
+                    }
                     Log.d("AnswersPresenter", "posts loaded from API");
                 } else {
                     int statusCode = response.code();

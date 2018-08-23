@@ -72,13 +72,27 @@ public interface ApiService {
     @POST("Government/Feedback")
 
     Call<String> postFeedbackModel(@Body FeedbackModel feedbackModel);
-    //
+    //tags
     @GET("News/GetByTagPaging")
     Call<AllNewsJsonResponse> getAllNewsByTag(@Query("categoryid") String categoryid,
                                                @Query("tag") String tag,
                                                @Query("pageindex") int pageindex,
                                                @Query("pagesize") int pagesize);
-
+    @GET("Government/GetNewsByTagPaging")
+    Call<AllNewsJsonResponse> getAllGovermentNewsByTag(@Query("categoryid") String categoryid,
+                                                        @Query("tag") String tag,
+                                                        @Query("pageindex") int pageindex,
+                                                        @Query("pagesize") int pagesize);
+    @GET("Investment/GetNewsByTagPaging")
+    Call<AllNewsJsonResponse> getAllInvestmentNewsByTag(@Query("categoryid") String categoryid,
+                                                         @Query("tag") String tag,
+                                                         @Query("pageindex") int pageindex,
+                                                         @Query("pagesize") int pagesize);
+    @GET("Travel/GetNewsByTagPaging")
+    Call<AllNewsJsonResponse> getAllTravelNewsByTag(@Query("categoryid") String categoryid,
+                                                     @Query("tag") String tag,
+                                                     @Query("pageindex") int pageindex,
+                                                     @Query("pagesize") int pagesize);
 
 
 }
