@@ -51,6 +51,9 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Comment.CommentHomeActivity"></activity>
         <activity android:name=".Tags.ListNewsActivity"></activity>
+        <activity android:name=".Tags.ListNewsTravelActivity"></activity>
+        <activity android:name=".Tags.ListNewsDevelopmentActivity"></activity>
+        <activity android:name=".Tags.ListNewsGovermentActivity"></activity>
                <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"
