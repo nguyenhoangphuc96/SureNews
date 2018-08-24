@@ -27,6 +27,7 @@
     <color name="colorBlueBackgroundButton">#1091D3</color>
     <color name="colorBlueShadow">#0072AD</color>
     <color name="colorBlueLight">#01dad7</color>
+    <color name="colorBlueLightLittle">#9bfcfa</color>
     <color name="colorBackgroundNavigation">#012D74</color>
     <color name="colorBlue">#0060fc</color>
 

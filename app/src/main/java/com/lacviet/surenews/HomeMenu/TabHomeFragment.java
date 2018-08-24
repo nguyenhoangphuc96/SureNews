@@ -97,7 +97,7 @@ public class TabHomeFragment extends Fragment {
     }
     //Leader
     private void loadDataLeader() {
-        mService.getAllNewsByPage("10",1,4).enqueue(new Callback<AllNewsJsonResponse>() {
+        mService.getAllNewsByPage("11",1,4).enqueue(new Callback<AllNewsJsonResponse>() {
             @Override
             public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
 
@@ -262,7 +262,7 @@ public class TabHomeFragment extends Fragment {
     }
     //Political
     private void loadDataPolitical() {
-        mService.getAllNewsByPage("8",1,4).enqueue(new Callback<AllNewsJsonResponse>() {
+        mService.getAllNewsByPage("3",1,4).enqueue(new Callback<AllNewsJsonResponse>() {
             @Override
             public void onResponse(Call<AllNewsJsonResponse> call, Response<AllNewsJsonResponse> response) {
 

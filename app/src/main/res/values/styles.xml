@@ -82,5 +82,9 @@
         <item name="android:textColor">@color/colorGrayBlack</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="TextTitleHeaderHome" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/colorBlueLight</item>
+    </style>
 
 </resources>

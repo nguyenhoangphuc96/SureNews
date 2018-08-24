@@ -62,13 +62,13 @@
             >
 
             <TextView
+                android:paddingVertical="10dp"
                 android:paddingHorizontal="50dp"
                 android:id="@+id/tvOK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_button_bluelight"
+                android:background="@drawable/border_edittext_search_transparent"
                 android:gravity="center"
-                android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
                 android:text="OK"
                 android:textAppearance="@style/TextTitleButtonBlue" />
         </LinearLayout>

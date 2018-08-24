@@ -6,18 +6,20 @@
     android:layout_height="match_parent"
     >
     <LinearLayout
-        android:background="@drawable/shape_background_gradient_blue"
+        android:background="@drawable/layerlist_left_line"
         android:padding="@dimen/rcv_item_padding"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
 
         <TextView
-            android:textColor="@color/colorWhite"
+            android:paddingStart="@dimen/left_line"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlueLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thời sự - chính trị "
-            style="@style/TextSameNews"/>
+            style="@style/TextTitleHeaderHome"/>
     </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
